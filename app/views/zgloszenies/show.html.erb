@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Klient:</strong>
+  <%= @zgloszeny.klient %>
+</p>
+
+<p>
+  <strong>Pracownik:</strong>
+  <%= @zgloszeny.pracownik %>
+</p>
+
+<p>
+  <strong>Dzial:</strong>
+  <%= @zgloszeny.dzial %>
+</p>
+
+<p>
+  <strong>Priorytet:</strong>
+  <%= @zgloszeny.priorytet %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @zgloszeny.status %>
+</p>
+
+<p>
+  <strong>Data zgloszenia:</strong>
+  <%= @zgloszeny.data_zgloszenia %>
+</p>
+
+<p>
+  <strong>Data naprawy:</strong>
+  <%= @zgloszeny.data_naprawy %>
+</p>
+
+<p>
+  <strong>Opis uszkodzenia:</strong>
+  <%= @zgloszeny.opis_uszkodzenia %>
+</p>
+
+<p>
+  <strong>Nazwa urzadzenia:</strong>
+  <%= @zgloszeny.nazwa_urzadzenia %>
+</p>
+
+<p>
+  <strong>Wysylka:</strong>
+  <%= @zgloszeny.wysylka %>
+</p>
+
+<%= link_to 'Edit', edit_zgloszeny_path(@zgloszeny) %> |
+<%= link_to 'Back', zgloszenies_path %>

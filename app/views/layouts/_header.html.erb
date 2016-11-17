@@ -1,0 +1,22 @@
+<div class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      <li role="presentation" class="active"><%= link_to "Strona Główna",  static_pages_home_path %></li>
+
+      <% if user_signed_in? %>
+        <li role="presentation"><%= link_to "Edycja Profilu", edit_user_registration_path %></li>
+        <li role="presentation"><%= link_to "Wylogowanie", destroy_user_session_path, method: :delete %></li>
+        <% if current_user.admin? %>
+          <li role="presentation"><%= link_to "Zaplecze", static_pages_paneladmina_path %></li>
+        <% else %>
+        <li></li>
+        <% end %>
+        <% else %>
+        <li role="presentation"><%= link_to "Logowanie", new_user_session_url %></li>
+        <li role="presentation"><%= link_to "Rejestracja", new_user_registration_path %></li>
+      <% end %>
+
+
+    </ul>
+  </nav>
+</div>

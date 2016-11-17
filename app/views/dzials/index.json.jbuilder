@@ -1,0 +1,1 @@
+json.array! @dzials, partial: 'dzials/dzial', as: :dzial

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pracownicy</h1>
+<div class="jumbotron">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Stanowisko</th>
+      <th>Dzial</th>
+      <th>Nazwa</th>
+      <th>Stanowisko</th>
+      <th>Telefon</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pracowniks.each do |pracownik| %>
+      <tr>
+        <td><%= pracownik.stanowisko %></td>
+        <td><%= pracownik.dzial %></td>
+        <td><%= pracownik.nazwa %></td>
+        <td><%= pracownik.stanowisko %></td>
+        <td><%= pracownik.telefon %></td>
+        <td><%= pracownik.email %></td>
+        <td><%= link_to 'Show', pracownik %></td>
+        <td><%= link_to 'Edit', edit_pracownik_path(pracownik) %></td>
+        <td><%= link_to 'Destroy', pracownik, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Dodaj nowego pracownika', new_pracownik_path, class:'btn btn-success' %>
+<%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-primary' %>
+</div>

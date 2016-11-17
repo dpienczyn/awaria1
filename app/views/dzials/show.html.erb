@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nazwa:</strong>
+  <%= @dzial.nazwa %>
+  <strong>ID:</strong>
+  <%= @dzial.id %>
+</p>
+
+<%= link_to 'Edit', edit_dzial_path(@dzial) %> |
+<%= link_to 'Back', dzials_path %>

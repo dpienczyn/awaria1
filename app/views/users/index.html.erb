@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Użytkownicy</h1>
+
+<% flash.each do |name, msg| %>
+<%= content_tag(:div, msg, class: "alert alert-info") %>
+<% end %>
+
+<div class="jumbotron">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Adres email</th>
+      <th>Admin?</th>
+      <th>Utworzony</th>
+      <th>Akcje</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.admin %></td>
+        <td><%= user.created_at %></td>
+        <td><%= link_to "Usuń", admin_destroy_user_path(user), method: :delete, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p><%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-primary' %></p>
+</div>

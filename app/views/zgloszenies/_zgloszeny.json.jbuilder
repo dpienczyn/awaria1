@@ -1,0 +1,2 @@
+json.extract! zgloszeny, :id, :klient_id, :pracownik_id, :dzial_id, :priorytet, :status, :data_zgloszenia, :data_naprawy, :opis_uszkodzenia, :nazwa_urzadzenia, :wysylka, :created_at, :updated_at
+json.url zgloszeny_url(zgloszeny, format: :json)

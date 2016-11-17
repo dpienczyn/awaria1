@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stanowisko: one
+  dzial: one
+  nazwa: MyText
+  stanowisko: MyText
+  telefon: 1
+  email: MyText
+
+two:
+  stanowisko: two
+  dzial: two
+  nazwa: MyText
+  stanowisko: MyText
+  telefon: 1
+  email: MyText

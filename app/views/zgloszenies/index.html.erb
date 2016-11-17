@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Zgłoszenia</h1>
+<div class="jumbotron">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Klient</th>
+      <th>Pracownik</th>
+      <th>Dzial</th>
+      <th>Priorytet</th>
+      <th>Status</th>
+      <th>Data zgloszenia</th>
+      <th>Data naprawy</th>
+      <th>Opis uszkodzenia</th>
+      <th>Nazwa urzadzenia</th>
+      <th>Wysylka</th>
+      <th colspan="3">Akcje</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zgloszenies.each do |zgloszeny| %>
+      <tr>
+        <td><%= zgloszeny.id %></td>
+        <td><%= zgloszeny.klient %></td>
+        <td><%= zgloszeny.pracownik %></td>
+        <td><%= zgloszeny.dzial %></td>
+        <td><%= zgloszeny.priorytet %></td>
+        <td><%= zgloszeny.status %></td>
+        <td><%= zgloszeny.data_zgloszenia %></td>
+        <td><%= zgloszeny.data_naprawy %></td>
+        <td><%= zgloszeny.opis_uszkodzenia %></td>
+        <td><%= zgloszeny.nazwa_urzadzenia %></td>
+        <td><%= zgloszeny.wysylka %></td>
+        <td><%= link_to 'Pokaż', zgloszeny, class:'btn btn-xs btn-primary' %></td>
+        <td><%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-xs btn-warning' %></td>
+        <td><%= link_to 'Usuń', zgloszeny, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-success' %>
+<% if current_user.admin? %>
+<%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-primary' %>
+<% end %>
+</div>

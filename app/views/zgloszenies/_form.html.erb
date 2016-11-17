@@ -1,0 +1,67 @@
+<%= form_for(zgloszeny) do |f| %>
+  <% if zgloszeny.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(zgloszeny.errors.count, "error") %> prohibited this zgloszeny from being saved:</h2>
+
+      <ul>
+      <% zgloszeny.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :klient_id %>
+    <%= f.text_field :klient_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pracownik_id %>
+    <%= f.text_field :pracownik_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dzial_id %>
+    <%= f.text_field :dzial_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :priorytet %>
+    <%= f.number_field :priorytet %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_zgloszenia %>
+    <%= f.date_select :data_zgloszenia %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_naprawy %>
+    <%= f.date_select :data_naprawy %>
+  </div>
+
+  <div class="field">
+    <%= f.label :opis_uszkodzenia %>
+    <%= f.text_area :opis_uszkodzenia %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nazwa_urzadzenia %>
+    <%= f.text_area :nazwa_urzadzenia %>
+  </div>
+
+  <div class="field">
+    <%= f.label :wysylka %>
+    <%= f.number_field :wysylka %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

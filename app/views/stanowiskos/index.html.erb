@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stanowiska</h1>
+<div class="jumbotron">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nazwa</th>
+      <th colspan="3">Akcje</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stanowiskos.each do |stanowisko| %>
+      <tr>
+        <td><%= stanowisko.id %></td>
+        <td><%= stanowisko.nazwa %></td>
+        <td><%= link_to 'Pokaż', stanowisko, class:'btn btn-xs btn-primary' %></td>
+        <td><%= link_to 'Edytuj', edit_stanowisko_path(stanowisko), class:'btn btn-xs btn-warning' %></td>
+        <td><%= link_to 'Usuń', stanowisko, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Dodaj nowe stanowisko', new_stanowisko_path, class:'btn btn-success' %>
+<%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-primary' %>
+</div>

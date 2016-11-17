@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Zgloszenie:</strong>
+  <%= @zgloszenie_aktywnosc.zgloszenie %>
+</p>
+
+<p>
+  <strong>Tresc:</strong>
+  <%= @zgloszenie_aktywnosc.tresc %>
+</p>
+
+<%= link_to 'Edit', edit_zgloszenie_aktywnosc_path(@zgloszenie_aktywnosc) %> |
+<%= link_to 'Back', zgloszenie_aktywnoscs_path %>

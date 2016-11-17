@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Zgloszenie - Aktywność</h1>
+<div class="jumbotron">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Zgloszenie</th>
+      <th>Tresc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zgloszenie_aktywnoscs.each do |zgloszenie_aktywnosc| %>
+      <tr>
+        <td><%= zgloszenie_aktywnosc.id %></td>
+        <td><%= zgloszenie_aktywnosc.zgloszenie %></td>
+        <td><%= zgloszenie_aktywnosc.tresc %></td>
+        <td><%= link_to 'Pokaż', zgloszenie_aktywnosc, class:'btn btn-xs btn-primary' %></td>
+        <td><%= link_to 'Edytuj', edit_zgloszenie_aktywnosc_path(zgloszenie_aktywnosc), class:'btn btn-xs btn-warning' %></td>
+        <td><%= link_to 'Usuń', zgloszenie_aktywnosc, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Dodaj nową do zgłoszenia', new_zgloszenie_aktywnosc_path, class:'btn btn-success' %>
+<% if current_user.admin? %>
+<%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-primary' %>
+<% end %>
+</div>

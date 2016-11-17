@@ -1,0 +1,3 @@
+postgres
+user awaria
+pass PG#sysawa88!!

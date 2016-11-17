@@ -1,0 +1,1 @@
+json.partial! "zgloszenie_aktywnoscs/zgloszenie_aktywnosc", zgloszenie_aktywnosc: @zgloszenie_aktywnosc

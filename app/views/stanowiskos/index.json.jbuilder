@@ -1,0 +1,1 @@
+json.array! @stanowiskos, partial: 'stanowiskos/stanowisko', as: :stanowisko

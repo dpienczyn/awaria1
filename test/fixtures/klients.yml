@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nazwa: MyText
+  nip: 1
+  kod_pocztowy: 1
+  poczta: MyText
+  adres: MyText
+  telefon: 1
+  email: MyText
+
+two:
+  nazwa: MyText
+  nip: 1
+  kod_pocztowy: 1
+  poczta: MyText
+  adres: MyText
+  telefon: 1
+  email: MyText

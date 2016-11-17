@@ -1,0 +1,2 @@
+module ZgloszenieAktywnoscsHelper
+end

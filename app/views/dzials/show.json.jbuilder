@@ -1,0 +1,1 @@
+json.partial! "dzials/dzial", dzial: @dzial

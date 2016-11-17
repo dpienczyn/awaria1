@@ -1,0 +1,1 @@
+json.partial! "stanowiskos/stanowisko", stanowisko: @stanowisko

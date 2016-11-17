@@ -1,0 +1,1 @@
+json.array! @zgloszenies, partial: 'zgloszenies/zgloszeny', as: :zgloszeny

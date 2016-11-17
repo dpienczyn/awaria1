@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  klient: one
+  pracownik: one
+  dzial: one
+  priorytet: 1
+  status: 
+  data_zgloszenia: 2016-11-17
+  data_naprawy: 2016-11-17
+  opis_uszkodzenia: MyText
+  nazwa_urzadzenia: MyText
+  wysylka: 1
+
+two:
+  klient: two
+  pracownik: two
+  dzial: two
+  priorytet: 1
+  status: 
+  data_zgloszenia: 2016-11-17
+  data_naprawy: 2016-11-17
+  opis_uszkodzenia: MyText
+  nazwa_urzadzenia: MyText
+  wysylka: 1
