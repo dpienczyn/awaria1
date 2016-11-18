@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Awaria</title>
-    <%= render 'layouts/header' %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,6 +10,7 @@
 
   <body>
     <div class="container">
+      <%= render 'layouts/header' %>
        <%= yield %>
      </div>
   </body>
