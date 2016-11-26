@@ -11,14 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :stanowisko_id %>
     <%= f.text_field :stanowisko_id %>
-  </div>
+  </div> -->
+
+   <div class="field">
+     <%= f.label :stanowisko %>
+     <%= f.collection_select :stanowisko_id, Stanowisko.all, :id, :nazwa, prompt: true %>
+   </div>
 
   <div class="field">
     <%= f.label :dzial_id %>
-    <%= f.text_field :dzial_id %>
+    <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: true %>
   </div>
 
   <div class="field">
@@ -26,10 +31,10 @@
     <%= f.text_area :nazwa %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :stanowisko %>
     <%= f.text_area :stanowisko %>
-  </div>
+  </div> -->
 
   <div class="field">
     <%= f.label :telefon %>

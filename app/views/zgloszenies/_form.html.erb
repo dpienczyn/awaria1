@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= f.label :klient_id %>
-    <%= f.text_field :klient_id %>
+    <%= f.collection_select :klient_id, Klient.all, :id, :nazwa, prompt: true %>
   </div>
 
   <div class="field">
     <%= f.label :pracownik_id %>
-    <%= f.text_field :pracownik_id %>
+    <%= f.collection_select :pracownik_id, Pracownik.all, :id, :nazwa, prompt: true %>
   </div>
 
   <div class="field">
     <%= f.label :dzial_id %>
-    <%= f.text_field :dzial_id %>
+    <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: true %>
   </div>
 
   <div class="field">
