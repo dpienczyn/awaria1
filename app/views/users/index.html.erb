@@ -11,20 +11,28 @@
   <thead>
     <tr>
       <th>ID</th>
+      <th>Imie</th>
+      <th>Nazwisko</th>
       <th>Adres email</th>
+      <th>Typ konta</th>
       <th>Admin?</th>
       <th>Utworzony</th>
-      <th>Akcje</th>
+      <th colspan="2">Akcje</th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.id %></td>
+        <td><%= user.id %> <%= User.where(id:user.id).pluck(:id).last %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
         <td><%= user.email %></td>
+        <td><%= Stanowisko.where(id:user.stanowisko_id).pluck(:nazwa).last %></td>
+        <!-- <td><%= user.stanowisko_id %></td> -->
         <td><%= user.admin %></td>
         <td><%= user.created_at %></td>
+        <td><%= link_to "Admin", admin_grant_admin_user_path(user), method: :grantadmin, class:'btn btn-xs btn-warning' %></td>
         <td><%= link_to "Usuń", admin_destroy_user_path(user), method: :delete, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>

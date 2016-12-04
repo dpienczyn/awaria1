@@ -8,7 +8,6 @@
       <th>Stanowisko</th>
       <th>Dzial</th>
       <th>Nazwa</th>
-      <th>Stanowisko</th>
       <th>Telefon</th>
       <th>Email</th>
       <th colspan="3"></th>
@@ -18,15 +17,14 @@
   <tbody>
     <% @pracowniks.each do |pracownik| %>
       <tr>
-        <td><%= pracownik.stanowisko %></td>
-        <td><%= pracownik.dzial %></td>
+        <td><%= Stanowisko.where(id:pracownik.stanowisko_id).pluck(:nazwa).last %></td>
+        <td><%= Dzial.where(id:pracownik.dzial_id).pluck(:nazwa).last %></td>
         <td><%= pracownik.nazwa %></td>
-        <td><%= pracownik.stanowisko %></td>
         <td><%= pracownik.telefon %></td>
         <td><%= pracownik.email %></td>
         <td><%= link_to 'Show', pracownik %></td>
         <td><%= link_to 'Edit', edit_pracownik_path(pracownik) %></td>
-        <td><%= link_to 'Destroy', pracownik, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', pracownik, method: :delete, data: { confirm: 'Jesteś pewny?' } %></td>
       </tr>
     <% end %>
   </tbody>

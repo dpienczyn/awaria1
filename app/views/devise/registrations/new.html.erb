@@ -3,27 +3,46 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+<div class="jumbotron">
+
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <p>Imie
+    <%= f.text_field :first_name, autofocus: true, class:"form-control" %></p>
   </div>
 
   <div class="field">
-    <%= f.label :hasło %>
+    <p>Nazwisko
+    <%= f.text_field :last_name, class:"form-control" %></p>
+  </div>
+
+  <div class="field">
+    <p>Adres e-mail
+    <%= f.email_field :email, autofocus: true, class:"form-control" %></p>
+  </div>
+
+  <div class="field">
+     <p>Hasło
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(Minimum <%= @minimum_password_length %> znaków.)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", class:"form-control" %> </p>
   </div>
 
   <div class="field">
-    <%= f.label :potwierdź_hasło %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <p>Potwierdź hasło
+    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %></p>
+  </div>
+
+  <div class="field">
+    <p>Typ użytkownika </label></br />
+    <%= f.collection_select :stanowisko_id, Stanowisko.all, :id, :nazwa, :prompt => "Wybierz", class:'dropdown-toggle' %></p>
   </div>
 
   <div class="actions">
-    <%= f.submit "Rejestracja" %>
+    <%= f.submit "Rejestracja", class: "btn btn-success" %> <%= render "devise/shared/links" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+
+</div>

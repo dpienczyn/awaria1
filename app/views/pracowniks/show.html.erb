@@ -2,22 +2,17 @@
 
 <p>
   <strong>Stanowisko:</strong>
-  <%= @pracownik.stanowisko %>
+  <%= Stanowisko.where(id:@pracownik.stanowisko_id).pluck(:nazwa).last %>
 </p>
 
 <p>
   <strong>Dzial:</strong>
-  <%= @pracownik.dzial %>
+  <%= Dzial.where(id:@pracownik.dzial_id).pluck(:nazwa).last %>
 </p>
 
 <p>
   <strong>Nazwa:</strong>
   <%= @pracownik.nazwa %>
-</p>
-
-<p>
-  <strong>Stanowisko:</strong>
-  <%= @pracownik.stanowisko %>
 </p>
 
 <p>
