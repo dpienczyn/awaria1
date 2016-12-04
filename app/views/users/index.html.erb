@@ -17,14 +17,14 @@
       <th>Typ konta</th>
       <th>Admin?</th>
       <th>Utworzony</th>
-      <th colspan="2">Akcje</th>
+      <th colspan="3">Akcje</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.order("created_at").each do |user| %>
       <tr>
-        <td><%= user.id %> <%= User.where(id:user.id).pluck(:id).last %></td>
+        <td><%= user.id %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
@@ -32,7 +32,8 @@
         <!-- <td><%= user.stanowisko_id %></td> -->
         <td><%= user.admin %></td>
         <td><%= user.created_at %></td>
-        <td><%= link_to "Admin", admin_grant_admin_user_path(user), method: :grantadmin, class:'btn btn-xs btn-warning' %></td>
+        <td><%= link_to "Admin +", admin_grant_admin_user_path(user), method: :grantadmin, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-warning' %></td>
+        <td><%= link_to "Admin -", admin_deny_admin_user_path(user), method: :denyadmin, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-warning' %></td>
         <td><%= link_to "Usuń", admin_destroy_user_path(user), method: :delete, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
