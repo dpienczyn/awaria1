@@ -1,6 +1,8 @@
-<h1>Editing Stanowisko</h1>
+<h1>Edytuj Stanowisko</h1>
 
 <%= render 'form', stanowisko: @stanowisko %>
 
-<%= link_to 'Show', @stanowisko %> |
-<%= link_to 'Back', stanowiskos_path %>
+<div class="actions">
+<%= link_to 'Pokaż', @stanowisko, class: "btn btn-primary" %>
+<%= link_to 'Wróć', stanowiskos_path, class: "btn btn-success" %>
+</div>

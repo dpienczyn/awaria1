@@ -11,7 +11,7 @@
       <th>Dzial</th> -->
       <th>Priorytet</th>
       <th>Status</th>
-      <th>Data zgloszenia</th>
+      <th>Data zgłoszenia</th>
       <th>Data naprawy</th>
       <th>Opis uszkodzenia</th>
       <th>Nazwa urzadzenia</th>
@@ -36,7 +36,7 @@
         <!-- <td><%= zgloszeny.wysylka %></td> -->
         <td><%= link_to 'Pokaż', zgloszeny, class:'btn btn-xs btn-primary' %></td>
         <td><%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-xs btn-warning' %></td>
-        <td><%= link_to 'Usuń', zgloszeny, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-xs btn-danger' %></td>
+        <td><%= link_to 'Usuń', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

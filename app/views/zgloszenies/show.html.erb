@@ -5,18 +5,26 @@
 <p>
   <strong>Klient:</strong>
   <%= Klient.where(id:@zgloszeny.klient_id).pluck(:nazwa).last %>
+  </p>
+  <p>
   <strong>Pracownik:</strong>
   <%= Pracownik.where(id:@zgloszeny.pracownik_id).pluck(:nazwa).last %>
-  <strong>Dzial:</strong>
+  </p>
+  <p>
+  <strong>Dział:</strong>
   <%= Dzial.where(id:@zgloszeny.dzial_id).pluck(:nazwa).last %>
+  </p>
+  <p>
   <strong>Priorytet:</strong>
   <%= @zgloszeny.priorytet %>
+  </p>
+  <p>
   <strong>Status:</strong>
   <%= @zgloszeny.status %>
 </p>
 
 <p>
-  <strong>Data zgloszenia:</strong>
+  <strong>Data zgłoszenia:</strong>
   <%= @zgloszeny.data_zgloszenia %>
   <strong>Data naprawy:</strong>
   <%= @zgloszeny.data_naprawy %>
@@ -30,7 +38,7 @@
 </p>
 
 <p>
-  <strong>Wysylka:</strong>
+  <strong>Wysyłka:</strong>
   <%= @zgloszeny.wysylka %>
 </p>
 

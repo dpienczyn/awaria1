@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Zgloszenie - Aktywność</h1>
+<h1>Zgłoszenie - Aktywność</h1>
 <div class="jumbotron">
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Zgloszenie</th>
-      <th>Tresc</th>
+      <th>Zgłoszenie</th>
+      <th>Treść</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,7 +20,7 @@
         <td><%= zgloszenie_aktywnosc.tresc %></td>
         <td><%= link_to 'Pokaż', zgloszenie_aktywnosc, class:'btn btn-xs btn-primary' %></td>
         <td><%= link_to 'Edytuj', edit_zgloszenie_aktywnosc_path(zgloszenie_aktywnosc), class:'btn btn-xs btn-warning' %></td>
-        <td><%= link_to 'Usuń', zgloszenie_aktywnosc, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-xs btn-danger' %></td>
+        <td><%= link_to 'Usuń', zgloszenie_aktywnosc, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

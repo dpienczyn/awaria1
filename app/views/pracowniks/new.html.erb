@@ -1,5 +1,6 @@
-<h1>New Pracownik</h1>
+<h1>Nowy Pracownik</h1>
 
 <%= render 'form', pracownik: @pracownik %>
-
-<%= link_to 'Back', pracowniks_path %>
+<div class="actions">
+<%= link_to 'Wróć', pracowniks_path, class: "btn btn-primary" %>
+</div><br/>

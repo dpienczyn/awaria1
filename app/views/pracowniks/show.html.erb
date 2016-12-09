@@ -23,7 +23,8 @@
 <p>
   <strong>Email:</strong>
   <%= @pracownik.email %>
-</p>
-
-<%= link_to 'Edit', edit_pracownik_path(@pracownik) %> |
-<%= link_to 'Back', pracowniks_path %>
+</p><br />
+<div class="actions">
+<%= link_to 'Edytuj', edit_pracownik_path(@pracownik), class: "btn btn-primary" %>
+<%= link_to 'Wróć', pracowniks_path, class: "btn btn-success" %>
+</div>

@@ -2,5 +2,7 @@
 
 <%= render 'form', zgloszenie_aktywnosc: @zgloszenie_aktywnosc %>
 
-<%= link_to 'Pokaż', @zgloszenie_aktywnosc %> |
-<%= link_to 'Wróć', zgloszenie_aktywnoscs_path %>
+<div class="actions">
+<%= link_to 'Pokaż', @zgloszenie_aktywnosc, class: "btn btn-primary" %>
+<%= link_to 'Wróć', zgloszenie_aktywnoscs_path, class: "btn btn-danger" %>
+</div>

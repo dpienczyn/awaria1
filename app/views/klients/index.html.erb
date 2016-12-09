@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Klients</h1>
-
-<table>
+<h1>Klient</h1>
+<div class="jumbotron">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Nazwa</th>
@@ -26,9 +26,9 @@
         <td><%= klient.adres %></td>
         <td><%= klient.telefon %></td>
         <td><%= klient.email %></td>
-        <td><%= link_to 'Show', klient %></td>
-        <td><%= link_to 'Edit', edit_klient_path(klient) %></td>
-        <td><%= link_to 'Destroy', klient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Pokaż', klient, class:'btn btn-xs btn-primary'  %></td>
+        <td><%= link_to 'Edytuj', edit_klient_path(klient), class:'btn btn-xs btn-warning'  %></td>
+        <td><%= link_to 'Usuń', klient, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-xs btn-danger'%></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Klient', new_klient_path %>
+<%= link_to 'Nowy klient', new_klient_path, class: 'btn btn-success'  %>

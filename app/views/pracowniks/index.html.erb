@@ -22,9 +22,9 @@
         <td><%= pracownik.nazwa %></td>
         <td><%= pracownik.telefon %></td>
         <td><%= pracownik.email %></td>
-        <td><%= link_to 'Show', pracownik %></td>
-        <td><%= link_to 'Edit', edit_pracownik_path(pracownik) %></td>
-        <td><%= link_to 'Destroy', pracownik, method: :delete, data: { confirm: 'Jesteś pewny?' } %></td>
+        <td><%= link_to 'Pokaż', pracownik, class: "btn btn-xs btn-primary" %></td>
+        <td><%= link_to 'Edytuj', edit_pracownik_path(pracownik), class: "btn btn-xs btn-success" %></td>
+        <td><%= link_to 'Usuń', pracownik, method: :delete, data: { confirm: 'Jesteś pewny?' }, class: "btn btn-xs btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

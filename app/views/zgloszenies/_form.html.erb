@@ -9,59 +9,59 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %><br />
 
   <div class="field">
-    <%= f.label :klient_id %>
+    <%= f.label :klient_id %><br/>
     <%= f.collection_select :klient_id, Klient.all, :id, :nazwa, prompt: true %>
-  </div>
+  </div><br />
 
   <div class="field">
-    <%= f.label :pracownik_id %>
+    <%= f.label :pracownik_id %><br/>
     <%= f.collection_select :pracownik_id, Pracownik.all, :id, :nazwa, prompt: true %>
-  </div>
+  </div><br/>
 
   <div class="field">
-    <%= f.label :dzial_id %>
+    <%= f.label :dział_id %><br/>
     <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: true %>
-  </div>
+  </div><br/>
 
   <div class="field">
-    <%= f.label :priorytet %>
+    <%= f.label :priorytet %><br/>
     <%= f.number_field :priorytet %>
-  </div>
+  </div><br/>
 
   <div class="field">
-    <%= f.label :status %>
+    <%= f.label :status %><br/>
     <%= f.text_field :status %>
-  </div>
+  </div><br/>
 
   <div class="field">
-    <%= f.label :data_zgloszenia %>
+    <%= f.label :data_zgłoszenia %><br/>
     <%= f.date_select :data_zgloszenia %>
-  </div>
+  </div><br/>
 
   <div class="field">
-    <%= f.label :data_naprawy %>
+    <%= f.label :data_naprawy %><br/>
     <%= f.date_select :data_naprawy %>
-  </div>
+  </div><br/>
 
   <div class="field">
-    <%= f.label :opis_uszkodzenia %>
+    <%= f.label :opis_uszkodzenia %><br/>
     <%= f.text_area :opis_uszkodzenia %>
-  </div>
+  </div><br/>
 
   <div class="field">
-    <%= f.label :nazwa_urzadzenia %>
+    <%= f.label :nazwa_urzadzenia %><br/>
     <%= f.text_area :nazwa_urzadzenia %>
-  </div>
+  </div><br/>
 
   <div class="field">
-    <%= f.label :wysylka %>
+    <%= f.label :wysyłka %><br/>
     <%= f.number_field :wysylka %>
-  </div>
+  </div><br />
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>
   </div>
-<% end %>
+<% end %><br />

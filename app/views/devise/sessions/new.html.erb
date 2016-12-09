@@ -1,6 +1,7 @@
 <h2>Logowanie</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -19,8 +20,8 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Zaloguj się" %>
+    <%= f.submit "Zaloguj się", class: "btn btn-primary" %>
   </div>
-<% end %>
+<% end %><br />
 
 <%= render "devise/shared/links" %>

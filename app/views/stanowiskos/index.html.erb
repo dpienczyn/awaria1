@@ -18,7 +18,7 @@
         <td><%= stanowisko.nazwa %></td>
         <td><%= link_to 'Pokaż', stanowisko, class:'btn btn-xs btn-primary' %></td>
         <td><%= link_to 'Edytuj', edit_stanowisko_path(stanowisko), class:'btn btn-xs btn-warning' %></td>
-        <td><%= link_to 'Usuń', stanowisko, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-xs btn-danger' %></td>
+        <td><%= link_to 'Usuń', stanowisko, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

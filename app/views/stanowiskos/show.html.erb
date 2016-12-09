@@ -1,11 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nazwa:</strong>
-  <%= @stanowisko.nazwa %>
+  <p>
   <strong>ID:</strong>
   <%= @stanowisko.id %>
 </p>
+<p>
+  <strong>Nazwa:</strong>
+  <%= @stanowisko.nazwa %>
+  </p><br />
 
-<%= link_to 'Edit', edit_stanowisko_path(@stanowisko) %> |
-<%= link_to 'Back', stanowiskos_path %>
+<div class="actions">
+<%= link_to 'Edytuj', edit_stanowisko_path(@stanowisko), class: "btn btn-primary" %>
+<%= link_to 'Wróć', stanowiskos_path, class: "btn btn-success" %>
+</div>

@@ -1,16 +1,16 @@
 <h2>Zapomniałeś hasła?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= devise_error_messages! %><br />
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
-  </div>
+  </div><br />
 
   <div class="actions">
-    <%= f.submit "Wyślij mi nowe hasło" %>
+    <%= f.submit "Wyślij mi nowe hasło", class: "btn btn-danger" %>
   </div>
-<% end %>
+<% end %><br />
 
 <%= render "devise/shared/links" %>

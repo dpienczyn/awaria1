@@ -1,6 +1,7 @@
-<h1>Editing Zgloszeny</h1>
+<h1>Edycja Zgłoszenia</h1>
 
 <%= render 'form', zgloszeny: @zgloszeny %>
 
-<%= link_to 'Show', @zgloszeny %> |
-<%= link_to 'Back', zgloszenies_path %>
+<div class="actions">
+<%= link_to 'Pokaż', @zgloszeny, class: "btn btn-primary" %>
+<%= link_to 'Wróć', zgloszenies_path, class: "btn btn-danger" %></div><br />

@@ -1,6 +1,7 @@
-<h1>Editing Dzial</h1>
+<h1>Edytuj Dział</h1>
 
 <%= render 'form', dzial: @dzial %>
 
-<%= link_to 'Show', @dzial %> |
-<%= link_to 'Back', dzials_path %>
+<div class="actions">
+<%= link_to 'Pokaż', @dzial, class: "btn btn-danger" %> 
+<%= link_to 'Wróć', dzials_path, class: "btn btn-primary" %></div>

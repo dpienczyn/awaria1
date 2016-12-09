@@ -34,6 +34,7 @@
   <strong>Email:</strong>
   <%= @klient.email %>
 </p>
-
-<%= link_to 'Edit', edit_klient_path(@klient) %> |
-<%= link_to 'Back', klients_path %>
+<div class="actions">
+<%= link_to 'Edytuj', edit_klient_path(@klient), class: "btn btn-primary" %>
+<%= link_to 'Wróć', klients_path , class: "btn btn-success"%>
+</div>
