@@ -2,6 +2,7 @@
 
 <h1>Zgłoszenia</h1>
 <div class="jumbotron">
+<div class="table-responsive">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -41,6 +42,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 <%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-success' %>
 <% if current_user.admin? %>
 <%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-primary' %>
