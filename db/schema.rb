@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204113042) do
+ActiveRecord::Schema.define(version: 20161209203829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,9 +83,13 @@ ActiveRecord::Schema.define(version: 20161204113042) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
+    t.boolean  "pracownik"
+    t.boolean  "ispracownik"
     t.integer  "stanowisko_id"
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "dzial_id"
+    t.index ["dzial_id"], name: "index_users_on_dzial_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["stanowisko_id"], name: "index_users_on_stanowisko_id", using: :btree
@@ -119,6 +123,7 @@ ActiveRecord::Schema.define(version: 20161204113042) do
 
   add_foreign_key "pracowniks", "dzials"
   add_foreign_key "pracowniks", "stanowiskos"
+  add_foreign_key "users", "dzials"
   add_foreign_key "users", "stanowiskos"
   add_foreign_key "zgloszenie_aktywnoscs", "zgloszenies", column: "zgloszenie_id"
   add_foreign_key "zgloszenies", "dzials"

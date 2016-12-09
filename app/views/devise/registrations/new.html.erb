@@ -38,6 +38,11 @@
     <%= f.collection_select :stanowisko_id, Stanowisko.all, :id, :nazwa, :prompt => "Wybierz", class:'dropdown-toggle' %></p>
   </div>
 
+  <div class="field">
+    <p>Dział użytkownika </label></br />
+    <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, :prompt => "Wybierz", class:'dropdown-toggle' %></p>
+  </div>
+
   <div class="actions">
     <%= f.submit "Rejestracja", class: "btn btn-success" %> <%= render "devise/shared/links" %>
   </div>

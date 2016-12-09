@@ -15,6 +15,7 @@
       <th>Imie</th>
       <th>Nazwisko</th>
       <th>Adres email</th>
+      <th>Dział</th>
       <th>Typ konta</th>
       <th>Admin?</th>
       <th>Utworzony</th>
@@ -29,8 +30,8 @@
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
+        <td><%= Dzial.where(id:user.dzial_id).pluck(:nazwa).last %></td>
         <td><%= Stanowisko.where(id:user.stanowisko_id).pluck(:nazwa).last %></td>
-        <!-- <td><%= user.stanowisko_id %></td> -->
         <td><%= user.admin %></td>
         <td><%= user.created_at %></td>
         <td><%= link_to "Admin +", admin_grant_admin_user_path(user), method: :grantadmin, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-warning' %></td>
