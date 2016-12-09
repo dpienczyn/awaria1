@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= f.label :klient_id %><br/>
-    <%= f.collection_select :klient_id, Klient.all, :id, :nazwa, prompt: true %>
+    <%= f.collection_select :klient_id, Klient.all, :id, :nazwa, prompt: "Wybierz" %>
   </div><br />
 
   <div class="field">
     <%= f.label :pracownik_id %><br/>
-    <%= f.collection_select :pracownik_id, Pracownik.all, :id, :nazwa, prompt: true %>
+    <%= f.collection_select :pracownik_id, Pracownik.all, :id, :nazwa, prompt: "Wybierz" %>
   </div><br/>
 
   <div class="field">
     <%= f.label :dział_id %><br/>
-    <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: true %>
+    <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz" %>
   </div><br/>
 
   <div class="field">
