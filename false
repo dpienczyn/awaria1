@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20161210111303_add_is_worker_to_users.rb
