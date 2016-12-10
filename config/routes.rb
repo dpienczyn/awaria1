@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'static_pages/home'
 
+  get 'static_pages/statystyki'
+
   get 'users/show'
 
   resources :zgloszenie_aktywnoscs
