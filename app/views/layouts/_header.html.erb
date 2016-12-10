@@ -9,6 +9,7 @@
         <%= link_to "Wylogowanie", destroy_user_session_path, method: :delete, class: 'navbar-brand' %>
         <% if current_user.admin? %>
           <%= link_to "Zaplecze", static_pages_paneladmina_path, class: 'navbar-brand' %>
+          <%= link_to "Statystyki", static_pages_statystyki_path, class: 'navbar-brand' %>
         <% else %>
         <% end %>
         <% else %>
