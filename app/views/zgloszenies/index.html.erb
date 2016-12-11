@@ -21,7 +21,9 @@
   </thead>
 
   <tbody>
+
     <% @zgloszenies.each do |zgloszeny| %>
+    <% if current_user.id == zgloszeny.user_id || current_user.admin? %>
       <tr>
         <td><%= zgloszeny.id %></td>
         <!-- <td><%= zgloszeny.klient_id %></td>
@@ -39,7 +41,9 @@
         <td><%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-xs btn-warning' %></td>
         <td><%= link_to 'Usuń', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-xs btn-danger' %></td>
       </tr>
-    <% end %>
+      <% end %>
+
+      <% end %>
   </tbody>
 </table>
 </div>
