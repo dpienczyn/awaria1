@@ -29,12 +29,12 @@
         <td><%= user.ispracownik %></td>
         <td><%= user.admin %></td>
         <td><%= user.created_at %></td>
-        <% if user.admin = true %>
-          <td><%= link_to "Admin +", admin_grant_admin_user_path(user), method: :grantadmin, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-warning' %></td>
-        <% elsif user.admin = false %>
-          <td><%= link_to "Admin -", admin_deny_admin_user_path(user), method: :denyadmin, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-warning' %></td>
-        <% end %>
         <td><%= link_to "Pracownik +", pracownik_dodaj_pracownik_user_path(user), method: :dodajpracownik, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-warning' %></td>
+        <% if user.admin = true %>
+        <td><%= link_to "Admin +", admin_grant_admin_user_path(user), method: :grantadmin, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-warning' %></td>
+        <% elsif user.admin = false %>
+        <td><%= link_to "Admin -", admin_deny_admin_user_path(user), method: :denyadmin, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-warning' %></td>
+        <% end %>
         <td><%= link_to "Usuń", admin_destroy_user_path(user), method: :delete, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-danger' %></td>
       </tr>
     <% end %>

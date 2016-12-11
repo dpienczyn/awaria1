@@ -42,5 +42,10 @@
   <%= @zgloszeny.wysylka %>
 </p>
 
+<p>
+  <strong>user_id:</strong>
+  <%= @zgloszeny.user_id %>
+</p>
+
 <%= link_to 'Edytuj', edit_zgloszeny_path(@zgloszeny), class:'btn btn btn-warning' %>
 <%= link_to 'Wróć', zgloszenies_path, class:'btn btn btn-primary' %>

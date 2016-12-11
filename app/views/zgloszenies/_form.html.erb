@@ -60,6 +60,8 @@
     <%= f.label :wysyłka %><br/>
     <%= f.number_field :wysylka %>
   </div><br />
+  <%= f.label :user_id %><br/>
+  <%= f.number_field :user_id, :value => current_user.id %>
 
   <div class="actions">
     <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>

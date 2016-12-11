@@ -13,6 +13,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def dodajpracownik
+    @user = User.find(params[:id])
+    user = User.find(@user.id)
+    user.update_attribute(:ispracownik, true)
+    redirect_to users_path, notice: "Nadano uprawnienia pracownika."
+  end
+
   def grantadmin
     @user = User.find(params[:id])
     user = User.find(@user.id)
@@ -27,11 +34,6 @@ class UsersController < ApplicationController
     redirect_to users_path, notice: "Odebrano uprawnienia administratora."
   end
 
-  def dodajpracownik
-    @user = User.find(params[:id])
-    user = User.find(@user.id)
-    user.update_attribute(:ispracownik, true)
-    redirect_to users_path, notice: "Nadano uprawnienia pracownika."
-  end
+
 
 end
