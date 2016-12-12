@@ -1,39 +1,10 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Klient</h1>
+<%= form_tag( klients_path ,method: :get, remote: true, class: "search_form_k") do %>
+<%= text_field_tag :search, params[:search], placeholder: 'Wyszukaj...' %>
+<% end %> <br />
 <div class="jumbotron">
-<div class="table-responsive">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Nazwa</th>
-      <th>Nip</th>
-      <th>Kod pocztowy</th>
-      <th>Poczta</th>
-      <th>Adres</th>
-      <th>Telefon</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @klients.each do |klient| %>
-      <tr>
-        <td><%= klient.nazwa %></td>
-        <td><%= klient.nip %></td>
-        <td><%= klient.kod_pocztowy %></td>
-        <td><%= klient.poczta %></td>
-        <td><%= klient.adres %></td>
-        <td><%= klient.telefon %></td>
-        <td><%= klient.email %></td>
-        <td><%= link_to 'Pokaż', klient, class:'btn btn-xs btn-primary'  %></td>
-        <td><%= link_to 'Edytuj', edit_klient_path(klient), class:'btn btn-xs btn-warning'  %></td>
-        <td><%= link_to 'Usuń', klient, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-xs btn-danger'%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'klients/partials/klients_table', klients: @klients %>
 <br>
 </div>
 <%= link_to 'Nowy klient', new_klient_path, class: 'btn btn-success'  %>

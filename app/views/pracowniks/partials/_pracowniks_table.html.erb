@@ -1,0 +1,27 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Stanowisko</th>
+      <th>Dzial</th>
+      <th>Nazwa</th>
+      <th>Telefon</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pracowniks.each do |pracownik| %>
+      <tr>
+        <td><%= pracownik.stanowisko.nazwa %></td>
+        <td><%= Dzial.where(id:pracownik.dzial_id).pluck(:nazwa).last %></td>
+        <td><%= pracownik.nazwa %></td>
+        <td><%= pracownik.telefon %></td>
+        <td><%= pracownik.email %></td>
+        <td><%= link_to 'Pokaż', pracownik, class: "btn btn-xs btn-primary" %></td>
+        <td><%= link_to 'Edytuj', edit_pracownik_path(pracownik), class: "btn btn-xs btn-success" %></td>
+        <td><%= link_to 'Usuń', pracownik, method: :delete, data: { confirm: 'Jesteś pewny?' }, class: "btn btn-xs btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

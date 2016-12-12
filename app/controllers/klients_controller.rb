@@ -4,7 +4,7 @@ class KlientsController < ApplicationController
   # GET /klients
   # GET /klients.json
   def index
-    @klients = Klient.all
+    @klients = Klient.where("nazwa ILIKE ?", "%#{params[:search]}%")
   end
 
   # GET /klients/1

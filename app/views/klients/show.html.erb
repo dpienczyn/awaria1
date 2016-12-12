@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class="jumbotron">
 <p>
   <strong>Nazwa:</strong>
   <%= @klient.nazwa %>
@@ -37,4 +37,5 @@
 <div class="actions">
 <%= link_to 'Edytuj', edit_klient_path(@klient), class: "btn btn-primary" %>
 <%= link_to 'Wróć', klients_path , class: "btn btn-success"%>
+</div>
 </div>

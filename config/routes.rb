@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :dzials
   resources :klients
   resources :users, only: [:index]
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'registrations' }
 
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
   match 'users/:id' => 'users#grantadmin', :via => :post, :as => :admin_grant_admin_user
