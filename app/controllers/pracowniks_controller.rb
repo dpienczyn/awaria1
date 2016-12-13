@@ -4,7 +4,9 @@ class PracowniksController < ApplicationController
   # GET /pracowniks
   # GET /pracowniks.json
   def index
-    @pracowniks = Pracownik.all
+    @pracowniks = Pracownik.includes(:stanowisko)
+                           .where("pracowniks.nazwa ILIKE :q OR stanowiskos.nazwa ILIKE :q", q: "%#{params[:search]}%")
+                           .references(:stanowiskos)
   end
 
   # GET /pracowniks/1

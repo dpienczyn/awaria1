@@ -1,10 +1,3 @@
-<h1>Zgłoszenia</h1>
-<%= form_tag( zgloszenies_path ,method: :get, remote: true, class: "search_form_z") do %>
-<%= text_field_tag :search, params[:search], placeholder: 'Wyszukaj...' %>
-<% end %> <br />
-<div class="jumbotron">
-<div class="table-responsive">
-<<<<<<< HEAD
 <table class="table table-striped">
   <thead>
     <tr>
@@ -19,15 +12,12 @@
       <th>Opis uszkodzenia</th>
       <th>Nazwa urzadzenia</th>
       <!-- <th>Wysylka</th> -->
-      <th>user_id</th>
       <th colspan="3">Akcje</th>
     </tr>
   </thead>
 
   <tbody>
-
     <% @zgloszenies.each do |zgloszeny| %>
-    <% if current_user.id == zgloszeny.user_id || current_user.admin? %>
       <tr>
         <td><%= zgloszeny.id %></td>
         <!-- <td><%= zgloszeny.klient_id %></td>
@@ -39,23 +29,11 @@
         <td><%= zgloszeny.data_naprawy %></td>
         <td><%= zgloszeny.opis_uszkodzenia %></td>
         <td><%= zgloszeny.nazwa_urzadzenia %></td>
-        <td><%= zgloszeny.user_id %></td>
         <!-- <td><%= zgloszeny.wysylka %></td> -->
         <td><%= link_to 'Pokaż', zgloszeny, class:'btn btn-xs btn-primary' %></td>
         <td><%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-xs btn-warning' %></td>
         <td><%= link_to 'Usuń', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-xs btn-danger' %></td>
       </tr>
-      <% end %>
-
-      <% end %>
+    <% end %>
   </tbody>
 </table>
-=======
-<%= render 'zgloszenies/partials/zgloszenies_table', zgloszenies: @zgloszenies %>
->>>>>>> 15ecd1e5573e7f07210a0142aff1f72391d660a2
-</div>
-<%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-success' %>
-<% if current_user.admin? %>
-<%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-primary' %>
-<% end %>
-</div>
