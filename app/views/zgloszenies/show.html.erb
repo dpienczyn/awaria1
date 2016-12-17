@@ -3,17 +3,8 @@
 <div class="jumbotron">
 
 <p>
-  <%= image_tag(generate_qr(@zgloszeny.klient_id.to_s), class: "qr-code") %>
+  <%= image_tag(generate_qr(@zgloszeny.user_id.to_s), class: "qr-code") %>
 </p>
-
-<p>
-  <strong>Klient:</strong>
-  <%= Klient.where(id:@zgloszeny.klient_id).pluck(:nazwa).last %>
-  </p>
-  <p>
-  <strong>Pracownik:</strong>
-  <%= Pracownik.where(id:@zgloszeny.pracownik_id).pluck(:nazwa).last %>
-  </p>
   <p>
   <strong>Dział:</strong>
   <%= Dzial.where(id:@zgloszeny.dzial_id).pluck(:nazwa).last %>
@@ -46,10 +37,6 @@
   <%= @zgloszeny.wysylka %>
 </p>
 
-<p>
-  <strong>user_id:</strong>
-  <%= @zgloszeny.user_id %>
-</p>
 
 <%= link_to 'Edytuj', edit_zgloszeny_path(@zgloszeny), class:'btn btn btn-warning' %>
 <%= link_to 'Wróć', zgloszenies_path, class:'btn btn btn-primary' %>
