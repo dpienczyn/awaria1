@@ -1,0 +1,24 @@
+<h2>Edycja użytkownika</h2>
+
+<%= form_for(@user) do |f| %>
+
+<div class="jumbotron">
+
+  <div class="field">
+    <p>Stanowisko </label></br />
+    <%= f.collection_select :stanowisko_id, Stanowisko.all, :id, :nazwa, :prompt => "Wybierz", class:'dropdown-toggle' %></p>
+  </div>
+
+  <div class="field">
+    <p>Dział użytkownika </label></br />
+    <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz", class:'dropdown-toggle' %></p>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Aktualizuj", class:'btn btn-primary' %>
+  </div>
+<% end %>
+
+<div class="actions">
+<%= link_to "Wróć", :back, class: "btn btn-success" %>
+ </div><br />

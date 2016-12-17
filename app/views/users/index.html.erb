@@ -9,7 +9,7 @@
       <th>Nazwisko</th>
       <th>Adres email</th>
       <th>Dział</th>
-      <th>Typ konta</th>
+      <th>Stanowisko</th>
       <th>Pracownik?</th>
       <th>Admin?</th>
       <th>Utworzony</th>
@@ -29,6 +29,7 @@
         <td><%= user.ispracownik %></td>
         <td><%= user.admin %></td>
         <td><%= user.created_at %></td>
+        <td><%= link_to "Edytuj", edit_user_path(user), class:'btn btn-xs btn-primary' %></td>
         <td><%= link_to "Admin +/-", grantadmin_user_path(user), method: :grantadmin, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-warning' %></td>
         <td><%= link_to "Pracownik +/-", pracownik_user_path(user), method: :pracownik, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-warning' %></td>
         <td><%= link_to "Usuń", user_path(user), method: :delete, data: { confirm: "Jesteś pewny?" }, class:'btn btn-xs btn-danger' %></td>
