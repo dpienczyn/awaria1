@@ -36,6 +36,33 @@ ActiveRecord::Schema.define(version: 20161211100207) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "klients", force: :cascade do |t|
+    t.text     "nazwa"
+    t.integer  "nip"
+    t.integer  "kod_pocztowy"
+    t.text     "poczta"
+    t.text     "adres"
+    t.integer  "telefon"
+    t.text     "email"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+  end
+
+  create_table "pracowniks", force: :cascade do |t|
+    t.integer  "stanowisko_id"
+    t.integer  "dzial_id"
+    t.text     "nazwa"
+    t.text     "stanowisko"
+    t.integer  "telefon"
+    t.text     "email"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "user_id"
+    t.index ["dzial_id"], name: "index_pracowniks_on_dzial_id", using: :btree
+    t.index ["stanowisko_id"], name: "index_pracowniks_on_stanowisko_id", using: :btree
+  end
+
   create_table "stanowiskos", force: :cascade do |t|
     t.text     "nazwa"
     t.datetime "created_at", null: false
