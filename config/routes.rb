@@ -12,10 +12,8 @@ Rails.application.routes.draw do
 
   resources :zgloszenie_aktywnoscs
   resources :zgloszenies
-  resources :pracowniks
   resources :stanowiskos
   resources :dzials
-  resources :klients
   resources :users, only: [:index]
   devise_for :users, controllers: { registrations: 'registrations' }
 

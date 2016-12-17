@@ -36,33 +36,6 @@ ActiveRecord::Schema.define(version: 20161211100207) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "klients", force: :cascade do |t|
-    t.text     "nazwa"
-    t.integer  "nip"
-    t.integer  "kod_pocztowy"
-    t.text     "poczta"
-    t.text     "adres"
-    t.integer  "telefon"
-    t.text     "email"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "user_id"
-  end
-
-  create_table "pracowniks", force: :cascade do |t|
-    t.integer  "stanowisko_id"
-    t.integer  "dzial_id"
-    t.text     "nazwa"
-    t.text     "stanowisko"
-    t.integer  "telefon"
-    t.text     "email"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "user_id"
-    t.index ["dzial_id"], name: "index_pracowniks_on_dzial_id", using: :btree
-    t.index ["stanowisko_id"], name: "index_pracowniks_on_stanowisko_id", using: :btree
-  end
-
   create_table "stanowiskos", force: :cascade do |t|
     t.text     "nazwa"
     t.datetime "created_at", null: false
@@ -83,12 +56,18 @@ ActiveRecord::Schema.define(version: 20161211100207) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
+    t.boolean  "pracownik"
+    t.boolean  "ispracownik"
+    t.integer  "stanowisko_id"
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "dzial_id"
+    t.boolean  "email_confirmed",        default: false
+    t.string   "confirm_token"
     t.index ["dzial_id"], name: "index_users_on_dzial_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["stanowisko_id"], name: "index_users_on_stanowisko_id", using: :btree
   end
 
   create_table "zgloszenie_aktywnoscs", force: :cascade do |t|
@@ -121,6 +100,7 @@ ActiveRecord::Schema.define(version: 20161211100207) do
   add_foreign_key "pracowniks", "dzials"
   add_foreign_key "pracowniks", "stanowiskos"
   add_foreign_key "users", "dzials"
+  add_foreign_key "users", "stanowiskos"
   add_foreign_key "zgloszenie_aktywnoscs", "zgloszenies", column: "zgloszenie_id"
   add_foreign_key "zgloszenies", "dzials"
   add_foreign_key "zgloszenies", "klients"
