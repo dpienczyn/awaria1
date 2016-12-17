@@ -52,3 +52,5 @@ gem 'bootstrap-sass', '~> 3.3.7' # komponeny grafiki
 gem 'devise', '~>4.2.0' # obsługa użytkowników
 gem 'chartkick' # wykresy
 gem 'groupdate' # dodatek do wykresów
+gem 'barby' # kody qr
+gem 'rqrcode' # kody qr

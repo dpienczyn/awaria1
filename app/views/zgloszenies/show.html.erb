@@ -3,6 +3,10 @@
 <div class="jumbotron">
 
 <p>
+  <%= image_tag(generate_qr(@zgloszeny.klient_id.to_s), class: "qr-code") %>
+</p>
+
+<p>
   <strong>Klient:</strong>
   <%= Klient.where(id:@zgloszeny.klient_id).pluck(:nazwa).last %>
   </p>
