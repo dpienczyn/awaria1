@@ -19,25 +19,11 @@
     <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz" %>
   </div><br/>
 
-  <!-- <div class="field">
-    <%= f.label :priorytet %><br/>
-    <%= f.number_field :priorytet %>
-  </div><br/>
-
-  <div class="field">
-    <%= f.label :status %><br/>
-    <%= f.text_field :status %>
-  </div><br/> -->
 
   <div class="field">
     <%= f.label :data_zgłoszenia %><br/>
     <%= f.date_select :data_zgloszenia %>
   </div><br/>
-
-  <!-- <div class="field">
-    <%= f.label :data_naprawy %><br/>
-    <%= f.date_select :data_naprawy %>
-  </div><br/> -->
 
 
   <div class="field">
@@ -54,6 +40,29 @@
     <%= f.label :wysyłka %><br/>
     <%= f.number_field :wysylka %>
   </div><br />
+
+  <% if current_user.ispracownik? %>
+  <div class="field">
+    <%= f.label :priorytet %><br/>
+    <%= f.text_field :priorytet %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :status %><br/>
+    <%= f.text_field :status %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :data_naprawy %><br/>
+    <%= f.date_select :data_naprawy %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :id_serwisanta %><br/>
+    <%= f.number_field :pracownikid %>
+  </div><br/>
+
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>

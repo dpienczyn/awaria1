@@ -2,8 +2,8 @@ class CreateZgloszenies < ActiveRecord::Migration[5.0]
   def change
     create_table :zgloszenies do |t|
       t.references :dzial, foreign_key: true
-      t.integer :priorytet
-      t.integer :status
+      t.text :priorytet
+      t.text :status
       t.date :data_zgloszenia
       t.date :data_naprawy
       t.text :opis_uszkodzenia
