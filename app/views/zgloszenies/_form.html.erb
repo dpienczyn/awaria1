@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= f.label :wysyłka %><br/>
-    <%= f.number_field :wysylka %>
+    <%= f.select :wysylka, [['Tak', true], ['Nie', false]] %>
   </div><br />
 
   <% if current_user.ispracownik? %>

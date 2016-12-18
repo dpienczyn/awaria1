@@ -8,7 +8,7 @@ class CreateZgloszenies < ActiveRecord::Migration[5.0]
       t.date :data_naprawy
       t.text :opis_uszkodzenia
       t.text :nazwa_urzadzenia
-      t.integer :wysylka
+      t.boolean :wysylka
 
       t.timestamps
     end

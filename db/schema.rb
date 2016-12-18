@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20161218113603) do
     t.date     "data_naprawy"
     t.text     "opis_uszkodzenia"
     t.text     "nazwa_urzadzenia"
-    t.integer  "wysylka"
+    t.boolean  "wysylka"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "user_id"
