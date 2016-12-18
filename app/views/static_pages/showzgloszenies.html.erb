@@ -4,32 +4,29 @@
       <thead>
         <tr>
           <th>ID</th>
-          <!-- <th>Klient</th>
-          <th>Pracownik</th>
-          <th>Dzial</th> -->
+
+          <th>Dzial</th>
           <th>Priorytet</th>
           <th>Status</th>
           <th>Data zgłoszenia</th>
           <th>Data naprawy</th>
           <th>Opis uszkodzenia</th>
           <th>Nazwa urzadzenia</th>
-          <!-- <th>Wysylka</th> -->
+          <th>Wysylka</th>
           <th colspan="3">Akcje</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><%= zgloszeny.id %></td>
-          <!-- <td><%= zgloszeny.klient_id %></td>
-          <td><%= zgloszeny.pracownik_id %></td>
-          <td><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>        -->
+          <td><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
           <td><%= zgloszeny.priorytet %></td>
           <td><%= zgloszeny.status %></td>
           <td><%= zgloszeny.data_zgloszenia %></td>
           <td><%= zgloszeny.data_naprawy %></td>
           <td><%= zgloszeny.opis_uszkodzenia %></td>
           <td><%= zgloszeny.nazwa_urzadzenia %></td>
-          <!-- <td><%= zgloszeny.wysylka %></td> -->
+          <td><%= zgloszeny.wysylka %></td>
         </tr>
       </tbody>
     </table>

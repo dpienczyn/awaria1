@@ -69,6 +69,6 @@ class ZgloszeniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def zgloszeny_params
-      params.require(:zgloszenie).permit(:dzial_id, :priorytet, :status, :data_zgloszenia, :data_naprawy, :opis_uszkodzenia, :nazwa_urzadzenia, :user_id, :wysylka)
+      params.require(:zgloszenie).permit(:dzial_id, :data_zgloszenia, :opis_uszkodzenia, :nazwa_urzadzenia, :user_id, :wysylka)
     end
 end

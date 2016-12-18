@@ -10,13 +10,16 @@
       </ul>
     </div>
   <% end %><br />
+<div class="field">
+  <%= f.hidden_field :user_id, :value => current_user.id  %>
 
+</div>
   <div class="field">
-    <%= f.label :dział_id %><br/>
+    <%= f.label :Zgłoszenie_do_działu %><br/>
     <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz" %>
   </div><br/>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :priorytet %><br/>
     <%= f.number_field :priorytet %>
   </div><br/>
@@ -24,16 +27,22 @@
   <div class="field">
     <%= f.label :status %><br/>
     <%= f.text_field :status %>
-  </div><br/>
+  </div><br/> -->
 
   <div class="field">
     <%= f.label :data_zgłoszenia %><br/>
     <%= f.date_select :data_zgloszenia %>
   </div><br/>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :data_naprawy %><br/>
     <%= f.date_select :data_naprawy %>
+  </div><br/> -->
+
+
+  <div class="field">
+    <%= f.label :nazwa_urzadzenia %><br/>
+    <%= f.text_area :nazwa_urzadzenia %>
   </div><br/>
 
   <div class="field">
@@ -42,16 +51,9 @@
   </div><br/>
 
   <div class="field">
-    <%= f.label :nazwa_urzadzenia %><br/>
-    <%= f.text_area :nazwa_urzadzenia %>
-  </div><br/>
-
-  <div class="field">
     <%= f.label :wysyłka %><br/>
     <%= f.number_field :wysylka %>
   </div><br />
-  <%= f.label :user_id %><br/>
-  <%= f.number_field :user_id, :value => current_user.id %>
 
   <div class="actions">
     <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>
