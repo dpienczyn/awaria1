@@ -1,0 +1,18 @@
+<div class="jumbotron">
+<table> <tr>
+  <td style="text-align: center;">
+      <%= image_tag(generate_qr(@zgloszeny.id.to_s), class: "qr-code") %>
+  </td> <td width=20></td>
+  <td>
+  <p><h2>Dział: <%= Dzial.where(id:@zgloszeny.dzial_id).pluck(:nazwa).last %> </h2> </p>
+  <p> <strong>Priorytet: </strong><%= @zgloszeny.priorytet %>
+  <strong>Status:</strong> <%= @zgloszeny.status %> </p>
+
+  <p> <strong>Data zgłoszenia:</strong> <%= @zgloszeny.data_zgloszenia %>
+  <strong>Data naprawy:</strong> <%= @zgloszeny.data_naprawy %> </p>
+
+  <p> <strong>Nazwa urzadzenia:</strong> <%= @zgloszeny.nazwa_urzadzenia %> </p>
+  <p> <strong>Opis uszkodzenia:</strong> <%= @zgloszeny.opis_uszkodzenia %> </p>
+  <p> <strong>Wysyłka:</strong> <%= @zgloszeny.wysylka %> </p>
+  </td> </tr> </table>
+</div>

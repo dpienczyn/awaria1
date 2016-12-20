@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Zgłoszenie - Aktywność</h1>
 <div class="jumbotron">
@@ -8,6 +7,7 @@
     <tr>
       <th>ID</th>
       <th>Zgłoszenie</th>
+      <th>Autor</th>
       <th>Treść</th>
       <th colspan="3"></th>
     </tr>
@@ -17,7 +17,9 @@
     <% @zgloszenie_aktywnoscs.each do |zgloszenie_aktywnosc| %>
       <tr>
         <td><%= zgloszenie_aktywnosc.id %></td>
-        <td><%= zgloszenie_aktywnosc.zgloszenie %></td>
+        <td><%= Zgloszenie.where(id:zgloszenie_aktywnosc.zgloszenie).pluck(:id).last %></td>
+        <td><%= User.where(id:zgloszenie_aktywnosc.user_id).pluck(:first_name).last %>
+        <%= User.where(id:zgloszenie_aktywnosc.user_id).pluck(:last_name).last %></td>
         <td><%= zgloszenie_aktywnosc.tresc %></td>
         <td><%= link_to 'Pokaż', zgloszenie_aktywnosc, class:'btn btn-xs btn-primary' %></td>
         <td><%= link_to 'Edytuj', edit_zgloszenie_aktywnosc_path(zgloszenie_aktywnosc), class:'btn btn-xs btn-warning' %></td>

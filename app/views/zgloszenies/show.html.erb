@@ -1,42 +1,57 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+<table> <tr>
+  <td style="text-align: center;">
+      <%= image_tag(generate_qr(@zgloszeny.id.to_s), class: "qr-code") %>
+  </td> <td width=20></td>
+  <td>
+  <p><h2>Dział: <%= Dzial.where(id:@zgloszeny.dzial_id).pluck(:nazwa).last %> </h2> </p>
+  <p> <strong>Priorytet: </strong><%= @zgloszeny.priorytet %>
+  <strong>Status:</strong> <%= @zgloszeny.status %> </p>
+
+  <p> <strong>Data zgłoszenia:</strong> <%= @zgloszeny.data_zgloszenia %>
+  <strong>Data naprawy:</strong> <%= @zgloszeny.data_naprawy %> </p>
+
+  <p> <strong>Nazwa urzadzenia:</strong> <%= @zgloszeny.nazwa_urzadzenia %> </p>
+  <p> <strong>Opis uszkodzenia:</strong> <%= @zgloszeny.opis_uszkodzenia %> </p>
+  <p> <strong>Wysyłka:</strong> <%= @zgloszeny.wysylka %> </p>
+  </td> </tr> </table>
+</div>
+
+<div class="jumbotron" align="center">
+  <%= link_to 'Edytuj Zgłoszenie', edit_zgloszeny_path(@zgloszeny), class:'btn btn btn-danger' %>
+  <%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-warning' %>
+  <%= link_to 'Lista Zgłoszeń', zgloszenies_path, class:'btn btn btn-primary' %>
+  <!-- <%= link_to 'Wydrukuj zgłoszenie', zgloszenies_print_path, class:'btn btn btn-success' %> -->
+</div>
 
 <div class="jumbotron">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Autor</th>
+          <th>Treść wiadomości </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% ZgloszenieAktywnosc.all.each do |zgloszenie_aktywnosc| %>
+         <% if @zgloszeny == zgloszenie_aktywnosc.zgloszenie %>
+          <tr>
+            <td><%= User.where(id:zgloszenie_aktywnosc.user_id).pluck(:first_name).last %>
+            <%= User.where(id:zgloszenie_aktywnosc.user_id).pluck(:last_name).last %></td>
+            <td><%= zgloszenie_aktywnosc.tresc %></td>
+          </tr>
+         <% end %>  <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<p>
-  <%= image_tag(generate_qr(@zgloszeny.user_id.to_s), class: "qr-code") %>
-</p>
-  <p>
-  <strong>Dział:</strong>
-  <%= Dzial.where(id:@zgloszeny.dzial_id).pluck(:nazwa).last %>
-  </p>
-  <p>
-  <strong>Priorytet:</strong>
-  <%= @zgloszeny.priorytet %>
-  </p>
-  <p>
-  <strong>Status:</strong>
-  <%= @zgloszeny.status %>
-</p>
-
-<p>
-  <strong>Data zgłoszenia:</strong>
-  <%= @zgloszeny.data_zgloszenia %>
-  <strong>Data naprawy:</strong>
-  <%= @zgloszeny.data_naprawy %>
-</p>
-
-<p>
-  <strong>Opis uszkodzenia:</strong>
-  <%= @zgloszeny.opis_uszkodzenia %>
-  <strong>Nazwa urzadzenia:</strong>
-  <%= @zgloszeny.nazwa_urzadzenia %>
-</p>
-
-<p>
-  <strong>Wysyłka:</strong>
-  <%= @zgloszeny.wysylka %>
-</p>
-
-
-<%= link_to 'Edytuj', edit_zgloszeny_path(@zgloszeny), class:'btn btn btn-warning' %>
-<%= link_to 'Wróć', zgloszenies_path, class:'btn btn btn-primary' %>
+<div class="jumbotron">
+  <%= form_for ZgloszenieAktywnosc.new do |f| %>
+    <%= f.hidden_field :zgloszenie_id, :value => @zgloszeny.id  %>
+    <%= f.hidden_field :user_id, :value => current_user.id  %>
+    <p>Treść notatki: <%= f.text_area :tresc, class:"form-control" %> </p>
+    <%= f.submit "Dodaj Notatke", class:'btn btn btn-primary' %>
+  <% end %>
+</div>

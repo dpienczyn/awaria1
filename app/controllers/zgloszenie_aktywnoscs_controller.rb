@@ -28,11 +28,11 @@ class ZgloszenieAktywnoscsController < ApplicationController
 
     respond_to do |format|
       if @zgloszenie_aktywnosc.save
-        format.html { redirect_to @zgloszenie_aktywnosc, notice: 'Zgloszenie aktywnosc was successfully created.' }
+        format.html { redirect_to Zgloszenie, notice: 'Dodano notatkę.' }
         format.json { render :show, status: :created, location: @zgloszenie_aktywnosc }
       else
         format.html { render :new }
-        format.json { render json: @zgloszenie_aktywnosc.errors, status: :unprocessable_entity }
+        format.json { render json: Zgloszenie.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,7 +42,7 @@ class ZgloszenieAktywnoscsController < ApplicationController
   def update
     respond_to do |format|
       if @zgloszenie_aktywnosc.update(zgloszenie_aktywnosc_params)
-        format.html { redirect_to @zgloszenie_aktywnosc, notice: 'Zgloszenie aktywnosc was successfully updated.' }
+        format.html { redirect_to @zgloszenie_aktywnosc, notice: 'Poprawiono notatkę.' }
         format.json { render :show, status: :ok, location: @zgloszenie_aktywnosc }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class ZgloszenieAktywnoscsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def zgloszenie_aktywnosc_params
-      params.require(:zgloszenie_aktywnosc).permit(:zgloszenie_id, :tresc)
+      params.require(:zgloszenie_aktywnosc).permit(:zgloszenie_id, :tresc, :user_id)
     end
 end
