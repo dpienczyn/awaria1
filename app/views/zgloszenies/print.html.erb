@@ -1,3 +1,5 @@
+<body onload="printpage()">
+
 <div class="jumbotron">
 <table> <tr>
   <td style="text-align: center;">
@@ -15,4 +17,29 @@
   <p> <strong>Opis uszkodzenia:</strong> <%= @zgloszeny.opis_uszkodzenia %> </p>
   <p> <strong>Wysyłka:</strong> <%= @zgloszeny.wysylka %> </p>
   </td> </tr> </table>
+</div>
+
+<div class="jumbotron">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Autor</th>
+          <th>Data</th>
+          <th>Treść wiadomości </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% ZgloszenieAktywnosc.all.each do |zgloszenie_aktywnosc| %>
+         <% if @zgloszeny == zgloszenie_aktywnosc.zgloszenie %>
+          <tr>
+            <td><%= User.where(id:zgloszenie_aktywnosc.user_id).pluck(:first_name).last %>
+            <%= User.where(id:zgloszenie_aktywnosc.user_id).pluck(:last_name).last %></td>
+            <td><%= zgloszenie_aktywnosc.created_at.strftime("%H:%M, %d.%m.%Y") %></td>
+            <td><%= zgloszenie_aktywnosc.tresc %></td>
+          </tr>
+         <% end %>  <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

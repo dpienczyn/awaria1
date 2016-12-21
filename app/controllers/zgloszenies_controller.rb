@@ -1,5 +1,5 @@
 class ZgloszeniesController < ApplicationController
-  before_action :set_zgloszeny, only: [:show, :edit, :update, :destroy]
+  before_action :set_zgloszeny, only: [:show, :edit, :update, :destroy, :print]
 
   # GET /zgloszenies
   # GET /zgloszenies.json
@@ -10,6 +10,10 @@ class ZgloszeniesController < ApplicationController
   # GET /zgloszenies/1
   # GET /zgloszenies/1.json
   def show
+  end
+
+  def print
+    @zgloszenie = Zgloszenie.find(params[:id])
   end
 
   # GET /zgloszenies/new

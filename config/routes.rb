@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'static_pages/statystyki'
   get 'static_pages/showzgloszenies'
   get 'users/show'
-  get 'zgloszenies/print'
 
   resources :zgloszenie_aktywnoscs
   resources :zgloszenies
@@ -24,6 +23,14 @@ Rails.application.routes.draw do
         delete 'destroy'
         post 'grantadmin'
         post 'pracownik'
+      end
+    end
+  end
+
+  scope "zgloszenie" do
+    resources :zgloszenies do
+      member do
+        get 'print'
       end
     end
   end

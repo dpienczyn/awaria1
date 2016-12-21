@@ -16,3 +16,8 @@
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require_tree .
+
+function printpage()
+{
+   window.print()
+}
