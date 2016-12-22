@@ -21,7 +21,7 @@
   <%= link_to 'Edytuj Zgłoszenie', edit_zgloszeny_path(@zgloszeny), class:'btn btn btn-danger' %>
   <%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-warning' %>
   <%= link_to 'Lista Zgłoszeń', zgloszenies_path, class:'btn btn btn-primary' %>
-  <!-- <%= link_to 'Wydrukuj zgłoszenie', zgloszenies_print_path, class:'btn btn btn-success' %> -->
+  <%= link_to 'Wydrukuj zgłoszenie', print_zgloszeny_path(@zgloszeny.id), :class => "btn btn btn-success", :method => :get %>
 </div>
 
 <div class="jumbotron">
@@ -30,6 +30,7 @@
       <thead>
         <tr>
           <th>Autor</th>
+          <th>Data</th>
           <th>Treść wiadomości </th>
         </tr>
       </thead>
@@ -39,6 +40,7 @@
           <tr>
             <td><%= User.where(id:zgloszenie_aktywnosc.user_id).pluck(:first_name).last %>
             <%= User.where(id:zgloszenie_aktywnosc.user_id).pluck(:last_name).last %></td>
+            <td><%= zgloszenie_aktywnosc.created_at.strftime("%H:%M, %d.%m.%Y") %></td>
             <td><%= zgloszenie_aktywnosc.tresc %></td>
           </tr>
          <% end %>  <% end %>

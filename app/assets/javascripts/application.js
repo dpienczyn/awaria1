@@ -17,3 +17,8 @@
 //= require bootstrap
 //= require zgloszenies.js
 //= require_tree .
+
+function printpage()
+{
+   window.print()
+}
