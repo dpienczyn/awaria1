@@ -51,6 +51,7 @@
         <td><%= link_to 'Pokaż', zgloszeny, class:'btn btn-xs btn-primary' %>
         <%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-xs btn-warning' %>
         <%= link_to 'Usuń', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-xs btn-danger' %></td>
+        <%= link_to 'Mysza', "#", id:"present",  class:'btn btn-xs btn-warning present' %>
       </tr>
       <% end %>
 
