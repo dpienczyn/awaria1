@@ -10,15 +10,30 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require panda.js
 //= require jquery
+//= require fancybox
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap
-//= require zgloszenies.js
 //= require_tree .
+$.turbo.use('turbolinks:load', 'turbolinks:request-start')
 
 function printpage()
 {
    window.print()
 }
+
+var resetForms = function () {
+  // this depends on your use
+  // this is for foundation 6's abide
+  $('form').each(function () {
+    $(this).foundation('destroy');
+  });
+};
+
+document.addEventListener("turbolinks:before-cache", function() {
+  resetForms();
+});
