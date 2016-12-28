@@ -22,6 +22,7 @@
   <%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-warning' %>
   <%= link_to 'Lista Zgłoszeń', zgloszenies_path, class:'btn btn btn-primary' %>
   <%= link_to 'Wydrukuj zgłoszenie', print_zgloszeny_path(@zgloszeny.id), :class => "btn btn btn-success", :method => :get %>
+  <%= link_to 'Pobierz PDF', zgloszeny_path(@zgloszenie, format: "pdf"), class:'btn btn-primary'%>
 </div>
 
 <div class="jumbotron">

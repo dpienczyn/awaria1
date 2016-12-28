@@ -55,3 +55,4 @@ gem 'chartkick' # wykresy
 gem 'groupdate' # dodatek do wykresów
 gem 'barby' # kody qr
 gem 'rqrcode' # kody qr
+gem 'prawn', '~> 2.1' # generowanie pdf

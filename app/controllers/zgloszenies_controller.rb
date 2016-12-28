@@ -10,7 +10,17 @@ class ZgloszeniesController < ApplicationController
   # GET /zgloszenies/1
   # GET /zgloszenies/1.json
   def show
+    @zgloszenie = Zgloszenie.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ZgloszenieKartaPdf.new(@zgloszenie)
+        send_data pdf.render, filename: "zgloszenie_#{@zgloszenie.id}.pdf",
+                              type: "application/pdf",
+                              description: "inline"
+      end
   end
+end
 
   def print
     @zgloszenie = Zgloszenie.find(params[:id])
