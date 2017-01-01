@@ -61,6 +61,7 @@
 
 </div>
 <%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-success' %>
+<%= link_to 'Pobierz PDF', zgloszenies_path(@zgloszenies, format: "pdf"), class:'btn btn-primary'%>
 <% if current_user.admin? %>
 <%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-primary' %>
 <% end %>

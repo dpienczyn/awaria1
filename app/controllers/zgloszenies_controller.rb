@@ -5,6 +5,16 @@ class ZgloszeniesController < ApplicationController
   # GET /zgloszenies.json
   def index
     @zgloszenies = Zgloszenie.where("nazwa_urzadzenia ILIKE ?", "%#{params[:search]}%")
+    @zgloszenia = Zgloszenie.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ZgloszenieListaPdf.new(@zgloszenia)
+        send_data pdf.render, filename: "zgloszenia.pdf",
+                              type: "application/pdf",
+                              description: "inline"
+      end
+    end
   end
 
   # GET /zgloszenies/1
@@ -19,8 +29,8 @@ class ZgloszeniesController < ApplicationController
                               type: "application/pdf",
                               description: "inline"
       end
+    end
   end
-end
 
   def print
     @zgloszenie = Zgloszenie.find(params[:id])

@@ -56,3 +56,4 @@ gem 'groupdate' # dodatek do wykresów
 gem 'barby' # kody qr
 gem 'rqrcode' # kody qr
 gem 'prawn', '~> 2.1' # generowanie pdf
+gem 'prawn-table', '~> 0.1.0' # dodatek do pdf
