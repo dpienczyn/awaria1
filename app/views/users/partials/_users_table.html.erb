@@ -1,57 +1,59 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
 <div class="container">
-    <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
 
-            <div class="panel panel-default panel-table">
-              <div class="panel-heading">
-                <div class="row">
-                  <div class="col col-xs-6">
-                  </div>
-                  <div class="col col-xs-6 text-right">
-                  <%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-warning btn-create' %>
-                  </div>
-                </div>
-              </div>
-              <div class="panel-body">
-                <table class="table table-striped table-bordered table-list">
-                  <thead>
-                    <tr>
-                        <th><em class="fa fa-cog"></em></th>
-                        <th class="hidden-xs">ID</th>
-                        <th>Imie</th>
-                        <th>Nazwisko</th>
-                         <th>Email</th>
-                           <th>Dział</th>
-                            <th>Stanowisko</th>
-                             <th>Pracownik</th>
-                              <th>Admin</th>
-                               <th>Utworzony</th>
-                    </tr> 
-                  </thead>
-                  <tbody>
-                          <tr>
-                          <% @users.order("created_at").each do |user| %>
-                          <td align="center">
-                    <%= link_to "", edit_user_path(user), class:'btn btn-default fa fa-pencil'%>
-                    <%= link_to "", grantadmin_user_path(user), method: :grantadmin, data: { confirm: "Jesteś pewny?" }, class:'btn btn-success fa fa-font'%>
-                    <%= link_to "", user_path(user), method: :delete, data: { confirm: "Jesteś pewny?" }, class:'btn btn-danger fa fa-trash' %>
-                    <%= link_to "", pracownik_user_path(user), method: :pracownik, data: { confirm: "Jesteś pewny?" }, class:'btn btn-primary fa fa-plus-square' %>
-                            </td>
-                            
-                            <td class="hidden-xs"><%= user.id%></td>
-                            <td><%= user.first_name %></td> 
-                            <td><%= user.last_name %></td>
-                            <td><%= user.email %></td>
-                            <td><%= Dzial.where(id:user.dzial_id).pluck(:nazwa).last %></td>
-                            <td><%= Stanowisko.where(id:user.stanowisko_id).pluck(:nazwa).last %></td>
-                            <td><%= user.ispracownik %></td>
-                            <td><%= user.admin %></td>
-                            <td><%= user.created_at %></td>
-                          </tr>
-                          <% end %>
-                        </tbody>
-                </table>
-              </div>
-            </div>
-</div></div></div> 
+<div class="panel panel-default panel-table">
+<div class="panel-heading">
+<div class="row">
+<div class="col col-xs-6">
+</div>
+<div class="col col-xs-6 text-right">
+<%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-warning btn-create' %>
+</div>
+</div>
+</div>
+<div class="panel-body">
+<table class="table table-striped table-bordered table-list">
+<thead>
+<tr>
+  <th><em class="fa fa-cog"></em></th>
+  <th class="hidden-xs">ID</th>
+   <th>Imie</th>
+   <th>Nazwisko</th>
+   <th>Email</th>
+   <th>Dział</th>
+   <th>Stanowisko</th>
+   <th>Pracownik</th>
+   <th>Admin</th>
+   <th>Utworzony</th>
+</tr> 
+</thead>
+<tbody>
+    <tr>
+    <% @users.order("created_at").each do |user| %>
+    <td align="center">
+<%= link_to "", edit_user_path(user), class:'btn btn-default fa fa-pencil'%>
+<%= link_to "", grantadmin_user_path(user), method: :grantadmin, data: { confirm: "Jesteś pewny?" }, class:'btn btn-success fa fa-font'%>
+<%= link_to "", user_path(user), method: :delete, data: { confirm: "Jesteś pewny?" }, class:'btn btn-danger fa fa-trash' %>
+<%= link_to "", pracownik_user_path(user), method: :pracownik, data: { confirm: "Jesteś pewny?" }, class:'btn btn-primary fa fa-plus-square' %>
+      </td>
+      
+      <td class="hidden-xs"><%= user.id%></td>
+      <td><%= user.first_name %></td> 
+      <td><%= user.last_name %></td>
+      <td><%= user.email %></td>
+      <td><%= Dzial.where(id:user.dzial_id).pluck(:nazwa).last %></td>
+      <td><%= Stanowisko.where(id:user.stanowisko_id).pluck(:nazwa).last %></td>
+      <td><%= user.ispracownik %></td>
+      <td><%= user.admin %></td>
+      <td><%= user.created_at %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
