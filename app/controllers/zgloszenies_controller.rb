@@ -4,7 +4,9 @@ class ZgloszeniesController < ApplicationController
   # GET /zgloszenies
   # GET /zgloszenies.json
   def index
-    @zgloszenies = Zgloszenie.where("nazwa_urzadzenia ILIKE ?", "%#{params[:search]}%")
+    @zgloszenies = Zgloszenie.includes(:dzial)
+                             .where("zgloszenies.nazwa_urzadzenia ILIKE :q OR dzials.nazwa ILIKE :q OR zgloszenies.status ILIKE :q", q: "%#{params[:search]}%")
+                             .references(:dzials)
     @zgloszenia = Zgloszenie.all
     respond_to do |format|
       format.html

@@ -1,28 +1,45 @@
-<h2>Logowanie</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="jumbotron">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="container">
+
+<div class="row" style="margin-top:20px">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    <form role="form">
+      <fieldset>
+        <center><h2>Zaloguj się</h2></center>
+        <hr class="colorgraph">
+        <div class="form-group">
+        <%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: "Email Address" %>
+        </div>
+        <div class="form-group">
+        <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg", placeholder: "Password"  %>
+        </div>
+        <span class="button-checkbox">
+          <button type="button" class="btn" data-color="info">Zapamietaj mnie</button>
+          <% if devise_mapping.rememberable? -%>
+          <%= f.check_box :remember_me, class: "hidden" %>
+          <% end -%>
+          <a href="http://localhost:3000/my/users/password/new" class="btn btn-link pull-right">Zapomniałeś hasła?</a>
+        </span>
+        <hr class="colorgraph">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+          <%= f.submit "Zaloguj się", class: "btn btn-lg btn-success btn-block" %>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <a href="http://localhost:3000/my/users/sign_up" class="btn btn-lg btn-primary btn-block">Rejestracja</a>
+
+          </div>
+        </div>
+      </fieldset>
+    </form>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :hasło %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :zapamiętaj_mnie %>
-    </div>
-  <% end -%>
+</div>
+  
 
   <div class="actions">
-    <%= f.submit "Zaloguj się", class: "btn btn-primary" %>
+    
   </div>
 <% end %><br />
-
-<%= render "devise/shared/links" %>

@@ -7,3 +7,6 @@ $(document).on('keyup', '.search_form_k input', function() {
 $(document).on('keyup', '.search_form_z input', function() {
 	$('.search_form_z').delay(200).submit();
 });
+$(document).on('keyup', '.search_form_u input', function() {
+	$('.search_form_u').delay(200).submit();
+});
