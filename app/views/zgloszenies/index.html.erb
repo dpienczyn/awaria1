@@ -1,68 +1,94 @@
-<h1>Zgłoszenia</h1>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+<div class="row">
+<div class="col-lg-6">
+<div class="input-group">
 <%= form_tag( zgloszenies_path ,method: :get, remote: true, class: "search_form_z") do %>
-<%= text_field_tag :search, params[:search], placeholder: 'Wyszukaj...' %>
-<% end %> <br />
-<div class="jumbotron">
+<%= text_field_tag :search, params[:search], class: "form-control SearchBar", placeholder: 'Wyszukaj...' %>
+<% end %>
+<span class="input-group-btn">
+    <button class="btn btn-defaul SearchButton" type="button">
+        <span class=" fa fa-search SearchIcon" ></span>
+    </button>
+  </span>
+</div><!-- /input-group -->
+</div><!-- /.col-lg-6 -->
+</div> <br/><!-- /.row -->
+
 <div class="table-responsive">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
 
-<table class="table table-striped">
-  <thead>
+<div class="container">
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+<div class="panel panel-default panel-table">
+<div class="panel-heading">
+<div class="row">
+<div class="col col-xs-6">
+<strong><h3 class="panel-title">Zgłoszenia</h3></strong>
+</div>
+<div class="col col-xs-6 text-right">
+<%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-sm btn-success btn-create' %>
+<%= link_to 'Pobierz PDF', zgloszenies_path(@zgloszenies, format: "pdf"), class:'btn btn-sm btn-success btn-create'%>
+<% if current_user.admin? %>
+<%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-success btn-create' %>
+<% end %>
+</div>
+</div>
+</div>
+<div class="panel-body">
+<table class="table table-striped table-bordered table-list">
+<thead>
+<tr>
+  <th><em class="fa fa-cog"></em></th>
+  <th class="hidden-xs">ID</th>
+  <th>Dział</th>
+  <th>Priorytet</th>
+  <th>Status</th>
+  <th>Data zgłoszenia</th>
+  <th>Data naprawy</th>
+  <th>Nazwa</th>
+  <th>Opis urzadzenia</th>
+  <th>Wysyłka</th>
+  <% if current_user.admin? %>
+  <th>ID U</th>
+  <th>ID S</th>
+  <% end %>
+</tr> 
+</thead>
+<tbody>
+<% @zgloszenies.each do |zgloszeny| %>
+<% if current_user.id == zgloszeny.user_id || current_user.admin? %>
     <tr>
-      <th>ID</th>
-      <th>Dzial</th>
-      <th>Priorytet</th>
-      <th>Status</th>
-      <th>Data zgłoszenia</th>
-      <th>Data naprawy</th>
-      <th>Nazwa urzadzenia</th>
-      <th>Opis uszkodzenia</th>
-      <th>Wysylka</th>
+      <td align="center">
+      <%= link_to '', zgloszeny, class:'btn btn-warning fa fa-eye' %>
+      <%= link_to '', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary fa fa-pencil' %>
+      <%= link_to '', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-danger fa fa-trash' %>
+      </td>
+      <td class="hidden-xs"><%= zgloszeny.id %></td>
+      <td><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
+      <td><%= zgloszeny.priorytet %></td>
+      <td><%= zgloszeny.status %></td>
+      <td><%= zgloszeny.data_zgloszenia %></td>
+      <td><%= zgloszeny.data_naprawy %></td>
+      <td><%= zgloszeny.nazwa_urzadzenia %></td>
+      <td><%= zgloszeny.opis_uszkodzenia %></td>
+      <td><%= zgloszeny.wysylka %></td>
       <% if current_user.admin? %>
-        <th>ID użytkownika</th>
-        <th>ID serwisanta</th>
+      <td><%= zgloszeny.user_id %></td>
+      <td>
+      <% if zgloszeny.pracownikid.nil? %>
+       Brak
+      <% else %>
+      <%= zgloszeny.pracownikid %></td>
       <% end %>
-      <th colspan="3">Akcje</th>
+      <% end %>
     </tr>
-  </thead>
+    <% end %>
 
-  <tbody>
-
-    <% @zgloszenies.each do |zgloszeny| %>
-    <% if current_user.id == zgloszeny.user_id || current_user.admin? %>
-      <tr>
-        <td><%= zgloszeny.id %></td>
-        <td><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
-        <td><%= zgloszeny.priorytet %></td>
-        <td><%= zgloszeny.status %></td>
-        <td><%= zgloszeny.data_zgloszenia %></td>
-        <td><%= zgloszeny.data_naprawy %></td>
-        <td><%= zgloszeny.nazwa_urzadzenia %></td>
-        <td><%= zgloszeny.opis_uszkodzenia %></td>
-        <td><%= zgloszeny.wysylka %></td>
-        <% if current_user.admin? %>
-          <td><%= zgloszeny.user_id %></td>
-          <td>
-          <% if zgloszeny.pracownikid.nil? %>
-          Brak
-          <% else %>
-          <%= zgloszeny.pracownikid %></td>
-          <% end %>
-        <% end %>
-        <td><%= link_to 'Pokaż', zgloszeny, class:'btn btn-xs btn-primary' %>
-        <%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-xs btn-warning' %>
-        <%= link_to 'Usuń', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-xs btn-danger' %></td>
-
-      </tr>
-      <% end %>
-
-      <% end %>
+    <% end %>
   </tbody>
 </table>
-
 </div>
-<%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-success' %>
-<%= link_to 'Pobierz PDF', zgloszenies_path(@zgloszenies, format: "pdf"), class:'btn btn-primary'%>
-<% if current_user.admin? %>
-<%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-primary' %>
-<% end %>
+</div>
+</div></div></div>
 </div>
