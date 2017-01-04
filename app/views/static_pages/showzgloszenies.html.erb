@@ -1,34 +1,49 @@
-<% Zgloszenie.order("created_at desc").each do |zgloszeny| %>
-      <% if current_user.id == zgloszeny.user_id %>
-      <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>ID</th>
-
-          <th>Dzial</th>
-          <th>Priorytet</th>
-          <th>Status</th>
-          <th>Data zgłoszenia</th>
-          <th>Data naprawy</th>
-          <th>Opis uszkodzenia</th>
-          <th>Nazwa urzadzenia</th>
-          <th>Wysylka</th>
-          <th colspan="3">Akcje</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= zgloszeny.id %></td>
-          <td><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
-          <td><%= zgloszeny.priorytet %></td>
-          <td><%= zgloszeny.status %></td>
-          <td><%= zgloszeny.data_zgloszenia %></td>
-          <td><%= zgloszeny.data_naprawy %></td>
-          <td><%= zgloszeny.opis_uszkodzenia %></td>
-          <td><%= zgloszeny.nazwa_urzadzenia %></td>
-          <td><%= zgloszeny.wysylka %></td>
-        </tr>
-      </tbody>
-    </table>
-        <% end %>
-      <% end %>
+    <div class="container">
+    <div class="row">
+    <div class="span12">
+      <form class="form-horizontal" action='' method="POST">
+        <fieldset>
+          <div id="legend">
+            <legend class=""><h4><strong>Moje </strong> zlecenia</legend>
+          </div>
+          </fieldset>
+          </form>
+          </div>
+          </div>
+          </div>  
+      <div class="wrapper">
+        <table id="acrylic">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Dział</th>
+                    <th>Priorytet</th>
+                    <th>Status</th>
+                    <th>Data zgłoszenia</th>
+                    <th>Data naprawy</th>
+                    <th>Opis uszkodzenia</th>
+                    <th>Nazwa urzadzenia</th>
+                    <th>Wysyłka</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% Zgloszenie.order("created_at desc").each do |zgloszeny| %>
+            <% if current_user.id == zgloszeny.user_id %>
+                <tr>
+                    <td data-label="ID"><%= zgloszeny.id %></td>
+                    <td data-label="Dział"><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
+                    <td data-label="Priorytet"><%= zgloszeny.priorytet %></td>
+                    <td data-label="Status"><%= zgloszeny.status %></td>
+                    <td data-label="Data_zgłoszenia"><%= zgloszeny.data_zgloszenia %></td>
+                    <td data-label="Data_naprawy"><%= zgloszeny.data_naprawy %></td>
+                    <td data-label="Opis_uszkodzenia"><%= zgloszeny.opis_uszkodzenia %></td>
+                    <td data-label="nazwa_urzadzenia"><%= zgloszeny.nazwa_urzadzenia %></td>
+                    <td data-label="wysylka"><%= zgloszeny.wysylka %></td>
+                 </tr> 
+                 <% end %> 
+                 <% end %>      
+            </tbody>
+        </table>
+    </div>
+   
+      
