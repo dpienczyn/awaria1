@@ -37,3 +37,4 @@ var resetForms = function () {
 document.addEventListener("turbolinks:before-cache", function() {
   resetForms();
 });
+

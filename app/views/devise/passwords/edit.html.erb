@@ -1,25 +1,36 @@
-<h2>Zmień hasło</h2>
-
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-  </div>
+  <div class="container">
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+<div class="row" style="margin-top:20px">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    <form role="form">
+      <fieldset>
+        <center><h2>Zmień hasło</h2></center>
+        <hr class="colorgraph">
+        <div class="form-group">
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "off", class: 'form-control input-lg', placeholder: "Nowe hasło" %>
+        </div>
+        <div class="form-group">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control input-lg', placeholder: "Powtórz hasło" %>
+        </div>
+        <hr class="colorgraph">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+          <%= f.submit "Zapisz hasło", class: "btn btn-lg btn-success btn-block" %>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <a href="http://localhost:3000/my/users/sign_in" class="btn btn-lg btn-primary btn-block">Zaloguj się</a>
+          </div>
+        </div>
+      </fieldset>
+    </form>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
+</div>
+</div>
 <% end %>
-
-<%= render "devise/shared/links" %>
