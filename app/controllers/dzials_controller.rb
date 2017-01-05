@@ -4,7 +4,7 @@ class DzialsController < ApplicationController
   # GET /dzials
   # GET /dzials.json
   def index
-    @dzials = Dzial.all
+    @dzials = Dzial.where("nazwa ILIKE ?", "%#{params[:search]}%")
   end
 
   # GET /dzials/1
@@ -28,7 +28,7 @@ class DzialsController < ApplicationController
 
     respond_to do |format|
       if @dzial.save
-        format.html { redirect_to @dzial, notice: 'Dzial was successfully created.' }
+        format.html { redirect_to @dzial, notice: 'Dział został pomyślnie dodany.' }
         format.json { render :show, status: :created, location: @dzial }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DzialsController < ApplicationController
   def update
     respond_to do |format|
       if @dzial.update(dzial_params)
-        format.html { redirect_to @dzial, notice: 'Dzial was successfully updated.' }
+        format.html { redirect_to @dzial, notice: 'Edycja zakończyła się sukcesem.' }
         format.json { render :show, status: :ok, location: @dzial }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class DzialsController < ApplicationController
   def destroy
     @dzial.destroy
     respond_to do |format|
-      format.html { redirect_to dzials_url, notice: 'Dzial was successfully destroyed.' }
+      format.html { redirect_to dzials_url, notice: 'Dział został usunięty.' }
       format.json { head :no_content }
     end
   end

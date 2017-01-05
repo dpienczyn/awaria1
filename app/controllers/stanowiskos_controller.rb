@@ -4,7 +4,7 @@ class StanowiskosController < ApplicationController
   # GET /stanowiskos
   # GET /stanowiskos.json
   def index
-    @stanowiskos = Stanowisko.all
+    @stanowiskos = Stanowisko.where("nazwa ILIKE ?", "%#{params[:search]}%")
   end
 
   # GET /stanowiskos/1
@@ -28,7 +28,7 @@ class StanowiskosController < ApplicationController
 
     respond_to do |format|
       if @stanowisko.save
-        format.html { redirect_to @stanowisko, notice: 'Stanowisko was successfully created.' }
+        format.html { redirect_to @stanowisko, notice: 'Stanowisko zostało pomyślnie dodane.' }
         format.json { render :show, status: :created, location: @stanowisko }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class StanowiskosController < ApplicationController
   def update
     respond_to do |format|
       if @stanowisko.update(stanowisko_params)
-        format.html { redirect_to @stanowisko, notice: 'Stanowisko was successfully updated.' }
+        format.html { redirect_to @stanowisko, notice: 'Edycja zakończyła się sukcesem.' }
         format.json { render :show, status: :ok, location: @stanowisko }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class StanowiskosController < ApplicationController
   def destroy
     @stanowisko.destroy
     respond_to do |format|
-      format.html { redirect_to stanowiskos_url, notice: 'Stanowisko was successfully destroyed.' }
+      format.html { redirect_to stanowiskos_url, notice: 'Stanowisko zostało usunięte.' }
       format.json { head :no_content }
     end
   end

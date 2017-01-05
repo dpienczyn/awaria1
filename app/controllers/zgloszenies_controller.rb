@@ -52,7 +52,7 @@ class ZgloszeniesController < ApplicationController
 
     respond_to do |format|
       if @zgloszeny.save
-        format.html { redirect_to @zgloszeny, notice: 'Zgloszenie was successfully created.' }
+        format.html { redirect_to @zgloszeny, notice: 'Zgłoszenie zostało pomyślnie dodane.' }
         format.json { render :show, status: :created, location: @zgloszeny }
       else
         format.html { render :new }
@@ -66,7 +66,7 @@ class ZgloszeniesController < ApplicationController
   def update
     respond_to do |format|
       if @zgloszeny.update(zgloszeny_params)
-        format.html { redirect_to @zgloszeny, notice: 'Zgloszenie was successfully updated.' }
+        format.html { redirect_to @zgloszeny, notice: 'Edycja zakończyła się sukcesem.' }
         format.json { render :show, status: :ok, location: @zgloszeny }
       else
         format.html { render :edit }
@@ -80,7 +80,7 @@ class ZgloszeniesController < ApplicationController
   def destroy
     @zgloszeny.destroy
     respond_to do |format|
-      format.html { redirect_to zgloszenies_url, notice: 'Zgloszenie was successfully destroyed.' }
+      format.html { redirect_to zgloszenies_url, notice: 'Zgłoszenie zostało usunięte.' }
       format.json { head :no_content }
     end
   end
