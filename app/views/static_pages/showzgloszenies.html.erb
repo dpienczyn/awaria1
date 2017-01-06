@@ -10,7 +10,7 @@
           </form>
           </div>
           </div>
-          </div>  
+          </div>
       <div class="wrapper">
         <table id="acrylic">
             <thead>
@@ -24,11 +24,13 @@
                     <th>Opis uszkodzenia</th>
                     <th>Nazwa urzadzenia</th>
                     <th>Wysyłka</th>
+                    <th>Pracownik ID</th>
+                    <th>Akcje</th>
                 </tr>
             </thead>
             <tbody>
             <% Zgloszenie.order("created_at desc").each do |zgloszeny| %>
-            <% if current_user.id == zgloszeny.user_id %>
+            <% if current_user.id == zgloszeny.pracownikid %>
                 <tr>
                     <td data-label="ID"><%= zgloszeny.id %></td>
                     <td data-label="Dział"><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
@@ -37,13 +39,13 @@
                     <td data-label="Data_zgłoszenia"><%= zgloszeny.data_zgloszenia %></td>
                     <td data-label="Data_naprawy"><%= zgloszeny.data_naprawy %></td>
                     <td data-label="Opis_uszkodzenia"><%= zgloszeny.opis_uszkodzenia %></td>
-                    <td data-label="nazwa_urzadzenia"><%= zgloszeny.nazwa_urzadzenia %></td>
-                    <td data-label="wysylka"><%= zgloszeny.wysylka %></td>
-                 </tr> 
-                 <% end %> 
-                 <% end %>      
+                    <td data-label="Nazwa_urzadzenia"><%= zgloszeny.nazwa_urzadzenia %></td>
+                    <td data-label="Wysylka"><%= zgloszeny.wysylka %></td>
+                    <td data-label="PracownikID"><%= zgloszeny.pracownikid %></td>
+                    <td data-label="Akcje"><%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary fa fa-pencil' %></td>
+                 </tr>
+                 <% end %>
+                 <% end %>
             </tbody>
         </table>
     </div>
-   
-      

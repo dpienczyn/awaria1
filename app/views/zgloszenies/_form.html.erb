@@ -57,7 +57,12 @@
   </div><br/>
 
   <% end %>
+  <% if current_user.admin? %>
 
+  <%= f.label :nazwa_pracownika %>
+  <%= f.select :pracownikid, User.where(ispracownik: true).pluck(:id, :first_name, :last_name).map{|db_fields| db_fields.join(' ')} %>
+
+  <% end %>
   <div class="actions">
     <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>
   </div>
