@@ -4,12 +4,14 @@ class ZgloszeniesController < ApplicationController
   # GET /zgloszenies
   # GET /zgloszenies.json
   def index
-    @zgloszenies = Zgloszenie.where("nazwa_urzadzenia ILIKE ? OR priorytet ILIKE ? OR status ILIKE ? ", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
-    @zgloszenia = Zgloszenie.all
+    @zgloszenies = Zgloszenie.includes(:user)
+                             .where("zgloszenies.nazwa_urzadzenia ILIKE :q OR users.email ILIKE :q OR users.first_name ILIKE :q OR users.last_name ILIKE :q", q: "%#{params[:search]}%")
+                             .references(:users)
     respond_to do |format|
+      format.js
       format.html
       format.pdf do
-        pdf = ZgloszenieListaPdf.new(@zgloszenia)
+        pdf = ZgloszenieListaPdf.new(@zgloszenies)
         send_data pdf.render, filename: "zgloszenia.pdf",
                               type: "application/pdf",
                               description: "inline"
@@ -52,6 +54,7 @@ class ZgloszeniesController < ApplicationController
 
     respond_to do |format|
       if @zgloszeny.save
+        CustomerNotificationMailer.started(@zgloszeny.id, @zgloszeny.user_id).deliver_later
         format.html { redirect_to @zgloszeny, notice: 'Zgłoszenie zostało pomyślnie dodane.' }
         format.json { render :show, status: :created, location: @zgloszeny }
       else
@@ -65,7 +68,8 @@ class ZgloszeniesController < ApplicationController
   # PATCH/PUT /zgloszenies/1.json
   def update
     respond_to do |format|
-      if @zgloszeny.update(zgloszeny_params)
+      if @zgloszeny.update(zgloszeny_params.except(:user_id))
+        CustomerNotificationMailer.send(@zgloszeny.status, @zgloszeny.id, @zgloszeny.user_id).deliver_later if !@zgloszeny.started?
         format.html { redirect_to @zgloszeny, notice: 'Edycja zakończyła się sukcesem.' }
         format.json { render :show, status: :ok, location: @zgloszeny }
       else

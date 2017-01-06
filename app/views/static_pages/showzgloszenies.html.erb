@@ -35,7 +35,7 @@
                     <td data-label="ID"><%= zgloszeny.id %></td>
                     <td data-label="Dział"><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
                     <td data-label="Priorytet"><%= zgloszeny.priorytet %></td>
-                    <td data-label="Status"><%= zgloszeny.status %></td>
+                    <td data-label="Status"><%= t("activerecord.attributes.zgloszenie.statuses.#{zgloszeny.status}") %></td>
                     <td data-label="Data_zgłoszenia"><%= zgloszeny.data_zgloszenia %></td>
                     <td data-label="Data_naprawy"><%= zgloszeny.data_naprawy %></td>
                     <td data-label="Opis_uszkodzenia"><%= zgloszeny.opis_uszkodzenia %></td>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220211153) do
+ActiveRecord::Schema.define(version: 20170105190151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,14 +79,14 @@ ActiveRecord::Schema.define(version: 20161220211153) do
   create_table "zgloszenies", force: :cascade do |t|
     t.integer  "dzial_id"
     t.text     "priorytet"
-    t.text     "status"
+    t.integer  "status",           default: 0
     t.date     "data_zgloszenia"
     t.date     "data_naprawy"
     t.text     "opis_uszkodzenia"
     t.text     "nazwa_urzadzenia"
     t.boolean  "wysylka"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "user_id"
     t.integer  "pracownikid"
     t.index ["dzial_id"], name: "index_zgloszenies_on_dzial_id", using: :btree

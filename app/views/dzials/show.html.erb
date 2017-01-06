@@ -1,15 +1,30 @@
-<div class="jumbotron">
-<p>
+<%= render 'dzials/edit/page', dzials: @dzials %>
+
+<div class="container">
+    <div class="row">
+		<div class="col-md-4">
+            <div class="well well-sm">
+                <div class="media">
+                    <div class="media-body">
+                        <h4 class="media-heading"></h4>
+                        <p>
+                        <h4><p>
   <strong>ID:</strong>
   <%= @dzial.id %>
-</p>
-<p>
+</p></h4>
+
+  <h4><p>
   <strong>Nazwa:</strong>
   <%= @dzial.nazwa %>
-  </p>
- 
-<div class="actions">
-<%= link_to 'Edytuj', edit_dzial_path(@dzial), class: "btn btn-primary" %>
+  </p></h4><br/>
+
+  <%= link_to 'Edytuj', edit_dzial_path(@dzial), class: "btn btn-primary" %>
 <%= link_to 'Wróć', dzials_path, class: "btn btn-success" %>
-</div>
+                           
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
 </div>

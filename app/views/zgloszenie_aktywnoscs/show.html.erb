@@ -1,15 +1,29 @@
+<%= render 'zgloszenie_aktywnoscs/edit/page', zgloszenie_aktywnoscs: @zgloszenie_aktywnoscs %>
 
-<p>
+<div class="container">
+    <div class="row">
+		<div class="col-md-4">
+            <div class="well well-sm">
+                <div class="media">
+                    <div class="media-body">
+                        <h4 class="media-heading"></h4>
+                        <p>
+                         <h4><p>
   <strong>Zgłoszenie:</strong>
   <%= @zgloszenie_aktywnosc.zgloszenie %>
-</p>
+</p></h4>
 
-<p>
+<h4><p>
   <strong>Treść:</strong>
   <%= @zgloszenie_aktywnosc.tresc %>
-</p><br />
+</p></h4><br />  
 
-<div class="actions">
 <%= link_to 'Edytuj', edit_zgloszenie_aktywnosc_path(@zgloszenie_aktywnosc), class: "btn btn-primary" %>
 <%= link_to 'Wróć', zgloszenie_aktywnoscs_path , class: "btn btn-success" %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
 </div>
