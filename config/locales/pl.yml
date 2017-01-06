@@ -1,7 +1,19 @@
 ---
 pl:
+  customer_notification_mailer:
+    inprogress:
+      subject: Usterka jest w trakcie naprawy.
+    started:
+      subject: Rozpoczęcie naprawy usterki.
+    finished:
+      subject: Naprawa usterki została zakończona.
   activerecord:
     attributes:
+      zgloszenie:
+        statuses:
+          started: Przyjęto
+          inprogress: Realizacja
+          finished: Zakończono
       user:
         first_name: Imię
       errors:

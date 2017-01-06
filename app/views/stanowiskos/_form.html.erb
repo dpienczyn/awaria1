@@ -11,12 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nazwa %><br/>
-    <%= f.text_area :nazwa %>
-  </div><br />
-
-  <div class="actions">
-    <%= f.submit "Dodaj", class: "btn btn-danger"%>
-  </div>
+          <div class="control-group">
+            <label class="control-label" for="password"><h5>Nazwa</h5></label>
+            <div class="controls">
+            <%= f.text_area :nazwa, class: "input-xlarge" %>
+            </div>
+          </div><br/>
+          <div class="control-group">
+            <!-- Button -->
+            <div class="controls">
+            <%= f.submit "Dodaj", class: "btn btn-success"%>
+            </div>
+          </div>
 <% end %><br />

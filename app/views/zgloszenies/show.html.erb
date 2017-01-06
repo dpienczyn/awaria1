@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<%= render 'zgloszenies/edit/page', zgloszenies: @zgloszenies %>
 <table> <tr>
   <td style="text-align: center;">
       <%= image_tag(generate_qr(@zgloszeny.id.to_s), class: "qr-code") %>
@@ -6,7 +6,7 @@
   <td>
   <p><h2>Dział: <%= Dzial.where(id:@zgloszeny.dzial_id).pluck(:nazwa).last %> </h2> </p>
   <p> <strong>Priorytet: </strong><%= @zgloszeny.priorytet %>
-  <strong>Status:</strong> <%= @zgloszeny.status %> </p>
+  <strong>Status:</strong> <%= t("activerecord.attributes.zgloszenie.statuses.#{@zgloszeny.status}") %> </p>
 
   <p> <strong>Data zgłoszenia:</strong> <%= @zgloszeny.data_zgloszenia %>
   <strong>Data naprawy:</strong> <%= @zgloszeny.data_naprawy %> </p>
@@ -15,7 +15,7 @@
   <p> <strong>Opis uszkodzenia:</strong> <%= @zgloszeny.opis_uszkodzenia %> </p>
   <p> <strong>Wysyłka:</strong> <%= @zgloszeny.wysylka %> </p>
   </td> </tr> </table>
-</div>
+
 
 <div class="jumbotron" align="center">
   <%= link_to 'Edytuj Zgłoszenie', edit_zgloszeny_path(@zgloszeny), class:'btn btn btn-danger' %>
