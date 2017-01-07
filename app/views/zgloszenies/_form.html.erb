@@ -17,8 +17,9 @@
   <div class="control-group">
             <%= f.hidden_field :user_id, :value => current_user.id  %>
             <label class="control-label"  for="username"><h5>Zgłoszenie do działu</h5></label>
+            <% if current_user.id != :user_id %>
             <div class="controls">
-            <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz", id:"dzialselect", class: 'input-xlarge' %>   
+            <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz", id:"dzialselect", class: 'input-xlarge' %>
             </div>
           </div><br/>
           <div class="control-group">
@@ -45,9 +46,10 @@
             <%= f.select :wysylka, [['Tak', true], ['Nie', false]], class: "input-xlarge" %>
             </div>
           </div><br/>
+          <% end %>
+          <% if current_user.ispracownik? %>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Priorytet</h5></label>
-            <% if current_user.ispracownik? %>
             <div class="controls">
             <%= f.text_field :priorytet, class: "input-xlarge" %>
             </div>
@@ -65,21 +67,16 @@
             </div>
           </div><br/>
   <% end %>
-<<<<<<< HEAD
   <% if current_user.admin? %>
 
   <%= f.label :nazwa_pracownika %>
   <%= f.select :pracownikid, User.where(ispracownik: true).pluck(:id, :first_name, :last_name).map{|db_fields| db_fields.join(' ')} %>
 
   <% end %>
-  <div class="actions">
-    <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>
-  </div>
-=======
   <div class="control-group">
             <div class="controls">
             <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>
             </div>
           </div>
->>>>>>> 17f7338786beb150e1abe431c3950138e7f29793
+
 <% end %><br />
