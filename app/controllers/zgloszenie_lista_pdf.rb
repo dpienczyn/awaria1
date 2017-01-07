@@ -1,4 +1,5 @@
 class ZgloszenieListaPdf < Prawn::Document
+
   def initialize(zgloszenies)
     super()
     @zgloszenies = zgloszenies
@@ -7,18 +8,22 @@ class ZgloszenieListaPdf < Prawn::Document
   end
 
   def zgloszenie_header
-    text "Lista Zgloszen", size: 30
+    font("app/assets/fonts/SourceSansPro-Regular.ttf", size: 30) do
+      text "Lista Zgłoszeń"
+    end
   end
 
   def zgloszenie_lines
     move_down 20
-    table zgloszenie_lines_rows do
-      row(0).font_style = :bold
-      columns(1..8).align = :right
-      columns(0..8).size = 10
-      self.row_colors = ["DDDDDD", "FFFFFF"]
-      self.header = true
-    end
+      font("app/assets/fonts/SourceSansPro-Regular.ttf", size: 30) do
+        table zgloszenie_lines_rows do
+          # row(0).font_style = :bold
+          columns(1..8).align = :right
+          columns(0..8).size = 10
+          self.row_colors = ["DDDDDD", "FFFFFF"]
+          self.header = true
+        end
+      end
   end
 
   def zgloszenie_lines_rows

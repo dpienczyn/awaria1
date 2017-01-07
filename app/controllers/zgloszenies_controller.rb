@@ -12,9 +12,9 @@ class ZgloszeniesController < ApplicationController
       format.html
       format.pdf do
         pdf = ZgloszenieListaPdf.new(@zgloszenies)
-        send_data pdf.render, filename: "zgloszenia.pdf",
+        send_data pdf.render, {filename: "zgloszenia.pdf",
                               type: "application/pdf",
-                              description: "inline"
+                              disposition: "inline"}
       end
     end
   end
@@ -29,7 +29,7 @@ class ZgloszeniesController < ApplicationController
         pdf = ZgloszenieKartaPdf.new(@zgloszenie)
         send_data pdf.render, filename: "zgloszenie_#{@zgloszenie.id}.pdf",
                               type: "application/pdf",
-                              description: "inline"
+                              disposition: "inline"
       end
     end
   end
