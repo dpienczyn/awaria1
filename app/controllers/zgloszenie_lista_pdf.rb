@@ -15,9 +15,8 @@ class ZgloszenieListaPdf < Prawn::Document
 
   def zgloszenie_lines
     move_down 20
-      font("app/assets/fonts/SourceSansPro-Regular.ttf", size: 30) do
+      font("app/assets/fonts/SourceSansPro-Regular.ttf", size: 10) do
         table zgloszenie_lines_rows do
-          # row(0).font_style = :bold
           columns(1..8).align = :right
           columns(0..8).size = 10
           self.row_colors = ["DDDDDD", "FFFFFF"]
@@ -27,9 +26,11 @@ class ZgloszenieListaPdf < Prawn::Document
   end
 
   def zgloszenie_lines_rows
-    [["ID", "Dzial", "Priorytet", "Status", "Data zgloszenia", "Data naprawy", "Nazwa Urzadzenia", "Opis Uszkodzenia"]] +
+    index = 0
+    [["LP", "Dział", "Priorytet", "Status", "Data zgłoszenia", "Data naprawy", "Nazwa Urządzenia", "Opis Uszkodzenia"]] +
     @zgloszenies.map do |zgloszenie|
-      [zgloszenie.id.to_s, Dzial.where(id:zgloszenie.dzial_id).pluck(:nazwa).last, zgloszenie.priorytet.to_s, zgloszenie.status.to_s, zgloszenie.data_zgloszenia.to_s, zgloszenie.data_naprawy.to_s, zgloszenie.nazwa_urzadzenia, zgloszenie.opis_uszkodzenia]
+      index += 1
+      [index, Dzial.where(id:zgloszenie.dzial_id).pluck(:nazwa).last, zgloszenie.priorytet.to_s, zgloszenie.status.to_s, zgloszenie.data_zgloszenia.to_s, zgloszenie.data_naprawy.to_s, zgloszenie.nazwa_urzadzenia, zgloszenie.opis_uszkodzenia]
     end
   end
 end
