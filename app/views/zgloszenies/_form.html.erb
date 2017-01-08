@@ -15,12 +15,19 @@
   <% end %><br />
 
   <div class="control-group">
-            <%= f.hidden_field :user_id, :value => current_user.id  %>
+            <% if current_user.admin? %>
+            <%= f.label :nazwa_pracownika %>
+            <%= f.select :pracownikid, User.where(ispracownik: true).pluck(:id, :first_name, :last_name).map{|db_fields| db_fields.join(' ')} %>
+            <% end %><br/>
             <label class="control-label"  for="username"><h5>Zgłoszenie do działu</h5></label>
-            <% if current_user.id != :user_id %>
             <div class="controls">
-            <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz", id:"dzialselect", class: 'input-xlarge' %>
-            </div>
+              <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz", id:"dzialselect", class: 'input-xlarge' %>
+            </div><br/>
+          
+            <%= f.label :ID_użytkownika %><br/>
+            <%= f.text_field :user_id, :value => current_user.id ,:readonly => true %><br/>
+
+            <% if current_user.id != :user_id %>
           </div><br/>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Data zgłoszenia</h5></label>
@@ -61,18 +68,19 @@
             </div>
           </div><br/>
           <div class="control-group">
+            <label class="control-label" for="password"><h5>Zrealizowane</h5></label>
+            <div class="controls">
+            <%= f.select :zrealizowane, [['Nie', false], ['Tak', true]], class: "input-xlarge" %>
+          </div><br/>
+          <div class="control-group">
             <label class="control-label" for="password"><h5>Data naprawy</h5></label>
             <div class="controls">
             <%= f.date_select :data_naprawy, :default => nil, class: "input-xlarge" %>
             </div>
           </div><br/>
   <% end %>
-  <% if current_user.admin? %>
 
-  <%= f.label :nazwa_pracownika %>
-  <%= f.select :pracownikid, User.where(ispracownik: true).pluck(:id, :first_name, :last_name).map{|db_fields| db_fields.join(' ')} %>
 
-  <% end %>
   <div class="control-group">
             <div class="controls">
             <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>

@@ -6,12 +6,16 @@ class Zgloszenie < ApplicationRecord
 
   def self.statuses_for_select
   	statuses.map do |status, _|
-      [I18n.t("activerecord.attributes.#{model_name.i18n_key}.statuses.#{status}"), 
+      [I18n.t("activerecord.attributes.#{model_name.i18n_key}.statuses.#{status}"),
       status]
     end
   end
 
+
   def init
-  	self.status = :started 
+  	self.status = :started
   end
+end
+class Resource < ActiveRecord::Base
+  attr_accessor :custom_field
 end

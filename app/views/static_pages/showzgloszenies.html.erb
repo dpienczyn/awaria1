@@ -25,6 +25,7 @@
                     <th>Nazwa urzadzenia</th>
                     <th>Wysyłka</th>
                     <th>Pracownik ID</th>
+                    <th>Zrealizowano?</th>
                     <th>Akcje</th>
                 </tr>
             </thead>
@@ -42,7 +43,12 @@
                     <td data-label="Nazwa_urzadzenia"><%= zgloszeny.nazwa_urzadzenia %></td>
                     <td data-label="Wysylka"><%= zgloszeny.wysylka %></td>
                     <td data-label="PracownikID"><%= zgloszeny.pracownikid %></td>
-                    <td data-label="Akcje"><%= link_to ' Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary fa fa-pencil' %></td>
+                    <td data-label="PracownikID"><%= zgloszeny.zrealizowane %></td>
+                    <td data-label="Akcje">
+                    <% if zgloszeny.zrealizowane!=true %>
+                    <%= link_to ' Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary fa fa-pencil' %>
+                    <% end %>
+                    </td>
                  </tr>
                  <% end %>
                  <% end %>

@@ -1,6 +1,6 @@
 <div class="container">
       <div class="row">
-      <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-11 col-md-offset-1">
       <div class="panel panel-default panel-table">
       <div class="panel-heading">
       <div class="row">
@@ -17,7 +17,7 @@
       </div>
       </div>
       <div class="panel-body">
-      <table class="table table-striped table-bordered table-list">
+      <table class="table table-responsive table-striped table-bordered table-list">
       <thead>
       <tr>
         <th><em class="fa fa-cog"></em></th>
@@ -31,10 +31,11 @@
         <th>Opis urzadzenia</th>
         <th>Wysyłka</th>
         <% if current_user.admin? %>
-        <th>ID U</th>
-        <th>ID S</th>
+        <th>Zrealizowane?</th>
+        <th>ID USR</th>
+        <th>ID Pracownik</th>
         <% end %>
-      </tr> 
+      </tr>
       </thead>
       <tbody>
       <% @zgloszenies.each do |zgloszeny| %>
@@ -55,6 +56,7 @@
             <td><%= zgloszeny.opis_uszkodzenia %></td>
             <td><%= zgloszeny.wysylka %></td>
             <% if current_user.admin? %>
+            <td><%= zgloszeny.zrealizowane %></td>
             <td><%= zgloszeny.user_id %></td>
             <td>
             <% if zgloszeny.pracownikid.nil? %>
