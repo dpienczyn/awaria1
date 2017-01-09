@@ -3,4 +3,7 @@
 <div class="table-responsive">
 <%= render 'stanowiskos/partials/stanowiskos_table', stanowiskos: @stanowiskos %>
 </div>
-
+<div class="actions" align="center">
+<%= link_to 'Dodaj stanowisko', new_stanowisko_path, class:'btn btn-sm btn-primary btn-create' %>
+<%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-primary btn-create' %>
+</div><br/>

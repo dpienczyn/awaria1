@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20170108170733) do
     t.datetime "updated_at",                   null: false
     t.integer  "user_id"
     t.integer  "pracownikid"
-    t.boolean  "zrealizowane",                 default:false
+    t.boolean  "zrealizowane"
     t.index ["dzial_id"], name: "index_zgloszenies_on_dzial_id", using: :btree
   end
 

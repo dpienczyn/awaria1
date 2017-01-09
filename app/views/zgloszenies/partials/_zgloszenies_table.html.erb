@@ -1,76 +1,59 @@
-<div class="container">
-      <div class="row">
-      <div class="col-md-11 col-md-offset-1">
-      <div class="panel panel-default panel-table">
-      <div class="panel-heading">
-      <div class="row">
-      <div class="col col-xs-6">
-      <h3 class="panel-title"><strong>Zgłoszenia</strong></h3>
-      </div>
-      <div class="col col-xs-6 text-right">
-      <%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-sm btn-success btn-create' %>
-      <%= link_to 'Pobierz PDF', zgloszenies_path(@zgloszenies, format: "pdf"), class:'btn btn-sm btn-success btn-create'%>
-      <% if current_user.admin? %>
-      <%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-success btn-create' %>
-      <% end %>
-      </div>
-      </div>
-      </div>
-      <div class="panel-body">
-      <table class="table table-responsive table-striped table-bordered table-list">
-      <thead>
-      <tr>
-        <th><em class="fa fa-cog"></em></th>
-        <th class="hidden-xs">ID</th>
-        <th>Dział</th>
+      <div class="wrapper">
+        <table id="acrylic">
+            <thead>
+                <tr>
+                    <th>L.p</th>
+                    <th>Dział</th>
         <th>Priorytet</th>
         <th>Status</th>
         <th>Data zgłoszenia</th>
         <th>Data naprawy</th>
-        <th>Nazwa</th>
+        <th>Nazwa urzadzenia</th>
         <th>Opis urzadzenia</th>
         <th>Wysyłka</th>
         <% if current_user.admin? %>
         <th>Zrealizowane?</th>
         <th>ID USR</th>
         <th>ID Pracownik</th>
+        <th>Akcje</th>
+        <th></th>
+        <th></th>
         <% end %>
-      </tr>
-      </thead>
-      <tbody>
-      <% @zgloszenies.each do |zgloszeny| %>
+                </tr>
+            </thead>
+            <tbody>
+            <% @zgloszenies.each do |zgloszeny| %>
       <% if current_user.id == zgloszeny.user_id || current_user.admin? %>
-          <tr>
-            <td align="center">
-            <%= link_to '', zgloszeny, class:'btn btn-warning fa fa-eye' %>
-            <%= link_to '', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary fa fa-pencil' %>
-            <%= link_to '', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-danger fa fa-trash' %>
-            </td>
-            <td class="hidden-xs"><%= zgloszeny.id %></td>
-            <td><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
-            <td><%= zgloszeny.priorytet %></td>
-            <td><%= t("activerecord.attributes.zgloszenie.statuses.#{zgloszeny.status}") %></td>
-            <td><%= zgloszeny.data_zgloszenia %></td>
-            <td><%= zgloszeny.data_naprawy %></td>
-            <td><%= zgloszeny.nazwa_urzadzenia %></td>
-            <td><%= zgloszeny.opis_uszkodzenia %></td>
-            <td><%= zgloszeny.wysylka %></td>
-            <% if current_user.admin? %>
-            <td><%= zgloszeny.zrealizowane %></td>
-            <td><%= zgloszeny.user_id %></td>
-            <td>
-            <% if zgloszeny.pracownikid.nil? %>
+                <tr>
+                    <td data-label="L.p"><%= zgloszeny.id %></td>
+                    <td data-label="Dział"><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
+                    <td data-label="Priorytet"><%= zgloszeny.priorytet %></td>
+                    <td data-label="Status"><%= t("activerecord.attributes.zgloszenie.statuses.#{zgloszeny.status}") %></td>
+                    <td data-label="Data_zgłoszenia"><%= zgloszeny.data_zgloszenia %></td>
+                    <td data-label="Data_naprawy"><%= zgloszeny.data_naprawy %></td>
+                    <td data-label="Nazwa_urzadzenia"><%= zgloszeny.nazwa_urzadzenia %></td>
+                    <td data-label="Opis_urzadzenia"><%= zgloszeny.opis_uszkodzenia %></td>
+                    <td data-label="Wysylka"><%= zgloszeny.wysylka %></td>
+                    <% if current_user.admin? %>
+                    <td data-label="Zrealizowane"><%= zgloszeny.zrealizowane %></td>
+                    <td data-label="ID USR"><%= zgloszeny.user_id %></td>
+                    <% if zgloszeny.pracownikid.nil? %>
              Brak
             <% else %>
-            <%= zgloszeny.pracownikid %></td>
+            <td data-label="ID Pracownik"><%= zgloszeny.pracownikid %></td>
             <% end %>
             <% end %>
-          </tr>
-          <% end %>
+                    <% if zgloszeny.zrealizowane!=true %>
+                    <td><%= link_to 'Usuń', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-danger btn-xs' %></td>
+            <td><%= link_to 'Pokaż', zgloszeny, class:'btn btn-warning btn-xs' %></td>
+            <td><%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary btn-xs' %></td>
+            
+                    <% end %>
+                    </td>
+                 </tr>
+                 <% end %>
 
-          <% end %>
-        </tbody>
-      </table>
-      </div>
-      </div>
-      </div></div></div>
+                 <% end %>
+            </tbody>
+        </table>
+    </div>

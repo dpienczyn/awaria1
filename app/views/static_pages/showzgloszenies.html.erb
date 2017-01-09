@@ -1,57 +1,59 @@
-    <div class="container">
-    <div class="row">
+<div class="container">
+  <div class="row">
     <div class="span12">
       <form class="form-horizontal" action='' method="POST">
         <fieldset>
           <div id="legend">
             <legend class=""><h4>zlecenia</h4></legend>
           </div>
-          </fieldset>
-          </form>
-          </div>
-          </div>
-          </div>
-      <div class="wrapper">
-        <table id="acrylic">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Dział</th>
-                    <th>Priorytet</th>
-                    <th>Status</th>
-                    <th>Data zgłoszenia</th>
-                    <th>Data naprawy</th>
-                    <th>Opis uszkodzenia</th>
-                    <th>Nazwa urzadzenia</th>
-                    <th>Wysyłka</th>
-                    <th>Pracownik ID</th>
-                    <th>Zrealizowano?</th>
-                    <th>Akcje</th>
-                </tr>
-            </thead>
-            <tbody>
-            <% Zgloszenie.order("created_at desc").each do |zgloszeny| %>
-            <% if current_user.id == zgloszeny.pracownikid %>
-                <tr>
-                    <td data-label="ID"><%= zgloszeny.id %></td>
-                    <td data-label="Dział"><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
-                    <td data-label="Priorytet"><%= zgloszeny.priorytet %></td>
-                    <td data-label="Status"><%= t("activerecord.attributes.zgloszenie.statuses.#{zgloszeny.status}") %></td>
-                    <td data-label="Data_zgłoszenia"><%= zgloszeny.data_zgloszenia %></td>
-                    <td data-label="Data_naprawy"><%= zgloszeny.data_naprawy %></td>
-                    <td data-label="Opis_uszkodzenia"><%= zgloszeny.opis_uszkodzenia %></td>
-                    <td data-label="Nazwa_urzadzenia"><%= zgloszeny.nazwa_urzadzenia %></td>
-                    <td data-label="Wysylka"><%= zgloszeny.wysylka %></td>
-                    <td data-label="PracownikID"><%= zgloszeny.pracownikid %></td>
-                    <td data-label="PracownikID"><%= zgloszeny.zrealizowane %></td>
-                    <td data-label="Akcje">
-                    <% if zgloszeny.zrealizowane!=true %>
-                    <%= link_to ' Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary fa fa-pencil' %>
-                    <% end %>
-                    </td>
-                 </tr>
-                 <% end %>
-                 <% end %>
-            </tbody>
-        </table>
+        </fieldset>
+      </form>
     </div>
+  </div>
+</div>
+          
+<div class="table-responsive">
+  <div class="wrapper">
+    <table id="acrylic">
+        <thead>
+            <tr>
+                <th>L.p</th>
+                <th>Dział</th>
+                <th>Priorytet</th>
+                <th>Status</th>
+                <th>Data zgłoszenia</th>
+                <th>Data naprawy</th>
+                <th>Opis uszkodzenia</th>
+                <th>Nazwa urzadzenia</th>
+                <th>Wysyłka</th>
+                <th>Pracownik ID</th>
+                <th>Zrealizowano?</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+      <tbody>
+        <% Zgloszenie.order("created_at desc").each do |zgloszeny| %>
+        <% if current_user.id == zgloszeny.pracownikid %>
+            <tr>
+                <td data-label="ID"><%= zgloszeny.id %></td>
+                <td data-label="Dział"><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
+                <td data-label="Priorytet"><%= zgloszeny.priorytet %></td>
+                <td data-label="Status"><%= t("activerecord.attributes.zgloszenie.statuses.#{zgloszeny.status}") %></td>
+                <td data-label="Data_zgłoszenia"><%= zgloszeny.data_zgloszenia %></td>
+                <td data-label="Data_naprawy"><%= zgloszeny.data_naprawy %></td>
+                <td data-label="Opis_uszkodzenia"><%= zgloszeny.opis_uszkodzenia %></td>
+                <td data-label="Nazwa_urzadzenia"><%= zgloszeny.nazwa_urzadzenia %></td>
+                <td data-label="Wysylka"><%= zgloszeny.wysylka %></td>
+                <td data-label="PracownikID"><%= zgloszeny.pracownikid %></td>
+                <td data-label="Zrealizowano?"><%= zgloszeny.zrealizowane %></td>
+                <% if zgloszeny.zrealizowane!=true %>
+                <td><%= link_to ' Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary btn-xs' %></td>
+                <% end %>
+                </td>
+            </tr>
+             <% end %>
+             <% end %>
+        </tbody>
+    </table>
+</div>
+</div>

@@ -7,6 +7,7 @@
           <div id="legend">
             <legend class=""><h4>Edycja użytkownika</h4></legend>
           </div>
+
           <div class="control-group">
             <!-- Username -->
             <label class="control-label"  for="username">Stanowisko</label>
@@ -14,6 +15,7 @@
             <%= f.collection_select :stanowisko_id, Stanowisko.all, :id, :nazwa,prompt: "Wybierz", class:'input-xlarge' %>
             </div>
           </div><br/>
+
           <div class="control-group">
             <label class="control-label" for="password">Dział użytkownika</label>
             <div class="controls">
@@ -21,7 +23,6 @@
             </div>
           </div></fieldset><br/>
           <div class="control-group">
-            <!-- Button -->
             <div class="controls">
              <%= f.submit "Aktualizuj", class:'btn btn-success' %>
              <%= link_to "Wróć", :back, class: "btn btn-primary" %>
