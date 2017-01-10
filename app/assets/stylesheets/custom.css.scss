@@ -6,6 +6,7 @@
 body { padding-top: 20px; }
 
 .colorgraph {
+  border-top: 70px;
   height: 5px;
   border-top: 0;
   background: #c4e17f;
@@ -15,9 +16,17 @@ body { padding-top: 20px; }
   background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
+.colorgraph .input-lg{
+    font-family: 'roboto';
+
+}
+
+.form-group .btn-block{
+    font-family: 'roboto';
+}
 
 .form-gap {
-    padding-top: 70px;
+    padding-top: 30px;
 }
 
 .SearchIcon
@@ -27,12 +36,12 @@ body { padding-top: 20px; }
 }
 .SearchButton
 {
-    background-color: #0066FF;
+    background-color: #3366FF;
     border-radius: 1px;
 
 }
 .SearchButton:hover{
-    background-color: #0066FF;
+    background-color: #3366FF;
 }
 
 .SearchBar{
@@ -175,7 +184,9 @@ table#acrylic {
 
 }
 }
-
+.span12{
+  text-align: center;
+}
 
 .span12 h4 {
 margin-left: 20px;
@@ -184,7 +195,7 @@ font-family: 'roboto';
 font-size: 30px;
 font-weight: 300;
 margin-bottom: 15px;
-margin-top: 20px;
+margin-top: 10px;
 text-transform: uppercase;
 } 
 
@@ -203,7 +214,7 @@ text-transform: uppercase;
 
 .turbolinks-progress-bar {
 height: 5px;
-background-color: blue;
+background-color: #3366FF;
 }
 
 .control-group h5{
@@ -451,6 +462,7 @@ margin-bottom: 3px;
 
 
 .jumbotron{
+
 font-family: 'roboto';
 }
 .jumbotron h2{
@@ -489,3 +501,78 @@ margin-bottom: 5px;
 text-align: center;
 }}
 
+.navbar-custom {
+  background: #EEEEEE;
+  font-family: 'roboto';
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+}
+.navbar-custom a:focus {
+  outline: none;
+}
+.navbar-custom .navbar-brand {
+  color: black;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus,
+.navbar-custom .navbar-brand:active,
+.navbar-custom .navbar-brand.active {
+  color: white;
+}
+.navbar-custom .navbar-nav {
+  letter-spacing: 1px;
+}
+.navbar-custom .navbar-nav li a {
+  color: #333333;
+}
+.navbar-custom .navbar-nav li a:hover {
+  color: #3366FF;
+  outline: none;
+}
+.navbar-custom .navbar-nav li a:focus,
+.navbar-custom .navbar-nav li a:active {
+  color: white;
+}
+.navbar-custom .navbar-nav li.active a {
+  color: white;
+  background: #3366FF;
+}
+.navbar-custom .navbar-nav li.active a:hover,
+.navbar-custom .navbar-nav li.active a:focus,
+.navbar-custom .navbar-nav li.active a:active {
+  color: white;
+  background: #3366FF;
+}
+.navbar-custom .navbar-toggle {
+  color: black;
+  text-transform: uppercase;
+  font-size: 10px;
+  border-color: #3366FF;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+  background-color: #3366FF;
+  color: white;
+  border-color: #18BC9C;
+}
+@media (min-width: 768px) {
+  .navbar-custom {
+    padding: 25px 0;
+    -webkit-transition: padding 0.3s;
+    -moz-transition: padding 0.3s;
+    transition: padding 0.3s;
+  }
+  .navbar-custom .navbar-brand {
+    font-size: 2em;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .navbar-custom.affix {
+    padding: 10px 0;
+  }
+  .navbar-custom.affix .navbar-brand {
+    font-size: 1.5em;
+  }
+}

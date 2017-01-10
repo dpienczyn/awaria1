@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Awaria</title>
     <%= csrf_meta_tags %>
     <%= content_for?(:head) ? yield(:head) : '' %>
     <%= javascript_include_tag "application" %>
@@ -11,10 +10,12 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
+    <div class="row" style="margin-top: 120px">
       <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert alert-info") %>
       <% end %>
        <%= yield %>
+     </div>
      </div>
 
   </body>
