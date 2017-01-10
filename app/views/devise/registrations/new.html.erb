@@ -41,7 +41,8 @@
  <div class="row">
   <div class="col-xs-12 col-md-6">
   <%= f.submit "Rejestracja", class: "btn btn-primary btn-block btn-lg"%> </div>
-  <div class="col-xs-12 col-md-6"><a href="http://localhost:3000/my/users/sign_in" class="btn btn-success btn-block btn-lg">Zaloguj się</a></div>
+  <div class="col-xs-12 col-md-6">
+  <%= link_to "Zaloguj się", new_session_path(resource_name), class: "btn btn-success btn-block btn-lg"  %></div>
  </div>
 </form>
 </div>

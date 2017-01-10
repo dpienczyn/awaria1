@@ -11,18 +11,16 @@
     </div>
   <% end %>
 
-          <div class="control-group">
-            <label class="control-label" for="password"><h5>Nazwa</h5></label>
-            <div class="controls">
-            <%= f.text_area :nazwa, class: "input-xlarge" %>
-            </div>
-          </div><br/>
-          <div class="control-group">
-            <!-- Button -->
-            <div class="controls">
+            
+<div class="field">
+  <%= f.label :Nazwa %><br/>
+  <%= f.text_area :nazwa%>
+  </div><br/>
+
+<div class="actions">
             <%= f.submit "Dodaj", class: "btn btn-success"%>
             <%= link_to 'Pokaż', @stanowisko, class: "btn btn-primary" %>
             <%= link_to 'Wróć', stanowiskos_path, class: "btn btn-success" %>
             </div>
-          </div>
 <% end %><br />
+ 

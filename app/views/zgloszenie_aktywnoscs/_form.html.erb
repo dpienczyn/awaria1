@@ -11,24 +11,19 @@
     </div>
   <% end %>
 
-  <div class="control-group">
-            <!-- Username -->
-            <label class="control-label"  for="username"><h5>Zgłoszenie</h5></label>
-            <div class="controls">
-            <%= f.text_field :zgloszenie_id, class: "input-xlarge" %>
-            </div>
-          </div><br/>
-          <div class="control-group">
-            <label class="control-label" for="password"><h5>Treść</h5></label>
-            <div class="controls">
-            <%= f.text_area :tresc, class: "input-xlarge" %>
-            </div>
-          </div><br/>
-          <div class="control-group">
-            <div class="controls">
+<div class="field">
+  <%= f.label :Zgłoszenie %><br/>
+  <%= f.text_field :zgloszenie_id%>
+  </div><br/>
+
+  <div class="field">
+    <%= f.label :Treść %><br/>
+    <%= f.text_area :tresc%>
+  </div><br/>
+
+  <div class="actions">
             <%= f.submit "Dodaj", class:'btn btn-success' %>
             <%= link_to 'Pokaż', @zgloszenie_aktywnosc, class: "btn btn-primary" %>
             <%= link_to 'Wróć', zgloszenie_aktywnoscs_path, class: "btn btn-danger" %>
             </div>
-          </div>
 <% end %><br />

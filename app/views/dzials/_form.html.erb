@@ -10,17 +10,15 @@
       </ul>
     </div>
   <% end %>
+         
 
-  <div class="control-group">
-            <label class="control-label"  for="username"><h5>Nazwa</h5></label>
-            <div class="controls">
-            <%= f.text_area :nazwa, class: 'input-xlarge' %>
-            </div>
-          </div><br/>
-          <div class="control-group">
-            <div class="controls">
+<div class="field">
+    <%= f.label :Nazwa %><br/>
+    <%= f.text_area :nazwa%>
+  </div><br/>
+
+<div class="actions">
              <%= f.submit "Dodaj Dział", class: "btn btn-success" %>
              <%= link_to 'Wróć', dzials_path, class: "btn btn-primary" %>
-            </div>
           </div>
-<% end %><br />
+<% end %><br /> 

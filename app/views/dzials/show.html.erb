@@ -7,15 +7,13 @@
                 <div class="media">
                     <div class="media-body">
                         <h4 class="media-heading"></h4>
-                        <p>
-                        <h4><p>
-  <strong>ID:</strong>
-  <%= @dzial.id %>
-</p></h4>
+                        <h4><p><strong>ID:</strong>
+                        <th><%= @dzial.id %></th>
+                        </p></h4>
 
   <h4><p>
   <strong>Nazwa:</strong>
-  <%= @dzial.nazwa %>
+  <th><%= @dzial.nazwa %></th>
   </p></h4><br/>
 
   <%= link_to 'Edytuj', edit_dzial_path(@dzial), class: "btn btn-primary" %>
