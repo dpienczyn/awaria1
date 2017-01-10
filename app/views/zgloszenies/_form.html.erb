@@ -23,7 +23,7 @@
             <div class="control-group">
             <label class="control-label"  for="username"><h5>Zgłoszenie do działu</h5></label>
             <div class="controls">
-              <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz", id:"dzialselect", class: 'input-xlarge' %>
+              <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz", id:"dzialselect", class: 'input-xlarge-s' %>
             </div><br/>
           
             <label class="control-label"  for="username"><h5>ID użytkownika</h5></label>
@@ -52,9 +52,9 @@
           </div><br/>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Wysyłka</h5></label>
-            <div class="controls">
-            <%= f.select :wysylka, [['Tak', true], ['Nie', false]], class: "input-xlarge" %>
-            </div>
+            
+            <%= f.select :wysylka, [['Tak', true], ['Nie', false]], class: "form-control" %>
+           
           </div><br/>
           <% end %>
           <% if current_user.ispracownik? %>
@@ -83,11 +83,14 @@
           </div><br/>
   <% end %>
 
-
   <div class="control-group">
             <div class="controls">
             <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>
+            <%= link_to 'Pokaż', @zgloszeny, class: "btn btn-primary" %>
+            <%= link_to 'Wróć', zgloszenies_path, class: "btn btn-danger" %>
             </div>
           </div>
 
 <% end %><br />
+
+

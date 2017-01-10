@@ -21,7 +21,19 @@ body { padding-top: 20px; }
 
 }
 
-.form-group .btn-block{
+.fr .alert-info{
+  font-family: 'roboto';
+  text-transform: uppercase;
+}
+@media screen and (max-width: 767px) {
+.fr .alert-info{
+  font-family: 'roboto';
+  text-transform: uppercase;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}}
+.form-group .input-lg{
     font-family: 'roboto';
 }
 
@@ -47,7 +59,19 @@ body { padding-top: 20px; }
 .SearchBar{
 
 }
+.input-group .SearchBar{
+  font-family: 'roboto';
+}
 
+@media screen and (max-width: 767px) {
+.SearchButton{
+   margin-left: 7px;
+   margin-right: 10px;
+}
+.input-group .SearchBar{
+  text-transform: uppercase;
+}
+}
 
 table#acrylic {
 border-collapse: separate;
@@ -178,10 +202,12 @@ transition: 0.2s all;
 }
 table#acrylic {
     width: 100%;
+    border-collapse: separate;
 }
-#acrylic tbody td .btn {
-    margin-top: 50px;
 
+#acrylic tbody td {
+  margin-top: 10px;
+  margin-right: 10px;
 }
 }
 .span12{
@@ -207,9 +233,14 @@ font-family: roboto;
 font-size: 20px;
 font-weight: 700;
 margin-bottom: 15px;
-margin-top: 20px;
+margin-top: 10px;
 text-transform: uppercase;
-} }
+} 
+.span12 .form-horizontal{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+}
 
 
 .turbolinks-progress-bar {
@@ -334,13 +365,36 @@ vertical-align: middle;
 }
 
 
+.jumbotron h2{
+font-size: 24px;
+text-transform: uppercase;
+font-weight: 700px;
+}
+
+.jumbotron td{
+font-family: 'roboto';
+}
 .jumbotron .btn{
 font-family: roboto;
 margin-top: 5px;
 }
 
-
 @media all and (max-width:769px) {
+  .jumbotron{
+    margin-right: 10px;
+    margin-left: 10px;
+    text-transform: uppercase;
+  }
+.jumbotron td{
+text-align: center;
+display:block;
+font-family: 'roboto';
+text-transform: uppercase;
+}
+.jumbotron h2 {
+font-size: 20px;
+font-weight: 600;
+}
 .jumbotron .btn{
 font-family: roboto;
 display: block;
@@ -352,7 +406,6 @@ margin-left: 5px;
 margin-right: 5px;
 }
 }
-
 
 .navbar-header{
 font-family: roboto;
@@ -397,9 +450,10 @@ font-family: 'roboto';
 .actions .btn {
 margin-top: 3px;
 margin-bottom: 5px;
-margin-right: 1px;
-margin-left: 1px;
+margin-right: 10px;
+margin-left: 10px;
 font-family: 'roboto';
+text-transform: uppercase;
 }}
 
 @media all and (max-width:769px) {
@@ -408,20 +462,13 @@ margin-top: 5px;
 margin-bottom: 5px;
 }}
 
-@media all and (max-width:769px) {
-.navbar-default .navbar-header {
-display: block;
-list-style: none;
-margin: 0;
-padding: 0;
-
-
-}}
 
 .controls .input-xlarge {
   margin-left: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
+  margin-right: 5px;
+
 }
 
 
@@ -465,31 +512,6 @@ margin-top: 5px;
 margin-bottom: 3px;
 }
 }
-
-
-.jumbotron{
-
-font-family: 'roboto';
-}
-.jumbotron h2{
-font-size: 24px;
-
-}
-.jumbotron td{
-font-family: 'roboto';
-}
-
-@media all and (max-width:769px) {
-.jumbotron td{
-text-align: center;
-display:block;
-font-family: 'roboto';
-}
-.jumbotron h2{
-font-size: 20px;
-}
-}
-
 
 .container .img-responsive{
 margin-right: 10px;
@@ -597,3 +619,36 @@ text-align: center;
   margin-left: 5px;
   margin-right: 5px;
 }
+.control-label h5{
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+@media all and (max-width:769px) {
+  .control-label h5{
+  margin-right: 60px;
+  margin-left: 60px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-transform: uppercase;
+}
+  .controls .input-xlarge{
+    margin-right: 60px;
+    margin-left: 60px;
+    width: 60%;
+  }
+  
+  .controls .btn{
+    margin-right: 60px;
+    display: block;
+    width: 60%;
+  }
+  .control-group .form-control{
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
