@@ -1,26 +1,24 @@
 <%= render 'stanowiskos/edit/page', stanowiskos: @stanowiskos %>
-  
 <div class="container">
-    <div class="row">
-		<div class="col-md-4">
-            <div class="well well-sm">
-                <div class="media">
-                    <div class="media-body">
-                        <h4 class="media-heading"></h4>
-                        <p>
-  <h4><strong>ID:</strong>
-  <%= @stanowisko.id %>
-</p></h4>
-<h4><p>
-  <strong>Nazwa:</strong>
-  <%= @stanowisko.nazwa %>
-  </p></h4><br/>
-  <%= link_to 'Edytuj', edit_stanowisko_path(@stanowisko), class: "btn btn-primary" %>
-<%= link_to 'Wróć', stanowiskos_path, class: "btn btn-success" %>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-	</div>
+<div class="row">
+<div class="col-md-4">
+  <div class="well well-sm">
+      <div class="media">
+          <div class="media-body">
+              <h4 class="media-heading"></h4>
+              <h4><p><strong>ID:</strong>
+              <%= @stanowisko.id %>
+              </p></h4>
+              <h4><p>
+              <strong>Nazwa:</strong>
+              <%= @stanowisko.nazwa %>
+              </p></h4><br/>
+              <%= link_to 'Edytuj', edit_stanowisko_path(@stanowisko), class: "btn btn-primary" %>
+              <%= link_to 'Wróć', stanowiskos_path, class: "btn btn-success" %>
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
 </div>
