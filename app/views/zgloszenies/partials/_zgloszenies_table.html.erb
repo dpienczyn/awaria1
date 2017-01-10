@@ -4,20 +4,20 @@
                 <tr>
                     <th>L.p</th>
                     <th>Dział</th>
-        <th>Priorytet</th>
-        <th>Status</th>
-        <th>Data zgłoszenia</th>
-        <th>Data naprawy</th>
-        <th>Nazwa urzadzenia</th>
-        <th>Opis urzadzenia</th>
-        <th>Wysyłka</th>
-        <% if current_user.admin? %>
-        <th>Zrealizowane?</th>
-        <th>ID USR</th>
-        <th>ID Pracownik</th>
-        <th>Akcje</th>
-        <th></th>
-        <th></th>
+                    <th>Priorytet</th>
+                    <th>Status</th>
+                    <th>Data zgłoszenia</th>
+                    <th>Data naprawy</th>
+                    <th>Nazwa urzadzenia</th>
+                    <th>Opis urzadzenia</th>
+                    <th>Wysyłka</th>
+                    <% if current_user.admin? %>
+                    <th>Zrealizowane?</th>
+                    <th>ID USR</th>
+                    <th>ID Pracownik</th>
+                    <th>Akcje</th>
+                    <th></th>
+                    <th></th>
         <% end %>
                 </tr>
             </thead>
@@ -38,19 +38,19 @@
                     <td data-label="Zrealizowane"><%= zgloszeny.zrealizowane %></td>
                     <td data-label="ID USR"><%= zgloszeny.user_id %></td>
                     <% if zgloszeny.pracownikid.nil? %>
-             Brak
-            <% else %>
-            <td data-label="ID Pracownik"><%= zgloszeny.pracownikid %></td>
-            <% end %>
-            <% end %>
-                    <% if zgloszeny.zrealizowane!=true %>
-                    <td><%= link_to 'Usuń', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-danger btn-xs' %></td>
-            <td><%= link_to 'Pokaż', zgloszeny, class:'btn btn-warning btn-xs' %></td>
-            <td><%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary btn-xs' %></td>
-            
+                      Brak
+                    <% else %>
+                      <td data-label="ID Pracownik"><%= zgloszeny.pracownikid %></td>
                     <% end %>
+      <% end %>
+
+                    <td><%= link_to 'Usuń', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-danger btn-xs' %></td>
+                    <td><%= link_to 'Pokaż', zgloszeny, class:'btn btn-warning btn-xs' %></td>
+                    <td><%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary btn-xs' %></td>
+
+
                     </td>
-                 </tr>
+                </tr>
                  <% end %>
 
                  <% end %>
