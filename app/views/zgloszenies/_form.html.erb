@@ -13,72 +13,84 @@
       </ul>
     </div>
   <% end %><br />
-  
-  <div class="field">
-  <%= f.label :Nazwa_pracownika %><br/>
-  <% if current_user.admin? %>
-            <%= f.select :pracownikid, User.where(ispracownik: true).pluck(:id, :first_name, :last_name).map{|db_fields| db_fields.join(' ')}, prompt: "Wybierz" %>
+
+            <div class="control-group">
+            <label class="control-label"  for="username"><h5>Nazwa pracownika</h5></label>
+            <div class="controls">
+            <% if current_user.admin? %>
+            <%= f.select :pracownikid, User.where(ispracownik: true).pluck(:id, :first_name, :last_name).map{|db_fields| db_fields.join(' ')}, class: 'input-xlarge' %>
+            <% end %></div><br/>
+            <div class="control-group">
+            <label class="control-label"  for="username"><h5>Zgłoszenie do działu</h5></label>
+            <div class="controls">
+              <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz", id:"dzialselect", class: 'input-xlarge-s' %>
+            </div><br/>
+
+            <% if zgloszeny.visible? %>
+            <label class="control-label"  for="username"><h5>ID użytkownika</h5></label>
+            <div class="controls">
+            <%= f.text_field :user_id, :value => current_user.id ,:readonly => true, class: "input-xlarge" %><br/>
             <% end %>
-  </div><br/>
+          </div>
+            <% if current_user.id != :user_id %>
+          </div><br/>
+          <div class="control-group">
+            <label class="control-label" for="password"><h5>Data zgłoszenia</h5></label>
+            <div class="controls">
+            <%= f.date_select :data_zgloszenia, class: "input-xlarge" %>
+            </div>
+          </div><br/>
+          <div class="control-group">
+            <label class="control-label" for="password"><h5>Nazwa urzadzenia</h5></label>
+            <div class="controls">
+            <%= f.text_area :nazwa_urzadzenia, class: "input-xlarge" %>
+            </div>
+          </div><br/>
+          <div class="control-group">
+            <label class="control-label" for="password"><h5>Opis uszkodzenia</h5></label>
+            <div class="controls">
+            <%= f.text_area :opis_uszkodzenia, class: "input-xlarge" %>
+            </div>
+          </div><br/>
+          <div class="control-group">
+            <label class="control-label" for="password"><h5>Wysyłka</h5></label>
 
-  <div class="field">
-    <%= f.label :Zgłoszenie_do_działu %><br/>
-    <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz", id:"dzialselect", prompt: "Wybierz" %>
-  </div><br/>
+            <%= f.select :wysylka, [['Tak', true], ['Nie', false]], class: "form-control" %>
 
-  <div class="field">
-    <%= f.label :ID_użytkownika %><br/>
-    <%= f.text_field :user_id, :value => current_user.id ,:readonly => true%>
-  </div><br/>
-  <% if current_user.id != :user_id %>
-
-  <div class="field">
-    <%= f.label :data_zgłoszenia %><br/>
-    <%= f.date_select :data_zgloszenia%>
-  </div><br/>
-
-  <div class="field">
-    <%= f.label :nazwa_urzadzenia %><br/>
-    <%= f.text_area :nazwa_urzadzenia%></div>
-
-  <div class="field">
-    <%= f.label :opis_uszkodzenia %><br/>
-    <%= f.text_area :opis_uszkodzenia%>
-  </div><br/>
-
-  <div class="field">
-    <%= f.label :nazwa_urzadzenia %><br/>
-    <%= f.text_area :nazwa_urzadzenia %>
-  </div><br/>
-
-  <div class="field">
-    <%= f.label :wysyłka %><br/>
-    <%= f.select :wysylka, [['Tak', true], ['Nie', false]] %>
-  </div><br />
+          </div><br/>
+          <% end %>
+          <% if current_user.ispracownik? %>
+          <div class="control-group">
+            <label class="control-label" for="password"><h5>Priorytet</h5></label>
+            <div class="controls">
+            <%= f.text_field :priorytet, class: "input-xlarge" %>
+            </div>
+          </div><br/>
+          <div class="control-group">
+            <label class="control-label" for="password"><h5>Status</h5></label>
+            <div class="controls">
+            <%= f.select :status, options_for_select(Zgloszenie.statuses_for_select), class: "input-xlarge" %>
+            </div>
+          </div><br/>
+          <div class="control-group">
+            <label class="control-label" for="password"><h5>Zrealizowane</h5></label>
+            <div class="controls">
+            <%= f.select :zrealizowane, [['Nie', false], ['Tak', true]], class: "input-xlarge" %>
+          </div><br/>
+          <div class="control-group">
+            <label class="control-label" for="password"><h5>Data naprawy</h5></label>
+            <div class="controls">
+            <%= f.date_select :data_naprawy, :default => nil, class: "input-xlarge" %>
+            </div>
+          </div><br/>
   <% end %>
-  <% if current_user.ispracownik? %>
-  <div class="field">
-  <%= f.label :priorytet %><br/>
-  <%= f.text_field :priorytet%>
-  </div><br />
-  <div class="field">
-  <%= f.label :status %><br/>
-  <%= f.select :status, options_for_select(Zgloszenie.statuses_for_select)%>
-  </div><br />
-  <div class="field">
-  <%= f.label :zrealizowane %><br/>
-  <%= f.select :zrealizowane, [['Nie', false], ['Tak', true]]%>
-  </div><br />
-  <div class="field">
-  <%= f.label :data_naprawy %><br/>
-  <%= f.date_select :data_naprawy, :default => nil, class: 'custom-select'%>
-  </div><br />
- <% end %>
 
-  <div class="actions">
-    <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>
-    <%= link_to 'Pokaż', @zgloszeny, class: "btn btn-primary" %>
-    <%= link_to 'Wróć', zgloszenies_path, class: "btn btn-danger" %>
-  </div>
+  <div class="control-group">
+            <div class="controls">
+            <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>
+            <%= link_to 'Pokaż', @zgloszeny, class: "btn btn-primary" %>
+            <%= link_to 'Wróć', zgloszenies_path, class: "btn btn-danger" %>
+            </div>
+          </div>
+
 <% end %><br />
-
