@@ -1,14 +1,16 @@
-<div class="row" style="margin-top: 10px">
-<div class="col-lg-6">
-<div class="input-group">
-<%= form_tag( zgloszenies_path ,method: :get, remote: true, class: "search_form_z") do %>
-<%= text_field_tag :search, params[:search], class: "form-control SearchBar", placeholder: 'Wpisz : Imie, Nazwisko, Email użytkownika, Nazwa urządzenia' %>
-<% end %>
-<span class="input-group-btn">
-    <button class="btn btn-defaul SearchButton" type="button">
-        <span class=" fa fa-search SearchIcon" ></span>
-    </button>
-  </span>
-</div><!-- /input-group -->
-</div><!-- /.col-lg-6 -->
-</div> <br/><!-- /.row -->
+<div class="container">
+	<div class="row">
+		<div id="custom-search-input">
+		<%= form_tag( zgloszenies_path ,method: :get, remote: true, class: "search_form_z") do %>
+            <div class="input-group col-md-6">
+            <%= text_field_tag :search, params[:search], class: "search-query form-control", placeholder: 'Wpisz : Imie, Nazwisko, Email użytkownika, Nazwa urządzenia' %>
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button">
+                        <span class=" fa fa-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <% end %>
+	</div>
+</div>

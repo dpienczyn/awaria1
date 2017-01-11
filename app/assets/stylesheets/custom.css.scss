@@ -666,4 +666,70 @@ text-align: center;
     margin-left: 10px;
   }
 }
+.jumbotron .control-label{
+  text-transform: uppercase;
+  font-family: 'roboto';
+}
 
+@media all and (max-width:769px) {
+.jumbotron .form-control{
+  margin-left: auto;
+  margin-right: auto;
+}
+.jumbotron .controls .btn{
+  margin-left: auto;
+  margin-right: auto;
+}
+}
+.navbar-header .navbar-brand{
+  font-family: 'roboto';
+  text-transform: uppercase;
+  color: #333333;
+  font-weight: 700px;
+}
+
+#custom-search-input {
+    margin:0;
+    margin-top: 10px;
+    padding: 0;
+    font-family: 'roboto';
+}
+
+#custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#3366FF;
+
+}
+
+.search-query:focus + button {
+    z-index: 3;   
+}
+@media all and (max-width:769px) {
+  #custom-search-input {
+    text-transform: uppercase;  
+  }
+}

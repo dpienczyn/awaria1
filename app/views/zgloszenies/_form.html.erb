@@ -17,13 +17,13 @@
 
             <% if current_user.admin? %>
             <div class="control-group">
-            <label class="control-label"  for="username"><h5>Nazwa pracownika</h5></label>
+            <label class="control-label"  for="username">Nazwa pracownika</label>
             <div class="controls">
             <%= f.select :pracownikid, User.where(ispracownik: true).pluck(:id, :first_name, :last_name).map{|db_fields| db_fields.join(' ')}, {}, class: 'form-control' %>
             <% end %></div><br/>
 
             <% if zgloszeny.visible? %>
-            <label class="control-label"  for="username"><h5>ID użytkownika</h5></label>
+            <label class="control-label"  for="username">ID użytkownika</label>
             <div class="controls">
               <%= f.text_field :user_id, :value => current_user.id ,:readonly => true, class:"form-control" %><br/>
               <% end %>
@@ -97,7 +97,6 @@
 
   <div class="jumbotron">
             <div class="controls">
-              <p align="center">
             <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>
             <%= link_to 'Pokaż', @zgloszeny, class: "btn btn-primary" %>
             <%= link_to 'Wróć', zgloszenies_path, class: "btn btn-danger" %>
@@ -105,4 +104,4 @@
             </div>
           </div>
 
-<% end %><br />
+<% end %>
