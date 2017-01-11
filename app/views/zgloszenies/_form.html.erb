@@ -31,6 +31,7 @@
             <div class="controls">
             <%= f.text_field :user_id, :value => current_user.id ,:readonly => true, class: "input-xlarge" %><br/>
             <% end %>
+            <%= f.hidden_field :visible, :value => false %>
           </div>
             <% if current_user.id != :user_id %>
           </div><br/>

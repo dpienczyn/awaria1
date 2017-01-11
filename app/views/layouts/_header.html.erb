@@ -6,7 +6,7 @@
         </button>
         <a class="navbar-brand" href="#page-top"></a>
         </div>
-        
+
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
             <li class="hidden">
@@ -16,14 +16,14 @@
             <a href="#page-top"><%= link_to "Strona główna",  static_pages_home_path%></a>
             </li>
             <% if user_signed_in? %>
-            <li class="page-scroll">            
+            <li class="page-scroll">
             <% if current_user.ispracownik? %>
             <a href="#page-top"><%= link_to "Zlecenia", static_pages_showzgloszenies_path%></a>
             <% end %>
             </li>
             <li class="page-scroll">
                 <a href="#page-top"><%= link_to "Zgłoszenia", zgloszenies_path%></a>
-                
+
             </li>
             <li class="page-scroll">
                 <a href="#page-top"><%= link_to "Edycja konta", edit_user_registration_path%></a>
