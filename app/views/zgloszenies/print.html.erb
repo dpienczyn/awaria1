@@ -1,3 +1,5 @@
+<% content_for :title, " - Wydruk zgłoszenia." %>
+
 <body onload="printpage()">
 
 <div class="jumbotron">
@@ -8,7 +10,7 @@
   <td>
   <p><h2>Dział: <%= Dzial.where(id:@zgloszeny.dzial_id).pluck(:nazwa).last %> </h2> </p>
   <p> <strong>Priorytet: </strong><%= @zgloszeny.priorytet %>
-  <strong>Status:</strong> <%= t("activerecord.attributes.zgloszenie.statuses.#{@zgloszeny.status}") %> </p>
+  <strong>Status:</strong> <%= @zgloszeny.status %> </p>
 
   <p> <strong>Data zgłoszenia:</strong> <%= @zgloszeny.data_zgloszenia %>
   <strong>Data naprawy:</strong> <%= @zgloszeny.data_naprawy %> </p>
@@ -20,7 +22,7 @@
 </div>
 
 <div class="jumbotron">
-  <div class="table-responsive">
+  <div class="table">
     <table class="table table-striped">
       <thead>
         <tr>

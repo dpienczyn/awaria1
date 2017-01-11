@@ -1,3 +1,4 @@
+<% content_for :title, " - Statystyki." %>
 <div class="container">
     <div class="row">
     <div class="span12">
@@ -10,7 +11,7 @@
           </form>
           </div>
           </div>
-          </div>  
+          </div>
 <div class="jumbotron">
   <h2>Zgłoszenia</h2>
   <h4>Ogólna ilość zgłoszeń: <b><%= Zgloszenie.calculate(:count, :all) %></b></h4>

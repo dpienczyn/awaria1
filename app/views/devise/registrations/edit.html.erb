@@ -9,7 +9,7 @@
 <hr class="colorgraph">
 <div class="row">
 <div class="form-group">
-<%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: "Email" %>
+<%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: "Adres email" %>
 </div>
 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -20,7 +20,7 @@
 <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg", placeholder: "Hasło"  %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em>Minimum znaków: <%= @minimum_password_length %>.</em>
     <% end %>
 </div>
 <div class="row">
@@ -43,9 +43,9 @@
 <% end %></div>
 <div class="col-xs-12 col-md-6">
 <%= button_to "Usuń konto", registration_path(resource_name), data: { confirm: "Jesteś pewny?" }, method: :delete, class:'btn btn-danger btn-block btn-lg' %>
-</div>       
+</div>
 </div>
 </form>
 </div>
 </div>
-</div> 
+</div>

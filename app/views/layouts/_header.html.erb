@@ -1,51 +1,27 @@
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
 <div class="container">
-    <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand" href="#page-top"></a>
-        </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-            <li class="hidden">
-              <a href="#page-top"></a>
-            </li>
-            <li class="page-scroll">
-            <a href="#page-top"><%= link_to "Strona główna",  static_pages_home_path%></a>
-            </li>
-            <% if user_signed_in? %>
-            <li class="page-scroll">
-            <% if current_user.ispracownik? %>
-            <a href="#page-top"><%= link_to "Zlecenia", static_pages_showzgloszenies_path%></a>
-            <% end %>
-            </li>
-            <li class="page-scroll">
-                <a href="#page-top"><%= link_to "Zgłoszenia", zgloszenies_path%></a>
-
-            </li>
-            <li class="page-scroll">
-                <a href="#page-top"><%= link_to "Edycja konta", edit_user_registration_path%></a>
-            </li>
-            <li class="page-scroll">
-            <% if current_user.admin? %>
-            <a href="#page-top"><%= link_to "Zaplecze", static_pages_paneladmina_path%></a></li>
-            <li class="page-scroll">
-            <a href="#page-top"><%= link_to "Statystyki", static_pages_statystyki_path%></a></li>
-            <% else %>
-            <% end %>
-            </li>
-            <li class="page-scroll">
-            <a href="#page-top"><%= link_to "Wylogowanie", destroy_user_session_path, method: :delete %></a></li>
-            <% else %>
-            <li class="page-scroll">
-            <a href="#page-top"><%= link_to "Logowanie", new_user_session_url %></a></li>
-            <li class="page-scroll">
-            <a href="#page-top"><%= link_to "Rejestracja", new_user_registration_path %></a></li>
-            <% end %>
-            </li>
-        </ul>
-    </div>
+  <%= image_tag 'logo.png' %>
 </div>
+</br>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to "Strona Główna", unauthenticated_root_path, class: 'navbar-brand' %>
+      <% if user_signed_in? %>
+      <% if current_user.ispracownik? %>
+          <%= link_to "Moje Zlecenia", static_pages_showzgloszenies_path, class: 'navbar-brand' %>
+        <% end %>
+        <%= link_to "Zgłoszenia", zgloszenies_path, class: 'navbar-brand' %>
+        <%= link_to "Edycja konta", edit_user_registration_path, class: 'navbar-brand' %>
+        <% if current_user.admin? %>
+          <%= link_to "Zaplecze", static_pages_paneladmina_path, class: 'navbar-brand' %>
+          <%= link_to "Statystyki", static_pages_statystyki_path, class: 'navbar-brand' %>
+        <% else %>
+        <% end %>
+        <%= link_to "Wylogowanie", destroy_user_session_path, method: :delete, class: 'navbar-brand' %>
+        <% else %>
+        <%= link_to "Logowanie", new_user_session_url, class: 'navbar-brand' %>
+        <%= link_to "Rejestracja", new_user_registration_path, class: 'navbar-brand' %>
+      <% end %>
+    </div>
+  </div>
 </nav>

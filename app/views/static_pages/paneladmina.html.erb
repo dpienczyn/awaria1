@@ -1,3 +1,4 @@
+<% content_for :title, " - Zaplecze." %>
 <div class="container">
     <div class="row">
     <div class="span12">
@@ -10,8 +11,8 @@
           </form>
           </div>
           </div>
-          </div>  
-
+          </div>
+<% if current_user.admin? %>
 <div class="jumbotron">
 <p align="center">
  <%= link_to 'Użytkownicy', users_path, class:'btn btn-primary' %>
@@ -21,3 +22,8 @@
  <%= link_to 'Zgłoszenia - Aktywności', zgloszenie_aktywnoscs_path, class:'btn btn-primary' %>
 </p>
 </div>
+<% else %>
+<div class="jumbotron">
+  <p align="center"> Nie jesteś uprawniony do tego modułu. </p>
+</div>
+<% end %>
