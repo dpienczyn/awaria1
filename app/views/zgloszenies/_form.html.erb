@@ -14,33 +14,37 @@
     </div>
   <% end %><br />
 
+            <% if current_user.admin? %>
             <div class="control-group">
             <label class="control-label"  for="username"><h5>Nazwa pracownika</h5></label>
             <div class="controls">
-            <% if current_user.admin? %>
             <%= f.select :pracownikid, User.where(ispracownik: true).pluck(:id, :first_name, :last_name).map{|db_fields| db_fields.join(' ')}, class: 'input-xlarge' %>
             <% end %></div><br/>
+
+            <% if zgloszeny.visible? %>
+            <label class="control-label"  for="username"><h5>ID użytkownika</h5></label>
+            <div class="controls">
+              <%= f.text_field :user_id, :value => current_user.id ,:readonly => true, class: "input-xlarge" %><br/>
+              <% end %>
+
+          <% unless current_user.id != zgloszeny.user_id %>
             <div class="control-group">
             <label class="control-label"  for="username"><h5>Zgłoszenie do działu</h5></label>
             <div class="controls">
               <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz", id:"dzialselect", class: 'input-xlarge-s' %>
             </div><br/>
-
-            <% if zgloszeny.visible? %>
-            <label class="control-label"  for="username"><h5>ID użytkownika</h5></label>
-            <div class="controls">
-            <%= f.text_field :user_id, :value => current_user.id ,:readonly => true, class: "input-xlarge" %><br/>
-            <% end %>
-            <%= f.hidden_field :visible, :value => false %>
           </div>
-            <% if current_user.id != :user_id %>
           </div><br/>
+
+          <% if zgloszeny.visible? %>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Data zgłoszenia</h5></label>
             <div class="controls">
             <%= f.date_select :data_zgloszenia, class: "input-xlarge" %>
             </div>
           </div><br/>
+          <% end %>
+
           <div class="control-group">
             <label class="control-label" for="password"><h5>Nazwa urzadzenia</h5></label>
             <div class="controls">
@@ -61,6 +65,7 @@
           </div><br/>
           <% end %>
           <% if current_user.ispracownik? %>
+          <% if current_user.id = zgloszeny.user_id %>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Priorytet</h5></label>
             <div class="controls">
@@ -84,7 +89,9 @@
             <%= f.date_select :data_naprawy, :default => nil, class: "input-xlarge" %>
             </div>
           </div><br/>
-  <% end %>
+          <% end %>
+          <% end %>
+  <%= f.hidden_field :visible, :value => false %>
 
   <div class="control-group">
             <div class="controls">
