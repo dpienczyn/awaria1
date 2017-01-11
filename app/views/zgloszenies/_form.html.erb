@@ -1,6 +1,7 @@
 <% content_for :head do %>
   <meta name="turbolinks-cache-control" content="no-cache">
 <% end %>
+<div class="jumbotron">
 <%= form_for(zgloszeny) do |f| %>
   <% if zgloszeny.errors.any? %>
     <div id="error_explanation">
@@ -18,29 +19,29 @@
             <div class="control-group">
             <label class="control-label"  for="username"><h5>Nazwa pracownika</h5></label>
             <div class="controls">
-            <%= f.select :pracownikid, User.where(ispracownik: true).pluck(:id, :first_name, :last_name).map{|db_fields| db_fields.join(' ')}, class: 'input-xlarge' %>
+            <%= f.select :pracownikid, User.where(ispracownik: true).pluck(:id, :first_name, :last_name).map{|db_fields| db_fields.join(' ')}, {}, class: 'form-control' %>
             <% end %></div><br/>
 
             <% if zgloszeny.visible? %>
             <label class="control-label"  for="username"><h5>ID użytkownika</h5></label>
             <div class="controls">
-              <%= f.text_field :user_id, :value => current_user.id ,:readonly => true, class: "input-xlarge" %><br/>
+              <%= f.text_field :user_id, :value => current_user.id ,:readonly => true, class:"form-control" %><br/>
               <% end %>
 
           <% unless current_user.id != zgloszeny.user_id %>
             <div class="control-group">
             <label class="control-label"  for="username"><h5>Zgłoszenie do działu</h5></label>
             <div class="controls">
-              <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz", id:"dzialselect", class: 'input-xlarge-s' %>
+              <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, {prompt: "Wybierz", id:"dzialselect"}, {class:"form-control"} %>
             </div><br/>
           </div>
-          </div><br/>
+          </div>
 
           <% if zgloszeny.visible? %>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Data zgłoszenia</h5></label>
             <div class="controls">
-            <%= f.date_select :data_zgloszenia, class: "input-xlarge" %>
+            <%= f.date_select :data_zgloszenia, {}, class: "form-control"%>
             </div>
           </div><br/>
           <% end %>
@@ -48,19 +49,19 @@
           <div class="control-group">
             <label class="control-label" for="password"><h5>Nazwa urzadzenia</h5></label>
             <div class="controls">
-            <%= f.text_area :nazwa_urzadzenia, class: "input-xlarge" %>
+            <%= f.text_area :nazwa_urzadzenia, class: "form-control"%>
             </div>
           </div><br/>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Opis uszkodzenia</h5></label>
             <div class="controls">
-            <%= f.text_area :opis_uszkodzenia, class: "input-xlarge" %>
+            <%= f.text_area :opis_uszkodzenia, class:"form-control" %>
             </div>
           </div><br/>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Wysyłka</h5></label>
 
-            <%= f.select :wysylka, [['Tak', true], ['Nie', false]], class: "form-control" %>
+            <%= f.select :wysylka, [['Tak', true], ['Nie', false]], {}, class: "form-control" %>
 
           </div><br/>
           <% end %>
@@ -69,35 +70,38 @@
           <div class="control-group">
             <label class="control-label" for="password"><h5>Priorytet</h5></label>
             <div class="controls">
-            <%= f.text_field :priorytet, class: "input-xlarge" %>
+            <%= f.text_field :priorytet, class: "form-control" %>
             </div>
           </div><br/>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Status</h5></label>
             <div class="controls">
-            <%= f.select :status, options_for_select(Zgloszenie.statuses_for_select), class: "input-xlarge" %>
+            <%= f.select :status, options_for_select(Zgloszenie.statuses_for_select), {}, class: "form-control" %>
             </div>
           </div><br/>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Zrealizowane</h5></label>
             <div class="controls">
-            <%= f.select :zrealizowane, [['Nie', false], ['Tak', true]], class: "input-xlarge" %>
+            <%= f.select :zrealizowane, [['Nie', false], ['Tak', true]], {}, class: "form-control"%>
           </div><br/>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Data naprawy</h5></label>
             <div class="controls">
-            <%= f.date_select :data_naprawy, :default => nil, class: "input-xlarge" %>
+            <%= f.date_select :data_naprawy, :default => nil, class: "form-control" %>
             </div>
           </div><br/>
           <% end %>
           <% end %>
   <%= f.hidden_field :visible, :value => false %>
+</div>
 
-  <div class="control-group">
+  <div class="jumbotron">
             <div class="controls">
+              <p align="center">
             <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>
             <%= link_to 'Pokaż', @zgloszeny, class: "btn btn-primary" %>
             <%= link_to 'Wróć', zgloszenies_path, class: "btn btn-danger" %>
+          </p>
             </div>
           </div>
 
