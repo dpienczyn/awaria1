@@ -11,16 +11,18 @@
     </div>
   <% end %>
 
-            
-<div class="field">
-  <%= f.label :Nazwa %><br/>
-  <%= f.text_area :nazwa%>
+<div class="jumbotron">
+  <div class="field">
+    <%= f.label :Nazwa %><br/>
+    <%= f.text_area :nazwa, class:"form-control" %>
   </div><br/>
+</div>
 
+<div class="jumbotron">
 <div class="actions">
             <%= f.submit "Dodaj", class: "btn btn-success"%>
             <%= link_to 'Pokaż', @stanowisko, class: "btn btn-primary" %>
             <%= link_to 'Wróć', stanowiskos_path, class: "btn btn-success" %>
             </div>
 <% end %><br />
- 
+</div>

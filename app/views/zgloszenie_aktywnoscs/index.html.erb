@@ -1,4 +1,5 @@
 <%= render 'zgloszenie_aktywnoscs/edit/page', zgloszenie_aktywnoscs: @zgloszenie_aktywnoscs %>
+<% if current_user.admin? %>
 <div class="table-responsive">
 <div class="wrapper">
         <table id="acrylic">
@@ -41,3 +42,8 @@
     <%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-primary btn-create' %>
   <% end %>
 </div><br/>
+<% else %>
+<div class="jumbotron">
+  <p align="center"> Nie jesteś uprawniony do tego modułu. </p>
+</div>
+<% end %>
