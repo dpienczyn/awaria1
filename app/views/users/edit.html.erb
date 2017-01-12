@@ -10,29 +10,33 @@
             <legend class=""><h4>Edycja użytkownika</h4></legend>
           </div>
 
+<div class="jumbotron">
           <div class="control-group">
             <!-- Username -->
             <label class="control-label"  for="username">Stanowisko</label>
             <div class="controls">
-            <%= f.collection_select :stanowisko_id, Stanowisko.all, :id, :nazwa,prompt: "Wybierz", class:'input-xlarge' %>
+            <%= f.collection_select :stanowisko_id, Stanowisko.all, :id, :nazwa, {prompt: "Wybierz"}, {class:"form-control"}  %>
             </div>
           </div><br/>
 
           <div class="control-group">
             <label class="control-label" for="password">Dział użytkownika</label>
             <div class="controls">
-            <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, prompt: "Wybierz", class:'input-xlarge' %>
+            <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, {prompt: "Wybierz"}, {class:"form-control"} %>
             </div>
           </div></fieldset><br/>
+          <div class="jumbotron">
           <div class="control-group">
             <div class="controls">
              <%= f.submit "Aktualizuj", class:'btn btn-success' %>
              <%= link_to "Wróć", :back, class: "btn btn-primary" %>
             </div>
           </div>
+        </div>
         </fieldset>
       </form>
     </div>
+  </div>
   </div>
 </div>
 <% end %>

@@ -11,19 +11,23 @@
     </div>
   <% end %>
 
+<div class="jumbotron">
 <div class="field">
   <%= f.label :Zgłoszenie %><br/>
-  <%= f.text_field :zgloszenie_id%>
+  <%= f.text_field :zgloszenie_id, class:"form-control" %>
   </div><br/>
 
   <div class="field">
     <%= f.label :Treść %><br/>
-    <%= f.text_area :tresc%>
+    <%= f.text_area :tresc, class:"form-control" %>
   </div><br/>
+</div>
 
+<div class="jumbotron">
   <div class="actions">
             <%= f.submit "Dodaj", class:'btn btn-success' %>
             <%= link_to 'Pokaż', @zgloszenie_aktywnosc, class: "btn btn-primary" %>
             <%= link_to 'Wróć', zgloszenie_aktywnoscs_path, class: "btn btn-danger" %>
             </div>
 <% end %><br />
+</div>

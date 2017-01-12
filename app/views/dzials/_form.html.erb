@@ -10,15 +10,18 @@
       </ul>
     </div>
   <% end %>
-         
 
-<div class="field">
-    <%= f.label :Nazwa %><br/>
-    <%= f.text_area :nazwa%>
+<div class="jumbotron">
+  <div class="field">
+      <%= f.label :Nazwa %><br/>
+      <%= f.text_area :nazwa, class:"form-control" %>
   </div><br/>
+</div>
 
+<div class="jumbotron">
 <div class="actions">
              <%= f.submit "Dodaj Dział", class: "btn btn-success" %>
              <%= link_to 'Wróć', dzials_path, class: "btn btn-primary" %>
           </div>
-<% end %><br /> 
+<% end %><br />
+</div>

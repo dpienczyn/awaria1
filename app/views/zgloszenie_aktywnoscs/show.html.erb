@@ -10,13 +10,13 @@
                         <p>
                          <h4><p>
   <strong>Zgłoszenie:</strong>
-  <%= @zgloszenie_aktywnosc.zgloszenie %>
+  <%= Zgloszenie.where(id:@zgloszenie_aktywnosc.zgloszenie).pluck(:id).last %>
 </p></h4>
 
 <h4><p>
   <strong>Treść:</strong>
   <%= @zgloszenie_aktywnosc.tresc %>
-</p></h4><br />  
+</p></h4><br />
 
 <%= link_to 'Edytuj', edit_zgloszenie_aktywnosc_path(@zgloszenie_aktywnosc), class: "btn btn-primary" %>
 <%= link_to 'Wróć', zgloszenie_aktywnoscs_path , class: "btn btn-success" %>
