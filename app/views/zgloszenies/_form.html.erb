@@ -63,7 +63,7 @@
             <%= f.select :wysylka, [['Tak', true], ['Nie', false]], {}, class: "form-control" %>
 
           </div><br/>
-          
+
           <% if current_user.ispracownik? %>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Priorytet</h5></label>
@@ -80,12 +80,12 @@
           <div class="control-group">
             <label class="control-label" for="password"><h5>Zrealizowane</h5></label>
             <div class="controls">
-            <%= f.select :zrealizowane, [['Nie', false], ['Tak', true]], {}, class: "form-control"%>
+            <%= f.select :zrealizowane, [['Nie', false], ['Tak', true]], {}, class: "form-control", id: "control" %>
           </div><br/>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Data naprawy</h5></label>
             <div class="controls">
-            <%= f.date_select :data_naprawy, :default => nil, class: "form-control" %>
+            <%= f.date_select :data_naprawy, :default => nil, class: "form-control", id: "data" %>
             </div>
           </div><br/>
           <% end %>
