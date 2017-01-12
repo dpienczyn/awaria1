@@ -2,13 +2,13 @@
 
 <body onload="printpage()">
 
-<div class="jumbotron">
+<div class="container">
 <table> <tr>
   <td style="text-align: center;">
       <%= image_tag(generate_qr(@zgloszeny.id.to_s), class: "qr-code") %>
   </td> <td width=20></td>
   <td>
-  <p><h2>Dział: <%= Dzial.where(id:@zgloszeny.dzial_id).pluck(:nazwa).last %> </h2> </p>
+  <p><h2>Dział: <strong><%= Dzial.where(id:@zgloszeny.dzial_id).pluck(:nazwa).last %> </strong> </h2> </p>
   <p> <strong>Priorytet: </strong><%= @zgloszeny.priorytet %>
   <strong>Status:</strong> <%= @zgloszeny.status %> </p>
 
@@ -20,8 +20,8 @@
   <p> <strong>Wysyłka:</strong> <%= @zgloszeny.wysylka %> </p>
   </td> </tr> </table>
 </div>
-
-<div class="jumbotron">
+</br>
+<div class="container">
   <div class="table">
     <table class="table table-striped">
       <thead>
@@ -45,3 +45,7 @@
     </table>
   </div>
 </div>
+
+<footer class="footer">
+  <p> Data i godzina wydruku: <strong> <%= Time.now.strftime("%d.%m.%Y, %H:%M") %> </strong> </p>
+</footer>
