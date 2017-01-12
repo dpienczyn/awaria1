@@ -17,7 +17,7 @@
 
             <% if current_user.admin? %>
             <div class="control-group">
-            <label class="control-label"  for="username">Nazwa pracownika</label>
+            <label class="control-label"  for="username">Wybór pracownika</label>
             <div class="controls">
             <%= f.select :pracownikid, User.where(ispracownik: true).pluck(:id, :first_name, :last_name).map{|db_fields| db_fields.join(' ')}, {}, class: 'form-control' %>
             <% end %></div><br/>
@@ -28,7 +28,6 @@
               <%= f.text_field :user_id, :value => current_user.id ,:readonly => true, class:"form-control" %><br/>
               <% end %>
 
-          <% unless current_user.id != zgloszeny.user_id %>
             <div class="control-group">
             <label class="control-label"  for="username"><h5>Zgłoszenie do działu</h5></label>
             <div class="controls">
@@ -64,9 +63,8 @@
             <%= f.select :wysylka, [['Tak', true], ['Nie', false]], {}, class: "form-control" %>
 
           </div><br/>
-          <% end %>
+          
           <% if current_user.ispracownik? %>
-          <% if current_user.id = zgloszeny.user_id %>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Priorytet</h5></label>
             <div class="controls">
@@ -90,7 +88,6 @@
             <%= f.date_select :data_naprawy, :default => nil, class: "form-control" %>
             </div>
           </div><br/>
-          <% end %>
           <% end %>
   <%= f.hidden_field :visible, :value => false %>
 </div>
