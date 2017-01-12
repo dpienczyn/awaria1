@@ -1,13 +1,18 @@
 <% content_for :title, " - Zgłoszenia." %>
 
 <%= render 'zgloszenies/partials/search', zgloszenies: @zgloszenies %>
+
 <div class="table-responsive">
-<%= render 'zgloszenies/partials/zgloszenies_table', zgloszenies: @zgloszenies %>
+  <%= render 'zgloszenies/partials/zgloszenies_table', zgloszenies: @zgloszenies %>
+  <div class="wrapper" align="center">
+      <%= will_paginate @zgloszenies, renderer: BootstrapPagination::Rails %>
+  </div>
 </div><br/>
+
 <div class="actions">
-<%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-sm btn-primary btn-create' %>
-<%= link_to 'Pobierz PDF', zgloszenies_path(@zgloszenies, format: "pdf"), class:'btn btn-sm btn-primary btn-create'%>
-      <% if current_user.admin? %>
-<%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-primary btn-create' %>
-      <% end %>
-      </div><br/>
+  <%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-sm btn-primary btn-create' %>
+  <%= link_to 'Pobierz PDF', zgloszenies_path(@zgloszenies, format: "pdf"), class:'btn btn-sm btn-primary btn-create'%>
+  <% if current_user.admin? %>
+    <%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-primary btn-create' %>
+  <% end %>
+</div><br/>

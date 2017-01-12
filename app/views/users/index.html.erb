@@ -1,8 +1,13 @@
 <%= render 'users/partials/search', users: @users %>
 
 <div class="table-responsive">
-<%= render 'users/partials/users_table', users: @users %>
+  <%= render 'users/partials/users_table', users: @users %>
 </div>
+
+<div class="wrapper" align="center">
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</div>
+
 <div class="actions" align="center">
-<%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-primary' %>
+  <%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-primary' %>
 </div><br/>

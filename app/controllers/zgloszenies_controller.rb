@@ -4,9 +4,13 @@ class ZgloszeniesController < ApplicationController
   # GET /zgloszenies
   # GET /zgloszenies.json
   def index
+    @zgloszenies = Zgloszenie.all
     @zgloszenies = Zgloszenie.includes(:user)
                              .where("zgloszenies.nazwa_urzadzenia ILIKE :q OR users.email ILIKE :q OR users.first_name ILIKE :q OR users.last_name ILIKE :q", q: "%#{params[:search]}%")
                              .references(:users)
+
+    @zgloszenies = Zgloszenie.paginate(:page => params[:page], :per_page => 10)
+
     respond_to do |format|
       format.js
       format.html

@@ -18,9 +18,9 @@
                 <tr>
                     <td data-label="L.p"><%= zgloszenie_aktywnosc.id %></td>
                     <td data-label="Zgłoszenie"><%= Zgloszenie.where(id:zgloszenie_aktywnosc.zgloszenie).pluck(:id).last %></td>
-                    <td data-label="Autor"><%= User.where(id:zgloszenie_aktywnosc.user_id).pluck(:first_name).last %></td>
+                    <td data-label="Autor"><%= User.where(id:zgloszenie_aktywnosc.user_id).pluck(:first_name).last %>
+                                          <%= User.where(id:zgloszenie_aktywnosc.user_id).pluck(:last_name).last %></td>
                     <td data-label="Opis"><%= zgloszenie_aktywnosc.tresc %></td>
-        <%= User.where(id:zgloszenie_aktywnosc.user_id).pluck(:last_name).last %>
       <td><%= link_to 'Pokaż', zgloszenie_aktywnosc, class:'btn btn-warning btn-xs' %></td>
       <td><%= link_to 'Edytuj', edit_zgloszenie_aktywnosc_path(zgloszenie_aktywnosc), class:'btn btn-primary btn-xs' %></td>
       <td><%= link_to 'Usuń', zgloszenie_aktywnosc, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-danger btn-xs' %></td>
@@ -30,9 +30,14 @@
         </table>
     </div>
 </div>
+
+<div class="wrapper" align="center">
+    <%= will_paginate @zgloszenie_aktywnoscs, renderer: BootstrapPagination::Rails %>
+</div>
+
 <div class="actions" align="center">
-<%= link_to 'Dodaj do zgłoszenia', new_zgloszenie_aktywnosc_path, class:'btn btn-sm btn-primary btn-create' %>
-                  <% if current_user.admin? %>
-                  <%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-primary btn-create' %>
-                  <% end %>
-                  </div><br/>
+  <%= link_to 'Dodaj do zgłoszenia', new_zgloszenie_aktywnosc_path, class:'btn btn-sm btn-primary btn-create' %>
+  <% if current_user.admin? %>
+    <%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-primary btn-create' %>
+  <% end %>
+</div><br/>

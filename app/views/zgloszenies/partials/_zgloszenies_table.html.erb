@@ -1,59 +1,59 @@
-      <div class="wrapper">
-        <table id="acrylic">
-            <thead>
-                <tr>
-                    <th>L.p</th>
-                    <th>Dział</th>
-                    <th>Priorytet</th>
-                    <th>Status</th>
-                    <th>Data zgłoszenia</th>
-                    <th>Data naprawy</th>
-                    <th>Nazwa urzadzenia</th>
-                    <th>Opis urzadzenia</th>
-                    <th>Wysyłka</th>
-                    <% if current_user.admin? %>
-                    <th>Zrealizowane?</th>
-                    <th>ID USR</th>
-                    <th>ID Pracownik</th>
-                    <th>Akcje</th>
-                    <th></th>
-                    <th></th>
-        <% end %>
-                </tr>
-            </thead>
-            <tbody>
-            <% @zgloszenies.each do |zgloszeny| %>
-      <% if current_user.id == zgloszeny.user_id || current_user.admin? %>
-                <tr>
-                    <td data-label="L.p"><%= zgloszeny.id %></td>
-                    <td data-label="Dział"><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
-                    <td data-label="Priorytet"><%= zgloszeny.priorytet %></td>
-                    <td data-label="Status"><%= t("activerecord.attributes.zgloszenie.statuses.#{zgloszeny.status}") %></td>
-                    <td data-label="Data_zgłoszenia"><%= zgloszeny.data_zgloszenia %></td>
-                    <td data-label="Data_naprawy"><%= zgloszeny.data_naprawy %></td>
-                    <td data-label="Nazwa_urzadzenia"><%= zgloszeny.nazwa_urzadzenia %></td>
-                    <td data-label="Opis_urzadzenia"><%= zgloszeny.opis_uszkodzenia %></td>
-                    <td data-label="Wysylka"><%= zgloszeny.wysylka %></td>
-                    <% if current_user.admin? %>
-                    <td data-label="Zrealizowane"><%= zgloszeny.zrealizowane %></td>
-                    <td data-label="ID USR"><%= zgloszeny.user_id %></td>
-                    <% if zgloszeny.pracownikid.nil? %>
-                      Brak
-                    <% else %>
-                      <td data-label="ID Pracownik"><%= zgloszeny.pracownikid %></td>
-                    <% end %>
-      <% end %>
+<div class="wrapper">
+  <table id="acrylic">
+      <thead>
+          <tr>
+              <th>L.p</th>
+              <th>Dział</th>
+              <th>Priorytet</th>
+              <th>Status</th>
+              <th>Data zgłoszenia</th>
+              <th>Data naprawy</th>
+              <th>Nazwa urzadzenia</th>
+              <th>Opis urzadzenia</th>
+              <th>Wysyłka</th>
+              <% if current_user.admin? %>
+              <th>Zrealizowane?</th>
+              <th>ID USR</th>
+              <th>ID Pracownik</th>
+              <th>Akcje</th>
+              <th></th>
+              <th></th>
+  <% end %>
+          </tr>
+      </thead>
+      <tbody>
+      <% @zgloszenies.each do |zgloszeny| %>
+<% if current_user.id == zgloszeny.user_id || current_user.admin? %>
+          <tr>
+              <td data-label="L.p"><%= zgloszeny.id %></td>
+              <td data-label="Dział"><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
+              <td data-label="Priorytet"><%= zgloszeny.priorytet %></td>
+              <td data-label="Status"><%= t("activerecord.attributes.zgloszenie.statuses.#{zgloszeny.status}") %></td>
+              <td data-label="Data_zgłoszenia"><%= zgloszeny.data_zgloszenia %></td>
+              <td data-label="Data_naprawy"><%= zgloszeny.data_naprawy %></td>
+              <td data-label="Nazwa_urzadzenia"><%= zgloszeny.nazwa_urzadzenia %></td>
+              <td data-label="Opis_urzadzenia"><%= zgloszeny.opis_uszkodzenia %></td>
+              <td data-label="Wysylka"><%= zgloszeny.wysylka %></td>
+              <% if current_user.admin? %>
+              <td data-label="Zrealizowane"><%= zgloszeny.zrealizowane %></td>
+              <td data-label="ID USR"><%= zgloszeny.user_id %></td>
+              <% if zgloszeny.pracownikid.nil? %>
+                Brak
+              <% else %>
+                <td data-label="ID Pracownik"><%= zgloszeny.pracownikid %></td>
+              <% end %>
+<% end %>
 
-                    <td><%= link_to 'Usuń', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-danger btn-xs' %></td>
-                    <td><%= link_to 'Pokaż', zgloszeny, class:'btn btn-warning btn-xs' %></td>
-                    <td><%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary btn-xs' %></td>
+              <td><%= link_to 'Usuń', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-danger btn-xs' %></td>
+              <td><%= link_to 'Pokaż', zgloszeny, class:'btn btn-warning btn-xs' %></td>
+              <td><%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary btn-xs' %></td>
 
 
-                    </td>
-                </tr>
-                 <% end %>
+              </td>
+          </tr>
+           <% end %>
 
-                 <% end %>
-            </tbody>
-        </table>
+           <% end %>
+      </tbody>
+  </table>
 </div>

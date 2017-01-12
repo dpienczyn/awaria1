@@ -5,6 +5,7 @@ class DzialsController < ApplicationController
   # GET /dzials.json
   def index
     @dzials = Dzial.where("nazwa ILIKE ?", "%#{params[:search]}%")
+    @dzials = Dzial.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /dzials/1

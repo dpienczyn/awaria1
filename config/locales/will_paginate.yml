@@ -1,0 +1,16 @@
+pl:
+  will_paginate:
+    next_label: Następna strona &#8594;
+    page_entries_info:
+      multi_page: Wyświetlany %{model} %{from} - %{to} z %{count}
+      multi_page_html: Wyświetlany %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b>
+      single_page:
+        one: Wyświetlany 1 %{model}
+        other: Wyświetlane wszystkie %{count} %{model}
+        zero: Nie znaleziono %{model}
+      single_page_html:
+        one: Wyświetlany <b>1</b> %{model}
+        other: Wyświetlane <b>wszystkie&nbsp;%{count}</b> %{model}
+        zero: Nie znaleziono %{model}
+    page_gap: ! '&hellip;'
+    previous_label: ! '&#8592; Poprzednia strona'

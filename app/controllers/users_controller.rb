@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ? ", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    @users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
   def edit

@@ -5,6 +5,7 @@ class ZgloszenieAktywnoscsController < ApplicationController
   # GET /zgloszenie_aktywnoscs.json
   def index
     @zgloszenie_aktywnoscs = ZgloszenieAktywnosc.all
+    @zgloszenie_aktywnoscs = ZgloszenieAktywnosc.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /zgloszenie_aktywnoscs/1

@@ -5,6 +5,7 @@ class StanowiskosController < ApplicationController
   # GET /stanowiskos.json
   def index
     @stanowiskos = Stanowisko.where("nazwa ILIKE ?", "%#{params[:search]}%")
+    @stanowiskos = Stanowisko.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /stanowiskos/1
