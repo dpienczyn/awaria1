@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     if @user.destroy
-        redirect_to root_path, notice: "Użytkownik usunięty."
+        redirect_to users_path, notice: "Użytkownik usunięty."
     end
   end
 

@@ -8,6 +8,7 @@
         <th>Email</th>
         <th>Dział</th>
         <th>Stanowisko</th>
+        <th>Praca</th>
         <th>Pracownik</th>
         <th>Admin</th>
         <th>Utworzony</th>
@@ -26,6 +27,7 @@
                     <td data-label="Email"><%= user.email %></td>
                     <td data-label="Dział"><%= Dzial.where(id:user.dzial_id).pluck(:nazwa).last %></td>
                     <td data-label="Stanowisko"><%= Stanowisko.where(id:user.stanowisko_id).pluck(:nazwa).last %></td>
+                    <td data-label="Praca"><%= user.praca %></td>
                     <td data-label="Pracownik"><%= user.ispracownik %></td>
                     <td data-label="Admin"><%= user.admin %></td>
                     <td data-label="Utworzony"><%= user.created_at %></td>

@@ -58,6 +58,7 @@ class ZgloszeniesController < ApplicationController
 
     respond_to do |format|
       if @zgloszeny.save
+        przydzial
         CustomerNotificationMailer.started(@zgloszeny.id, @zgloszeny.user_id).deliver_later
         format.html { redirect_to @zgloszeny, notice: 'Zgłoszenie zostało pomyślnie dodane.' }
         format.json { render :show, status: :created, location: @zgloszeny }
@@ -66,6 +67,28 @@ class ZgloszeniesController < ApplicationController
         format.json { render json: @zgloszeny.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # Automatyczne przydzielanie zgloszen do najmniej zajetych praca pracownikow
+  def przydzial
+    @zgloszenie = Zgloszenie.find(@zgloszeny.id)
+    users_list = User.pluck(:id)
+    l = users_list.size
+    i = 0
+    @x = 0
+
+    Zgloszenie.order("created_at desc").each do |zgloszeny|
+      for i in users_list
+        if i == zgloszeny.pracownikid
+          @x += 1
+          User.update(i, :praca => @x)
+        end
+      end
+    end
+
+    @worker = User.where(admin:false).order(:praca).pluck(:id).first
+    Zgloszenie.update(@zgloszenie, :pracownikid => @worker)
+
   end
 
   # PATCH/PUT /zgloszenies/1
