@@ -64,7 +64,7 @@
 
           </div><br/>
 
-          <% if current_user.ispracownik? %>
+          <% if current_user.ispracownik? || current_user.admin? %>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Priorytet</h5></label>
             <div class="controls">

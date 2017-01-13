@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 end
 
 class Session < ActiveRecord::Base
-  def self.sweep(time_ago = nil)
+  def self.sweep(time_ago = "1h")
     time = case time_ago
     when /^(\d+)m$/ then Time.now - $1.to_i.minute
     when /^(\d+)h$/ then Time.now - $1.to_i.hour
