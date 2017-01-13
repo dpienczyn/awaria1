@@ -59,3 +59,4 @@ gem 'prawn', '~> 2.1' # generowanie pdf
 gem 'prawn-table', '~> 0.1.0' # dodatek do pdf
 gem 'will_paginate', '~> 3.1.0' # paginacja
 gem 'will_paginate-bootstrap' # dodatek do paginacji
+gem 'rails_12factor' # potrzebne na heroku
