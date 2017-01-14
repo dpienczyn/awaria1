@@ -1,7 +1,6 @@
 <% content_for :head do %>
   <meta name="turbolinks-cache-control" content="no-cache">
 <% end %>
-<div class="jumbotron">
 <%= form_for(zgloszeny) do |f| %>
   <% if zgloszeny.errors.any? %>
     <div id="error_explanation">
@@ -14,13 +13,8 @@
       </ul>
     </div>
   <% end %><br />
-
-            <% if current_user.admin? %>
-            <div class="control-group">
-            <label class="control-label"  for="username">Wybór pracownika</label>
-            <div class="controls">
-            <%= f.select :pracownikid, User.where(ispracownik: true).pluck(:id, :first_name, :last_name).map{|db_fields| db_fields.join(' ')}, {}, class: 'form-control' %>
-            <% end %></div><br/>
+<div class="jumbotron">
+  <div>
 
             <% if zgloszeny.visible? %>
             <label class="control-label"  for="username">ID użytkownika</label>
@@ -82,15 +76,17 @@
             <div class="controls">
             <%= f.select :zrealizowane, [['Nie', false], ['Tak', true]], {}, class: "form-control", id: "control" %>
           </div><br/>
+        </div>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Data naprawy</h5></label>
             <div class="controls">
-            <%= f.date_select :data_naprawy, :default => nil, class: "form-control", id: "data" %>
+            <%= f.date_select :data_naprawy, :include_blank => true, :default => nil, class: "form-control", id: "data" %>
             </div>
           </div><br/>
           <% end %>
   <%= f.hidden_field :visible, :value => false %>
 </div>
+
 
   <div class="jumbotron">
             <div class="controls">
