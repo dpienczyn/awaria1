@@ -39,7 +39,11 @@
               <td data-label="Nie">Nie</td>
               <% end %>
               <% if current_user.admin? %>
-              <td data-label="Zrealizowane"><%= zgloszeny.zrealizowane %></td>
+              <% if zgloszeny.zrealizowane == true %>
+              <td data-label="Tak">Tak</td>
+              <% else %>
+              <td data-label="Nie">Nie</td>
+              <% end %>
               <td data-label="User"><%= User.where(id:zgloszeny.user_id).pluck(:first_name).last %></td>
               <% if zgloszeny.pracownikid.nil? %>
                 Brak
