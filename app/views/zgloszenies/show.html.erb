@@ -16,7 +16,12 @@
 
    <p> <strong>Nazwa urzadzenia:</strong> <%= @zgloszeny.nazwa_urzadzenia %> </p>
    <p> <strong>Opis uszkodzenia:</strong> <%= @zgloszeny.opis_uszkodzenia %> </p>
-   <p> <strong>Wysyłka:</strong> <%= @zgloszeny.wysylka %> </p>
+   <p> <strong>Wysyłka:</strong>
+    <% if @zgloszeny.wysylka == true %>
+    Tak
+    <% else %>
+    Nie
+    <% end %></p>
 </td> </tr> </table>
 </div>
 

@@ -28,8 +28,16 @@
                     <td data-label="Dział"><%= Dzial.where(id:user.dzial_id).pluck(:nazwa).last %></td>
                     <td data-label="Stanowisko"><%= Stanowisko.where(id:user.stanowisko_id).pluck(:nazwa).last %></td>
                     <td data-label="Praca"><%= user.praca %></td>
-                    <td data-label="Pracownik"><%= user.ispracownik %></td>
-                    <td data-label="Admin"><%= user.admin %></td>
+                    <% if user.ispracownik == true %>
+                    <td data-label="Tak">Tak</td>
+                    <% else %>
+                    <td data-label="Nie">Nie</td>
+                    <% end %>
+                    <% if user.admin == true %>
+                    <td data-label="Tak">Tak</td>
+                    <% else %>
+                    <td data-label="Nie">Nie</td>
+                    <% end %>
                     <td data-label="Utworzony"><%= user.created_at %></td>
                     <td><%= link_to "Edytuj", edit_user_path(user), class:'btn btn-default btn-xs'%></td>
 <td><%= link_to "Admin", grantadmin_user_path(user), method: :grantadmin, data: { confirm: "Jesteś pewny?" }, class:'btn btn-success btn-xs'%></td>
