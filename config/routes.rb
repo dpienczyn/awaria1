@@ -32,8 +32,8 @@ Rails.application.routes.draw do
     resources :users do
       member do
         delete 'destroy'
-        post 'grantadmin'
-        post 'pracownik'
+        get 'grantadmin'
+        get 'pracownik'
       end
     end
   end
