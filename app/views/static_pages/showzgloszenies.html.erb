@@ -11,7 +11,7 @@
     </div>
   </div>
 </div>
-          
+
 <div class="table-responsive">
   <div class="wrapper">
     <table id="acrylic">
@@ -43,11 +43,21 @@
                 <td data-label="Data_naprawy"><%= zgloszeny.data_naprawy %></td>
                 <td data-label="Opis_uszkodzenia"><%= zgloszeny.opis_uszkodzenia %></td>
                 <td data-label="Nazwa_urzadzenia"><%= zgloszeny.nazwa_urzadzenia %></td>
-                <td data-label="Wysylka"><%= zgloszeny.wysylka %></td>
+                <% if zgloszeny.wysylka == true %>
+                <td data-label="Tak">Tak</td>
+                <% else %>
+                <td data-label="Nie">Nie</td>
+                <% end %>
                 <td data-label="PracownikID"><%= zgloszeny.pracownikid %></td>
-                <td data-label="Zrealizowano?"><%= zgloszeny.zrealizowane %></td>
+                <% if zgloszeny.zrealizowane == true %>
+                <td data-label="Tak">Tak</td>
+                <% else %>
+                <td data-label="Nie">Nie</td>
+                <% end %>
                 <% if zgloszeny.zrealizowane!=true %>
                 <td><%= link_to ' Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary btn-xs' %></td>
+                <% else %>
+                <td>Zrealizowano</td>
                 <% end %>
                 </td>
             </tr>
