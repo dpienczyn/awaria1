@@ -72,7 +72,7 @@ class ZgloszeniesController < ApplicationController
   # Automatyczne przydzielanie zgloszen do najmniej zajetych praca pracownikow
   def przydzial
     @zgloszenie = Zgloszenie.find(@zgloszeny.id)
-    users_list = User.pluck(:id)
+    users_list = User.where(ispracownik:true).pluck(:id)
     l = users_list.size
     i = 0
     @x = 0

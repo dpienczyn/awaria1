@@ -22,7 +22,7 @@
           </tr>
       </thead>
       <tbody>
-      <% @zgloszenies.each do |zgloszeny| %>
+      <% @zgloszenies.order("zrealizowane desc").each do |zgloszeny| %>
 <% if current_user.id == zgloszeny.user_id || current_user.admin? %>
           <tr>
               <td data-label="L.p"><%= zgloszeny.id %></td>
