@@ -91,6 +91,13 @@ class ZgloszeniesController < ApplicationController
 
   end
 
+  def realizacja
+    @zgloszenie = Zgloszenie.find(params[:id])
+    zgloszenie = Zgloszenie.find(@zgloszenie.id)
+    Zgloszenie.update(zgloszenie, :zrealizowane => true)
+  end
+
+
   # PATCH/PUT /zgloszenies/1
   # PATCH/PUT /zgloszenies/1.json
   def update

@@ -8,7 +8,10 @@ Rails.application.routes.draw do
 
   get 'static_pages/statystyki'
   get 'static_pages/showzgloszenies'
+  get 'static_pages/realizacja'
   get 'users/show'
+
+  post 'zgloszenies/realizacja'
 
   resources :zgloszenie_aktywnoscs
   resources :zgloszenies
@@ -16,6 +19,14 @@ Rails.application.routes.draw do
   resources :dzials
   devise_for :users, controllers: { registrations: 'registrations' }, :path_prefix => 'my'
   resources :users
+
+  # scope "zgloszenia" do
+  #   resources :zgloszenies do
+  #     member do
+  #       post 'realizacja'
+  #     end
+  #   end
+  # end
 
   scope "admin" do
     resources :users do

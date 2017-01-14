@@ -1,0 +1,24 @@
+<% content_for :title, " - Realizacja." %>
+
+<div class="container">
+    <div class="row">
+    <div class="span12">
+      <form class="form-horizontal" action='' method="POST">
+        <fieldset>
+          <div id="legend">
+            <legend class=""><h4>Realizacja Zgłoszeń</h4></legend>
+          </div>
+          </fieldset>
+          </form>
+          </div>
+          </div>
+          </div>
+
+
+<div class="jumbotron"
+    <p align="center">
+      <%= text_field :zgloszenieid, class: "form-control" %>
+      <% @zgl = Zgloszenie.where(id:9).pluck(:id).last %>  
+      <%= link_to "Realizacja Zgłoszenia", zgloszenies_realizacja_path(@zgl), method: :realizacja, class:'btn btn-primary btn-xs' %>
+    </p>
+</div>

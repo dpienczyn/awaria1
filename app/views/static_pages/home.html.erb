@@ -1,22 +1,4 @@
 <%= render 'static_pages/edit/page', static_pages: @static_pages %>
 <div class="jumbotron">
 <p align="center"><b></b>System rejestrowania usterek i napraw.</p>
-<% sum = 0 %>
-<% Zgloszenie.order("created_at desc").each do |zgloszeny| %>
-<% a = User.where(id:zgloszeny.pracownikid).pluck(:id).last  %>
-<% sum = sum + a %>
-<%= User.where(id:zgloszeny.pracownikid).pluck(:id) %>
-<% end %>
-<%= sum %>
-<p> </p>
-<% i = 0 %>
-<% x = 0 %>
-<% users_list = User.pluck(:id) %>
-<% for i in users_list %>
-<% x += 1 %>
-<% end %>
-<%= x %>
-<%= users_list %>
-<p> </p>
-<%= User.where(admin:false).order(:praca).pluck(:id).first %>
 </div>
