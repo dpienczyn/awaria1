@@ -10,9 +10,15 @@
 </div><br/>
 
 <div class="actions">
-  <%= link_to 'Dodaj Zgłoszenie', new_zgloszeny_path, class:'btn btn-sm btn-primary btn-create' %>
-  <%= link_to 'Pobierz PDF', zgloszenies_path(@zgloszenies, format: "pdf"), class:'btn btn-sm btn-primary btn-create'%>
+  <a class="btn btn-sm btn-primary btn-create" href="<%= new_zgloszeny_path %>">
+    <i class="fa fa-plus-circle"></i> Dodaj Zgłoszenie
+  </a>
+  <a class="btn btn-sm btn-primary btn-create" href="<%= zgloszenies_path(@zgloszenies, format: "pdf") %>">
+    <i class="fa fa-file-pdf-o"></i> PDF
+  </a>
   <% if current_user.admin? %>
-    <%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-primary btn-create' %>
+  <a class="btn btn-sm btn-primary btn-create" href="<%= static_pages_paneladmina_path %>">
+    <i class="fa fa-arrow-circle-left"></i> Zaplecze
+  </a>
   <% end %>
 </div><br/>

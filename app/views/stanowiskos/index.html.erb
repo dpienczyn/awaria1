@@ -9,6 +9,10 @@
 </div>
 
 <div class="actions" align="center">
-  <%= link_to 'Dodaj stanowisko', new_stanowisko_path, class:'btn btn-sm btn-primary btn-create' %>
-  <%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-primary btn-create' %>
+  <a class="btn btn-sm btn-primary btn-create" href="<%= new_stanowisko_path %>">
+    <i class="fa fa-plus-circle"></i> Dodaj stanowsko
+  </a>
+  <a class="btn btn-sm btn-primary btn-create" href="<%= static_pages_paneladmina_path %>">
+    <i class="fa fa-arrow-circle-left"></i> Zaplecze
+  </a>
 </div><br/>

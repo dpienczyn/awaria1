@@ -37,9 +37,13 @@
 </div>
 
 <div class="actions" align="center">
-  <%= link_to 'Dodaj do zgłoszenia', new_zgloszenie_aktywnosc_path, class:'btn btn-sm btn-primary btn-create' %>
+  <a class="btn btn-sm btn-primary btn-create" href="<%= new_zgloszenie_aktywnosc_path %>">
+    <i class="fa fa-plus-circle"></i> Dodaj do zgłoszenia
+  </a>
   <% if current_user.admin? %>
-    <%= link_to 'Zaplecze', static_pages_paneladmina_path, class:'btn btn-sm btn-primary btn-create' %>
+  <a class="btn btn-sm btn-primary btn-create" href="<%= static_pages_paneladmina_path %>">
+    <i class="fa fa-arrow-circle-left"></i> Zaplecze
+  </a>
   <% end %>
 </div><br/>
 <% else %>
