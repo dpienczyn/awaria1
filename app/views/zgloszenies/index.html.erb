@@ -10,14 +10,17 @@
 </div><br/>
 
 <div class="actions">
-  <a class="btn btn-sm btn-primary btn-create" href="<%= new_zgloszeny_path %>">
+  <a class="btn btn-sm btn-success btn-create" href="<%= new_zgloszeny_path %>">
     <i class="fa fa-plus-circle"></i> Dodaj Zgłoszenie
   </a>
-  <a class="btn btn-sm btn-primary btn-create" href="<%= zgloszenies_path(@zgloszenies, format: "pdf") %>">
+  <a class="btn btn-sm btn-warning btn-create" href="<%= zgloszenies_path(@zgloszenies, format: "pdf") %>">
     <i class="fa fa-file-pdf-o"></i> PDF
   </a>
+  <a class="btn btn-sm btn-primary btn-create" href="<%= static_pages_zgloszeniazrealizowane_path %>">
+    <i class="fa fa-check-circle-o"></i> Zrealizowane
+  </a>
   <% if current_user.admin? %>
-  <a class="btn btn-sm btn-primary btn-create" href="<%= static_pages_paneladmina_path %>">
+  <a class="btn btn-sm btn-danger btn-create" href="<%= static_pages_paneladmina_path %>">
     <i class="fa fa-arrow-circle-left"></i> Zaplecze
   </a>
   <% end %>

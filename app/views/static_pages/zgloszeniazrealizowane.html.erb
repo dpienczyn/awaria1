@@ -1,0 +1,60 @@
+<% content_for :title, " - Zrealizowane." %>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <form class="form-horizontal" action='' method="POST">
+        <fieldset>
+          <div id="legend">
+            <legend class=""><h4>zlecenia zrealizowane</h4></legend>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <div class="wrapper">
+    <table id="acrylic">
+        <thead>
+            <tr>
+                <th>L.p</th>
+                <th>Dział</th>
+                <th>Priorytet</th>
+                <th>Data zgłoszenia</th>
+                <th>Data naprawy</th>
+                <th>Opis uszkodzenia</th>
+                <th>Nazwa urzadzenia</th>
+                <th>Wysyłka</th>
+                <th>Pracownik ID</th>
+            </tr>
+        </thead>
+      <tbody>
+        <% Zgloszenie.order("created_at desc").each do |zgloszeny| %>
+        <% if zgloszeny.zrealizowane == true %>
+            <tr>
+                <td data-label="ID"><%= zgloszeny.id %></td>
+                <td data-label="Dział"><%= Dzial.where(id:zgloszeny.dzial_id).pluck(:nazwa).last %></td>
+                <td data-label="Priorytet"><%= zgloszeny.priorytet %></td>
+                <td data-label="Data_zgłoszenia"><%= zgloszeny.data_zgloszenia %></td>
+                <td data-label="Data_naprawy"><%= zgloszeny.data_naprawy %></td>
+                <td data-label="Opis_uszkodzenia"><%= zgloszeny.opis_uszkodzenia %></td>
+                <td data-label="Nazwa_urzadzenia"><%= zgloszeny.nazwa_urzadzenia %></td>
+                <% if zgloszeny.wysylka == true %>
+                <td data-label="Tak">Tak</td>
+                <% else %>
+                <td data-label="Nie">Nie</td>
+                <% end %>
+                <td data-label="PracownikID"><%= zgloszeny.pracownikid %></td>
+            </tr>
+             <% end %>
+             <% end %>
+        </tbody>
+    </table>
+</div>
+</div>
+
+<p align="center">
+<a class="btn btn-sm btn-primary btn-create" href="<%= zgloszenies_path %>">
+  <i class="fa fa-circle-o"></i> Niezrealizowane
+</a> </p>

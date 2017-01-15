@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'static_pages/statystyki'
   get 'static_pages/showzgloszenies'
   get 'static_pages/realizacja'
+  get 'static_pages/zgloszeniazrealizowane'
   get 'users/show'
 
   post 'zgloszenies/realizacja'
