@@ -10,12 +10,13 @@ class ZgloszeniesController < ApplicationController
                              .references(:users)
 
     @zgloszenies = Zgloszenie.paginate(:page => params[:page], :per_page => 10)
+    @user = current_user.id
 
     respond_to do |format|
       format.js
       format.html
       format.pdf do
-        pdf = ZgloszenieListaPdf.new(@zgloszenies)
+        pdf = ZgloszenieListaPdf.new(@zgloszenies, @user)
         send_data pdf.render, {filename: "zgloszenia.pdf",
                               type: "application/pdf",
                               disposition: "inline"}
