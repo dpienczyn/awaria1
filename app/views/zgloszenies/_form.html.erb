@@ -19,14 +19,14 @@
             <% if zgloszeny.visible? %>
             <label class="control-label"  for="username">ID użytkownika</label>
             <div class="controls">
-              <%= f.text_field :user_id, :value => current_user.id ,:readonly => true, class:"form-control" %><br/>
+              <%= f.text_field :user_id, :value => current_user.id ,:readonly => true, class:"form-control" %><br>
               <% end %>
 
             <div class="control-group">
             <label class="control-label"  for="username"><h5>Zgłoszenie do działu</h5></label>
             <div class="controls">
               <%= f.collection_select :dzial_id, Dzial.all, :id, :nazwa, {prompt: "Wybierz", id:"dzialselect"}, {class:"form-control"} %>
-            </div><br/>
+            </div><br>
           </div>
           </div>
 
@@ -36,7 +36,7 @@
             <div class="controls">
             <%= f.date_select :data_zgloszenia, {}, class: "form-control"%>
             </div>
-          </div><br/>
+          </div><br>
           <% end %>
 
           <div class="control-group">
@@ -44,19 +44,19 @@
             <div class="controls">
             <%= f.text_area :nazwa_urzadzenia, class: "form-control"%>
             </div>
-          </div><br/>
+          </div><br>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Opis uszkodzenia</h5></label>
             <div class="controls">
             <%= f.text_area :opis_uszkodzenia, class:"form-control" %>
             </div>
-          </div><br/>
+          </div><br>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Wysyłka</h5></label>
 
             <%= f.select :wysylka, [['Tak', true], ['Nie', false]], {}, class: "form-control" %>
 
-          </div><br/>
+          </div><br>
 
           <% if current_user.ispracownik? || current_user.admin? %>
           <div class="control-group">
@@ -64,25 +64,25 @@
             <div class="controls">
             <%= f.text_field :priorytet, class: "form-control" %>
             </div>
-          </div><br/>
+          </div><br>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Status</h5></label>
             <div class="controls">
             <%= f.select :status, options_for_select(Zgloszenie.statuses_for_select), {}, class: "form-control" %>
             </div>
-          </div><br/>
+          </div><br>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Zrealizowane</h5></label>
             <div class="controls">
             <%= f.select :zrealizowane, [['Nie', false], ['Tak', true]], {}, class: "form-control", id: "control" %>
-          </div><br/>
+          </div><br>
         </div>
           <div class="control-group">
             <label class="control-label" for="password"><h5>Data naprawy</h5></label>
             <div class="controls">
             <%= f.date_select :data_naprawy, :include_blank => true, :default => nil, class: "form-control", id: "data" %>
             </div>
-          </div><br/>
+          </div><br>
           <% end %>
   <%= f.hidden_field :visible, :value => false %>
 </div>

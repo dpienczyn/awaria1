@@ -1,7 +1,7 @@
 <div class="container">
   <%= image_tag 'logo.png', class: 'img-responsive' %>
 </div>
-</br>
+<br>
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -18,7 +18,7 @@
         <% else %>
         <% end %>
         <a class="navbar-brand" href="<%= destroy_user_session_path %>">
-          Wylogowanie <i class="fa fa-power-off "></i> 
+          Wylogowanie <i class="fa fa-power-off "></i>
         </a>
         <% else %>
         <%= link_to "Logowanie", new_user_session_url, class: 'navbar-brand' %>
