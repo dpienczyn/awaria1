@@ -236,6 +236,7 @@ th {
   }
   h2,
   h3 {
+
     page-break-after: avoid;
   }
   .navbar {
@@ -1269,6 +1270,7 @@ h1,
 h2,
 .h2 {
   font-size: 30px;
+  text-align:center;
 }
 h3,
 .h3 {

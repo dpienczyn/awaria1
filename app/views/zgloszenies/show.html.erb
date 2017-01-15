@@ -7,7 +7,7 @@
        <%= image_tag(generate_qr(@zgloszeny.id.to_s), class: "qr-code") %>
    </td> <td width=20></td>
    <td>
-   <p><h2><strong>Dział: </strong><%= Dzial.where(id:@zgloszeny.dzial_id).pluck(:nazwa).last %></h2></p>
+   <p><strong>Dział: </strong><%= Dzial.where(id:@zgloszeny.dzial_id).pluck(:nazwa).last %></p>
    <p> <strong>Priorytet: </strong><%= @zgloszeny.priorytet %>
    <strong>Status:</strong> <%= t("activerecord.attributes.zgloszenie.statuses.#{@zgloszeny.status}") %> </p>
 
