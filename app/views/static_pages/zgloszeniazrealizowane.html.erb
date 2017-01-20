@@ -26,7 +26,9 @@
                 <th>Opis uszkodzenia</th>
                 <th>Nazwa urzadzenia</th>
                 <th>Wysyłka</th>
-                <th>Pracownik ID</th>
+                <th>User</th>
+                <th>Pracownik</th>
+                <th>Akcja</th>
             </tr>
         </thead>
       <tbody>
@@ -45,7 +47,9 @@
                 <% else %>
                 <td data-label="Nie">Nie</td>
                 <% end %>
-                <td data-label="PracownikID"><%= zgloszeny.pracownikid %></td>
+                <td data-label="User"><%= User.where(id:zgloszeny.user_id).pluck(:first_name).last %></td>
+                <td data-label="Pracownik"><%= User.where(id:zgloszeny.pracownikid).pluck(:first_name).last %></td>
+                <td><%= link_to 'Pokaż', zgloszeny, class:'btn btn-warning btn-xs' %></td>
             </tr>
              <% end %>
              <% end %>
@@ -55,6 +59,15 @@
 </div>
 
 <p align="center">
-<a class="btn btn-sm btn-primary btn-create" href="<%= zgloszenies_path %>">
-  <i class="fa fa-circle-o"></i> Niezrealizowane
-</a> </p>
+    <a class="btn btn-sm btn-success btn-create" href="<%= new_zgloszeny_path %>">
+      <i class="fa fa-plus-circle"></i> Dodaj Zgłoszenie
+    </a>
+  <a class="btn btn-sm btn-primary btn-create" href="<%= zgloszenies_path %>">
+    <i class="fa fa-circle-o"></i> Niezrealizowane Zgłoszenia
+  </a>
+  <% if current_user.admin? %>
+  <a class="btn btn-sm btn-danger btn-create" href="<%= static_pages_paneladmina_path %>">
+    <i class="fa fa-arrow-circle-left"></i> Zaplecze
+  </a>
+  <% end %>
+</p>
