@@ -1,7 +1,7 @@
 # AWARIA
 ## System rejestrowania usterek i napraw
 
-[logo]: https://github.com/kamilpek/ror-awaria/blob/master/docs/logo.png "Awaria"
+![logo](https://github.com/kamilpek/ror-awaria/blob/master/docs/logo.png)
 
 Aplikacja w Ruby on Rails wspomagająca pracę serwisu.
 
@@ -24,6 +24,7 @@ Aplikacja w Ruby on Rails wspomagająca pracę serwisu.
 1. Will_paginate-bootstrap ~1.0.1.
 
 #### Autorzy:
+Opis wkładu każdego z członków zespołu [link](https://github.com/kamilpek/ror-awaria/blob/master/docs/opis.pdf).
 1. [Dominika Pienczyn](https://github.com/dpienczyn),
 1. [Marcin Dawidowski](https://github.com/mdawidowski),
 1. [Kamil Pek](https://github.com/kamilpek).
