@@ -19,6 +19,11 @@
   <h3>Ilość zgłoszeń według działów: </h3>
   <%= pie_chart Zgloszenie.group(:dzial_id).count %>
 
+  <p align="center">Legenda:
+  <% Dzial.all.each do |dzial| %>
+    <strong><%= dzial.id %>- </strong><%= dzial.nazwa %>,
+  <% end %> </p>
+
   <h3>Ilość zgłoszeń według daty: </h3>
   <%= line_chart Zgloszenie.group_by_day(:created_at).count %>
 
