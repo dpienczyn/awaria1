@@ -3,13 +3,13 @@
     <div id="error_explanation">
       <h2><%= pluralize(dzial.errors.count, "error") %> prohibited this dzial from being saved:</h2>
 
-      <ul>
-      <% dzial.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <ul>
+  <% dzial.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
   <% end %>
+  </ul>
+</div>
+<% end %>
 
 <div class="jumbotron">
   <div class="field">
