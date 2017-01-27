@@ -24,7 +24,7 @@
           <%= f.submit "Zapisz hasło", class: "btn btn-lg btn-success btn-block" %>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6">
-            <a href="http://localhost:3000/my/users/sign_in" class="btn btn-lg btn-primary btn-block">Zaloguj się</a>
+            <%= link_to "Zaloguj się", new_session_path(resource_name), class: "btn btn-lg btn-primary btn-block" %>
           </div>
         </div>
       </fieldset>
