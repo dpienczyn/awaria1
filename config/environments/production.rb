@@ -92,7 +92,7 @@ Rails.application.configure do
     :domain               => 'awaria1.herokuapp.com',
     :user_name            => "awaria.kontakt@gmail.com",
     :password             => "admin1234567",
-    :authentication       => "plain",
+    :authentication       => "login",
     :enable_starttls_auto => true,
     :openssl_verify_mode => 'none'
   }
