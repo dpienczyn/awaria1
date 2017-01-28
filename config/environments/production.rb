@@ -83,7 +83,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  ENV['RECAPTCHA_SITE_KEY']= '6Lf-fRMUAAAAABn4869-SFyNrGKaZMtu-QpPmHp0'
+  ENV['RECAPTCHA_SECRET_KEY']= '6Lf-fRMUAAAAAHGfL-5xyINjw3iLlWfpTx2tX-Sj'
   config.action_mailer.default_url_options = { host: 'awaria1.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
