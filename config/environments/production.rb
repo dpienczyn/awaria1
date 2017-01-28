@@ -86,13 +86,14 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'awaria1.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => 'awaria1.herokuapp.com',
+    :domain               => 'gmail.com',
     :user_name            => "awaria.kontakt@gmail.com",
     :password             => "admin1234567",
-    :authentication       => "login",
+    :authentication       => "plain",
     :enable_starttls_auto => true,
     :openssl_verify_mode => 'none'
   }
