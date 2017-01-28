@@ -1,8 +1,9 @@
 ActionMailer::Base.smtp_settings = {
   :address              => "smtp.gmail.com",
-  :port                 => 465,
+  :port                 => 587,
   :user_name            => "awaria.kontakt@gmail.com",
   :password             => "admin1234567",
   :authentication       => "plain",
-  :enable_starttls_auto => true
+  :enable_starttls_auto => true,
+  :open_ssl_verify_node => 'none'
 }
