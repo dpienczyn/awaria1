@@ -87,11 +87,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'awaria1.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
+    :address              => "smtp.wp.pl",
     :port                 => 587,
     :domain               => 'awaria1.herokuapp.com',
-    :user_name            => "awaria.kontakt@gmail.com",
-    :password             => "admin1234567",
+    :user_name            => "pienczyndominika@wp.pl",
+    :password             => "donia19881",
     :authentication       => "plain",
     :enable_starttls_auto => true,
     :open_ssl_verify_node => 'none'
