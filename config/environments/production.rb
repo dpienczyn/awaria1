@@ -94,7 +94,7 @@ Rails.application.configure do
     :password             => "admin1234567",
     :authentication       => "plain",
     :enable_starttls_auto => true,
-    :open_ssl_verify_node => 'none'
+    :openssl_verify_mode => 'none'
   }
 
 end
