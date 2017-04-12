@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'users/show'
 
   post 'zgloszenies/realizacja'
-
+  
   resources :zgloszenie_aktywnoscs
   resources :zgloszenies
   resources :stanowiskos
