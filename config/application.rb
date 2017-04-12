@@ -1,5 +1,5 @@
 require_relative 'boot'
-
+require "rails_erd/diagram/graphviz"
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
