@@ -56,9 +56,7 @@ Wymagania pozafunkcjonalne - specyfikują kryteria osądzania działania systemu
 
 
 
-![logo](https://github.com/kamilpek/ror-awaria/blob/master/docs/logo.png)
-
-Aplikacja w Ruby on Rails wspomagająca pracę serwisu.
+# Aplikacja w Ruby on Rails wspomagająca pracę serwisu
 
 #### Specyfikacja:
 * Ruby: 2.3.1,
