@@ -1,6 +1,5 @@
-# AWARIA
-## System rejestrowania usterek i napraw
-
+					# AWARIA - System rejestrowania usterek i napraw
+----------------------------------------------------------------------------------------------------------------------------
 ## Analiza projektu
 
 ### Diagram ERD
