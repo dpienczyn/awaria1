@@ -59,6 +59,10 @@ gem 'prawn-table', '~> 0.1.0' # dodatek do pdf
 gem 'will_paginate', '~> 3.1.0' # paginacja
 gem 'will_paginate-bootstrap' # dodatek do paginacji
 
+group :doc do
+  gem 'sdoc', '0.3.20', require: false
+end
+
 group :production do
   gem 'pg', '~> 0.18'
   gem 'rails_12factor', '0.0.2'
