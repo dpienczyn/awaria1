@@ -36,8 +36,8 @@ Wymagania funkcjonalne - opisują funkcjonalność, którą system ma realizowa�
 * dynamiczne przeszukiwanie tabel
 * automatyczne informowanie użytkownika za pomoca adresu e-mail o:
 - przyjęciu usterki
-- rozpoczęciu naprawy
-- zakończeniu naprawy
+- rozpoczęciu naprawy usterki
+- zakończeniu naprawy usterki
 * automatyczne informowanie użytkownika za pomocą adresu e-mail o poprawnej rejestracji w systemie
 * zapisywanie wykonywanych operacji w bazie
 * przejrzysty interfejs
