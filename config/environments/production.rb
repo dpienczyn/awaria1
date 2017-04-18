@@ -89,7 +89,7 @@ Rails.application.configure do
   
   config.action_mailer.smtp_settings = {
     :user_name => 'apikey',
-    :password => ' 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,
+    :password => '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,
     :domain => 'awaria-system.herokuapp.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
