@@ -1,6 +1,33 @@
 # AWARIA
 ## System rejestrowania usterek i napraw
 
+## Analiza projektu
+
+### Diagram ERD
+
+Diagram ERD *(ang. Entity-Relationship Diagram)* - rodzaj graficznego przedstawienia związków pomiędzy encjami używany w projektowaniu systemów informacyjnych do przedstawienia konceptualnych modeli danych używanych w systemie.
+
+![Diagram ERD](https://github.com/dpienczyn/projekt-analiza/blob/master/ERD.pdf)
+
+### Diagram przepływu danych
+
+Diagram przepływu danych *(ang. ang. DFD – Data Flow Diagram)* - graficzna prezentacja przepływu danych w procesie. Na proces składają się następujące elementy:
+
+* Funkcje
+* Magazyny danych
+* Terminatory
+* Przepływy
+
+![Diagram DFD](https://github.com/dpienczyn/projekt-analiza/blob/master/UseCase.pdf)
+
+## Specyfikacja wymagań
+
+### Wymagania funkcjonalne
+
+Wymagania funkcjonalne opisują funkcjonalność, którą system ma realizować, na przykład formatowanie tekstu lub modulowanie sygnału. Czasami są znane jako możliwości.
+
+
+
 ![logo](https://github.com/kamilpek/ror-awaria/blob/master/docs/logo.png)
 
 Aplikacja w Ruby on Rails wspomagająca pracę serwisu.
