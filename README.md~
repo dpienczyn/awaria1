@@ -24,7 +24,18 @@ Diagram przepływu danych *(ang. ang. DFD – Data Flow Diagram)* - graficzna pr
 
 ### Wymagania funkcjonalne
 
-Wymagania funkcjonalne opisują funkcjonalność, którą system ma realizować, na przykład formatowanie tekstu lub modulowanie sygnału. Czasami są znane jako możliwości.
+Wymagania funkcjonalne - opisują funkcjonalność, którą system ma realizować, na przykład formatowanie tekstu lub modulowanie sygnału. Czasami są znane jako możliwości.
+
+* użytkownik może uwierzytelnić sie za pomocą hasła i adresu e-mail
+* użytkownik może zmienić hasło pod warunkiem wpisania poprawnego, starego hasła
+* edycja/usuniecie użytkownika
+* edycja/dodanie/usuniecie zgłoszenia
+* edycja/dodanie/usuniecie działu
+* edycja/dodanie/usuniecie stanowiska
+* edycja/dodanie/usuniecie zgłoszenia-aktywności
+* możliwość nadania uprawnień administartora i pracownika
+* dynamiczne przeszukiwanie tabel
+
 
 
 

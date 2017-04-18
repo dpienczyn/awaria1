@@ -35,8 +35,15 @@ Wymagania funkcjonalne - opisują funkcjonalność, którą system ma realizowa�
 * edycja/dodanie/usuniecie zgłoszenia-aktywności
 * możliwość nadania uprawnień administartora i pracownika
 * dynamiczne przeszukiwanie tabel
-
-
+* automatyczne informowanie użytkownika za pomoca e-mail o:
+- przyjęciu usterki
+- rozpoczęciu naprawy
+- zakończeniu naprawy
+* automatyczne informowanie użytkownika za pomocą e-mail o poprawnej rejestracji w systemie
+* zapisywanie wykonywanych operacji w bazie
+* przejrzysty interfejs
+* możliwość generowania PDF
+* statystyki informujące o ilości zgłoszeń, ilości zgłoszeń według daty, rozkładzie zgłoszeń na dni tygodnia oraz rejestracji użytkowników według dnia
 
 
 ![logo](https://github.com/kamilpek/ror-awaria/blob/master/docs/logo.png)
