@@ -33,7 +33,7 @@ Wymagania funkcjonalne - opisują funkcjonalność, którą system ma realizowa�
 * edycja/dodanie/usunięcie stanowiska
 * edycja/dodanie/usunięcie zgłoszenia-aktywności
 * możliwość nadania uprawnień administratora i pracownika
-* dynamiczne przeszukiwanie tabel
+* przeszukiwanie danych w czasie rzeczywistym
 * automatyczne informowanie użytkownika za pomoca adresu e-mail o:
 - przyjęciu usterki
 - rozpoczęciu naprawy usterki
