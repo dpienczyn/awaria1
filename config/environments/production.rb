@@ -86,12 +86,11 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'awaria-system.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
-  
   config.action_mailer.smtp_settings = {
     :user_name => 'apikey',
-    :password => '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,
-    :domain => "awaria-system.herokuapp.com",
-    :address => 'smtp.sendgrid.net',
+    :password => '',
+    :domain => 'awaria-system.herokuapp.com',
+    :address => '',
     :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true
