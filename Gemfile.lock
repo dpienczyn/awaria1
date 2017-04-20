@@ -218,7 +218,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks (~> 2.1)
   listen (~> 3.0.5)
-  pg (~> 0.18)
+  pg
   prawn (~> 2.1)
   prawn-table (~> 0.1.0)
   puma (~> 3.0)
