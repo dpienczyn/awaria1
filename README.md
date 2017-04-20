@@ -83,7 +83,7 @@ Opis wkładu każdego z członków zespołu [link](https://github.com/kamilpek/r
 1. [Kamil Pek](https://github.com/kamilpek).
 
 #### Dostęp do demo:
-1. Adres: [awaria.herokuapp.com](https://awaria-system.herokuapp.com/)
+1. Adres: [awaria-system.herokuapp.com](https://awaria-system.herokuapp.com/)
 1. Administrator: admin@pl/adminpl,
 1. Użytkownik: user@pl/userpl,
 1. Pracownik: prac@pl/pracpl.
