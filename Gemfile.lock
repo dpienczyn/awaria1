@@ -207,7 +207,6 @@ PLATFORMS
 DEPENDENCIES
   barby
   bootstrap-sass (~> 3.3.7)
-  bundler
   byebug
   chartkick
   coffee-rails (~> 4.2)
@@ -225,7 +224,6 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails_12factor (= 0.0.2)
-  rake
   rqrcode
   sass-rails (~> 5.0)
   sdoc (= 0.3.20)
