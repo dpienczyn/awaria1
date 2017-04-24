@@ -48,7 +48,7 @@
               <% end %>
 
 
-              <td><%= link_to('Usuń', zgloszeny, method: :delete, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-danger btn-xs') %></td>
+              <td><%= link_to('Usuń', zgloszeny, method: :delete, :class=>:destroy, data: { confirm: 'Jesteś pewny?' }, class:'btn btn-danger btn-xs') %></td>
               <td><%= link_to 'Pokaż', zgloszeny, class:'btn btn-warning btn-xs' %></td>
               <td><%= link_to 'Edytuj', edit_zgloszeny_path(zgloszeny), class:'btn btn-primary btn-xs' %></td>
               <% end %>
