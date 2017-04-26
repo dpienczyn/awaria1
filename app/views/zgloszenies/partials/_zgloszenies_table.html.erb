@@ -41,9 +41,7 @@
               <% if current_user.admin? %>
               <td data-label="User"><%= User.where(id:zgloszeny.user_id).pluck(:first_name).last %></td>
               <% if zgloszeny.pracownikid.nil? %>
-              <td data-label="Pracownik"><%= User.where(id:zgloszeny.pracownikid).pluck(:first_name).last %></td>
-              <% else %>
-              <td data-label="Brak">Brak</td>
+                <td data-label="Pracownik"><%= User.where(id:zgloszeny.pracownikid).pluck(:first_name).last %></td>
               <% end %>
               <% end %>
 
