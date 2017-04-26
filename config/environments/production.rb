@@ -56,6 +56,11 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "awaria_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+  config.cache_store = :memory_store, { 64.megabytes } 
+  config.public_file_server.enable = true
+  config.public_file_server.headers = {
+    'Cache-Control' => 'public, max-age=172800',
+    'Expires' => "#{1.month.from_now.to_formatted_s(:rfc822)}" }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
