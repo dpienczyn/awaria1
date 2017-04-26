@@ -3,7 +3,7 @@
 @import "bootstrap.css";
 @import "bootstrap-theme.css";
 
-body { padding-top: 20px; }
+.body { padding-top: 20px; }
 
 .colorgraph {
   border-top: 70px;
@@ -25,6 +25,7 @@ body { padding-top: 20px; }
   font-family: 'roboto';
   text-transform: uppercase;
 }
+
 @media screen and (max-width: 767px) {
 .fr .alert-info{
   font-family: 'roboto';
@@ -33,6 +34,7 @@ body { padding-top: 20px; }
   margin-right: 10px;
   margin-bottom: 10px;
 }}
+
 .form-group .input-lg{
     font-family: 'roboto';
 }
@@ -72,7 +74,7 @@ body { padding-top: 20px; }
 }
 }
 
-table#acrylic {
+.table#acrylic {
 border-collapse: separate;
 background: #fff;
 -moz-border-radius: 5px;
