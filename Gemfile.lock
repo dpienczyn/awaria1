@@ -205,6 +205,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  arel (~> 7.1.4)
   barby
   bootstrap-sass (~> 3.3.7)
   byebug
@@ -222,6 +223,7 @@ DEPENDENCIES
   prawn (~> 2.1)
   prawn-table (~> 0.1.0)
   puma (~> 3.0)
+  rack (~> 2.0, >= 2.0.1)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails_12factor (= 0.0.2)
   rqrcode

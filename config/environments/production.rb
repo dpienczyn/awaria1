@@ -56,8 +56,6 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "awaria_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  config.cache_store = :memory_store, { 64.megabytes } 
-  config.public_file_server.enable = true
   config.public_file_server.headers = {
     'Cache-Control' => 'public, max-age=172800',
     'Expires' => "#{1.month.from_now.to_formatted_s(:rfc822)}" }
