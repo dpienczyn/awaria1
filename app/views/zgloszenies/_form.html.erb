@@ -88,14 +88,10 @@
 </div>
 
   <div class="jumbotron">
-            <div class="controls">
-            <%= f.submit "Dodaj zgłoszenie", class:'btn btn-success' %>
-            <%= link_to 'Pokaż', @zgloszeny, class: "btn btn-primary" %>
+            <%= f.submit "Dodaj zgłoszenie", class:'btn btn-sm btn-success btn-create' %>
+            <%= link_to 'Pokaż', @zgloszeny, class: "btn btn-sm btn-primary btn-create" %>
             <a class="btn btn-sm btn-primary btn-create" href="<%= zgloszenies_path %>">
               <i class="fa fa-arrow-circle-left"></i> Zaplecze
             </a>
-          </p>
             </div>
-          </div>
-
 <% end %>
