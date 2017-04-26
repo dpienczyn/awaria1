@@ -3,7 +3,7 @@
 @import "bootstrap.css";
 @import "bootstrap-theme.css";
 
-.body { padding-top: 20px; }
+body { padding-top: 20px; }
 
 .colorgraph {
   border-top: 70px;
@@ -401,7 +401,7 @@ font-size: 20px;
 font-weight: 600;
 }
 .jumbotron .btn{
-font-family: roboto;
+font-family: 'roboto';
 display: block;
 list-style: none;
 margin: 0;
@@ -414,6 +414,17 @@ font-size: 15px;
 }
 }
 
+@media all and (max-width:769px) {
+  .jumbotron .controls .btn{
+  font-family: 'roboto';
+  font-weight: medium;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 100%;
+    }}
 
 h1,h2,h3,h5{
 font-family: roboto;
@@ -431,27 +442,6 @@ font-size: 18px;
 }
 .h2{
 font-size: 17px;
-}}
-
-
-.actions .btn {
-margin-top: 3px;
-margin-bottom: 5px;
-margin-right: 1px;
-margin-left: 10px;
-font-family: 'roboto';
-}
-
-@media all and (max-width:769px) {
-.actions .btn {
-margin-top: 3px;
-margin-bottom: 5px;
-margin-right: auto;
-margin-left: auto;
-font-family: 'roboto';
-text-transform: uppercase;
-display: block;
-width: 60%;
 }}
 
 @media all and (max-width:769px) {
@@ -732,6 +722,28 @@ text-align: center;
 }
 @media all and (max-width:769px) {
   #custom-search-input {
-    text-transform: uppercase;  
+    text-transform: uppercase;
+    margin-bottom: 15px;  
+  }
+}
+@media all and (max-width:769px) {
+.btn-create
+{
+  font-family: 'roboto';
+  font-weight: medium;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}}
+
+@media all and (max-width:769px) {
+  .form-group .btn-lg{
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }

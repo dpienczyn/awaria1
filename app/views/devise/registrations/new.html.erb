@@ -39,8 +39,9 @@
 
  <hr class="colorgraph">
  <div class="row">
+ <div class="form-group">
   <div class="col-xs-12 col-md-6">
-  <%= f.submit "Rejestracja", class: "btn btn-primary btn-block btn-lg"%> </div>
+  <%= f.submit "Rejestracja", class: "btn btn-primary btn-block btn-lg"%></div><% end %>
   <div class="col-xs-12 col-md-6">
   <%= link_to "Zaloguj się", new_session_path(resource_name), class: "btn btn-success btn-block btn-lg"  %></div>
  </div>
@@ -48,5 +49,4 @@
 </div>
 </div>
 </div>
-<% end %>
 </div>

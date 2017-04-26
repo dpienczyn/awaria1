@@ -4,6 +4,7 @@
 <div class="container">
 <div class="row">
 <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+<div class="log">
   <fieldset>
     <h2>Zaloguj się</h2>
     <hr class="colorgraph">
@@ -22,15 +23,17 @@
     </span>
     <hr class="colorgraph">
     <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6">
+    <div class="form-group">
+      <div class="col-xs-12 col-md-6">
       <%= f.submit "Zaloguj się", class: "btn btn-success btn-block btn-lg" %>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6">
+      </div><% end %>
+      <div class="col-xs-12 col-md-6">
         <%= link_to "Rejestracja", new_registration_path(resource_name), class: "btn btn-primary btn-block btn-lg"  %>
       </div>
-    </div><br/>
+      </div></br>
+      </div>
   </fieldset>
 </div>
 </div>
 </div>
-<% end %>
+</div>
