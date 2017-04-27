@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'static_pages/instalacja'
+  get '/robots.:format' => 'pages#robots'
 
   devise_for :admins
   get 'static_pages/paneladmina'
