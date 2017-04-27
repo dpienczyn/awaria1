@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount_roboto
   get 'static_pages/instalacja'
 
   devise_for :admins
