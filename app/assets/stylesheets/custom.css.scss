@@ -65,15 +65,28 @@ body { padding-top: 20px; }
   font-family: 'roboto';
 }
 
+/* wyszukiwanie */
 @media screen and (max-width: 767px) {
 .SearchButton{
    margin-left: 10px;
 }
 .input-group .SearchBar{
   text-transform: uppercase;
+  font-size: 13px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
+#custom-search-input .form-control {
+    text-transform: uppercase;
+    margin-bottom: 15px; 
+    margin-right: auto; 
+    margin-left: auto;
+  }
 }
 
+/* tabelki */
 .table#acrylic {
 border-collapse: separate;
 background: #fff;
@@ -169,7 +182,8 @@ color: #2d2d2d;
 opacity: 1;
 transition: 0.2s all;
 }
-        
+
+/* tabelki mala rozdzielczosc */        
 @media screen and (max-width: 767px) {
 #acrylic thead {
     display: none;
@@ -214,6 +228,8 @@ table#acrylic {
   margin-right: 10px;
 }
 }
+
+/* linia ciagla podstrony */
 .span12{
   text-align: center;
 }
@@ -229,20 +245,21 @@ margin-top: 10px;
 text-transform: uppercase;
 } 
 
+/* linia ciagla na kazdej podstronie mala rozdzielczosc */
 @media all and (max-width:769px) { 
 .span12 h4 {
-margin-left: 20px;
-margin-right: 20px;
+margin-left: auto;
+margin-right: auto;
 font-family: roboto;
 font-size: 20px;
 font-weight: 700;
 margin-bottom: 15px;
-margin-top: 10px;
+margin-top: 15px;
 text-transform: uppercase;
 } 
 .span12 .form-horizontal{
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
 }
 }
 
@@ -252,12 +269,21 @@ height: 5px;
 background-color: #3366FF;
 }
 
+
 .control-group h5{
 font-family: roboto;
 font-weight: bold;
 font-size: 15px;
 }
 
+@media all and (max-width:769px) {
+  .controls .form-control{
+    font-size: 15px;
+  }
+  .control-group h5{
+    font-size: 17px;
+  }
+}
 .well well-sm h4{
 font-family: roboto;
 font-weight: bold;
@@ -459,6 +485,7 @@ margin-bottom: 5px;
 @media all and (max-width:769px) {
 .field {
   text-align: center;
+  font-size: 20px;
 }
 }
 
@@ -490,10 +517,10 @@ margin-left: 3px;
 font-family: 'roboto';
 }
 .control-group .control-label{
-margin-right: 10px;
+margin-right: auto;
 margin-bottom: 5px;
 margin-top: 5px;
-margin-left: 12px;
+margin-left: auto;
 font-family: 'roboto';
 }
 .control-label h5{
@@ -675,9 +702,11 @@ text-align: center;
   font-weight: 700px;
 }
 
+/* przycisk wyszukiwania niebieski */
 #custom-search-input {
     margin:0;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     padding: 0;
     font-family: 'roboto';
 }
@@ -715,12 +744,8 @@ text-align: center;
 .search-query:focus + button {
     z-index: 3;   
 }
-@media all and (max-width:769px) {
-  #custom-search-input {
-    text-transform: uppercase;
-    margin-bottom: 15px;  
-  }
-}
+
+/* przyciski pod np new dzials, new stanowisko itd */
 @media all and (max-width:769px) {
 .btn-create
 {
@@ -732,13 +757,29 @@ text-align: center;
   margin-right: auto;
   margin-left: auto;
   width: 100%;
+  font-size: 14px;
 }}
 
+/* rejestracja logowanie */
 @media all and (max-width:769px) {
   .form-group .btn-lg{
     text-transform: uppercase;
-    margin-bottom: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     margin-right: auto;
     margin-left: auto;
+    font-size: 20px;
+  }
+  .form-group .input-lg{
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  h2{
+    text-transform: uppercase;
+  }
+   .button-checkbox .btn{
+    text-transform: uppercase;
   }
 }
