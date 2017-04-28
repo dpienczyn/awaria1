@@ -12,7 +12,6 @@
 //
 //= require panda.js
 //= require jquery
-//= require fancybox
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
