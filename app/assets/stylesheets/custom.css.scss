@@ -448,12 +448,12 @@ text-transform: uppercase;
     }}
 
 h1,h2,h3,h5{
-font-family: roboto;
+font-family: 'roboto';
 }
 
 @media all and (max-width:769px) {
 h3,h5{
-font-family: roboto;
+font-family: 'roboto';
 font-size: 15px;
 font-weight: 200px;
 }
@@ -773,8 +773,8 @@ text-align: center;
   .form-group .input-lg{
     text-transform: uppercase;
     font-size: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   h2{
     text-transform: uppercase;
