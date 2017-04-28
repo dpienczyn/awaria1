@@ -90,13 +90,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'awaria-system.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => 'apikey',
-    :password => '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',
-    :domain => 'awaria-system.herokuapp.com',
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    domain: 'awaria-system.herokuapp.com',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 
 end
