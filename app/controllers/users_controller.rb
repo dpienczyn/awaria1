@@ -28,23 +28,13 @@ class UsersController < ApplicationController
 
   def grantadmin
     @user = User.find(params[:id])
-    user = User.find(@user.id)
-    if @user.admin?
-      user.update_attribute(:admin, false)
-    else
-      user.update_attribute(:admin, true)
-    end
+    @user.toggle(:admin)
     redirect_to users_path, notice: "Zakutalizowano uprawnienia administratora."
   end
 
   def pracownik
     @user = User.find(params[:id])
-    user = User.find(@user.id)
-    if @user.ispracownik?
-      user.update_attribute(:ispracownik, false)
-    else
-      user.update_attribute(:ispracownik, true)
-    end
+    @user.toggle(:ispracownik)
     redirect_to users_path, notice: "Zakutalizowano uprawnienia pracownika."
   end
 
