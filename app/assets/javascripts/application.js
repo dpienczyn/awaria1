@@ -16,6 +16,7 @@
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap
+//= require stacktable
 //= require_tree .
 
 function printpage()
