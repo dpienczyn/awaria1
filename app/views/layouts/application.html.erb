@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <%= csrf_meta_tags %>
     <%= content_for?(:head) ? yield(:head) : '' %>
-    <%= javascript_include_tag "application", "data-turbolinks-track", "//www.google.com/jsapi", "chartkick" => true, async: true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true, async: true %>
     <%= stylesheet_link_tag    'application', media: 'all'%>
-    
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   </head>
   <body>
     <%= render 'layouts/header' %>
