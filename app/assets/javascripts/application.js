@@ -14,11 +14,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.turbolinks
-//= require jsapi
-//= require chartkick
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require stacktable
+//= require jsapi
+//= require chartkick
 //= require_tree .
 
 function printpage()
