@@ -9,6 +9,11 @@
     <%= javascript_include_tag 'application', async: true %>
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+   <!--[if lt IE 9]>  
+<script src="jquery-1.9.0.js"></script>  
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<!--<![endif]-->
   </head>
   <body>
     <%= render 'layouts/header' %>
