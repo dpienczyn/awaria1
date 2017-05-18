@@ -17,6 +17,8 @@
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require stacktable
+//= require jsapi
+//= require chartkick
 //= require_tree .
 
 function printpage()
