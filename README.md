@@ -6,7 +6,7 @@
 
 Diagram ERD *(ang. Entity-Relationship Diagram)* - rodzaj graficznego przedstawienia związków pomiędzy encjami używany w projektowaniu systemów informacyjnych do przedstawienia konceptualnych modeli danych używanych w systemie.
 
-![Diagram ERD](https://github.com/dpienczyn/ERD.pdf)
+![Diagram ERD](https://github.com/dpienczyn/awaria1/ERD.pdf)
 
 ### Diagram przepływu danych
 
